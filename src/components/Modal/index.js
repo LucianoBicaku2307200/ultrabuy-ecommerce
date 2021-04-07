@@ -1,30 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
-export default function Modal() {
-  const [showModal, setShowModal] = React.useState(false);
+export default function Modal({ title }) {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
       <Button
-        className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm shadow hover:shadow-lg"
+        className="bg-pink-500 text-white hover:bg-pink-400 font-bold uppercase text-sm shadow hover:shadow-lg"
         onClick={() => setShowModal(true)}
         content="Show Modal"
       />
       {showModal ? (
         <div>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+          <div className="flex flex-wrap justify-start items-center relative z-50 outline-none focus:outline-none">
+            <div className="flex w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg shadow-xl relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between p-5">
-                  <h3 className="text-3xl font-semibold">Modal Title</h3>
-                  <div className="self-end w-min">
+                <div className="flex justify-between items-center p-5">
+                  <h3 className="text-3xl font-semibold p-3">{title}</h3>
+                  <div className="w-min">
                     <Button
                       onClick={() => setShowModal(false)}
                       content={
                         <svg
-                          width="40"
-                          height="40"
+                          width="25"
+                          height="25"
                           viewBox="0 0 40 40"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
@@ -49,8 +49,8 @@ export default function Modal() {
                   </div>
                 </div>
                 {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
+                <div className="relative p-6 flex">
+                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed p-3">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Turpis egestas pretium aenean pharetra. Orci eu
@@ -70,7 +70,7 @@ export default function Modal() {
                     content="Close"
                   />
                   <Button
-                    className="bg-green-500 text-white focus:bg-green-600 shadow hover:shadow-lg"
+                    className="bg-green-500 text-white hover:bg-green-600 shadow hover:shadow-lg"
                     onClick={() => setShowModal(false)}
                     content="Save Changes"
                   />
