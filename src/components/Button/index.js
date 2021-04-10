@@ -1,13 +1,26 @@
-const Button = ({ className, content, disabled, onClick }) => {
-  let buttonstyle = ``;
-  if (disabled) {
-    buttonstyle = `cursor-not-allowed rounded-full flex-auto px-4 py-2 w-auto outline-none focus:outline-none mr-1 mb-1 ${className}`;
-  } else {
-    buttonstyle = `rounded-full flex-auto px-4 py-2 w-auto outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 ${className}`;
-  }
+const Button = ({
+  className,
+  content,
+  disabled,
+  onClick,
+  icon,
+  iconPosition,
+}) => {
+  const handleClick = () => {
+    onClick();
+  };
   return (
-    <button className={buttonstyle} disabled={disabled} onClick={onClick}>
-      {content}
+    <button
+      className={
+        "flex justify-center items-center focus:outline-none text-sm font-bold outline-none transition-all duration-200 " +
+        className +
+        (iconPosition === "left" ? " flex-row-reverse" : " flex-row ") +
+        (disabled ? " cursor-not-allowed" : "")
+      }
+      onClick={onClick && handleClick}
+      disabled={disabled}
+    >
+      {content} <img className="mx-1" src={icon} alt="" />
     </button>
   );
 };

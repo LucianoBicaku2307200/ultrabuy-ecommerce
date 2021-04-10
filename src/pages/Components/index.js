@@ -1,41 +1,69 @@
-import { Modal } from "../../components";
+import { Modal, Button, Input } from "../../components";
+import ComponentsContainer from "./ComponentsContainer";
+import Link from "./Link";
 
-const ComponentsContainer = ({ children, title, id, ...rest }) => {
-  return (
-    <div className="mt-4">
-      <div id={id} className="border-b border-black m-3 pb-1">
-        <h1 className="font-medium text-lg my-2">{title}</h1>
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const Link = ({ id, content }) => {
-  return (
-    <div>
-      <a
-        href={id}
-        className="border bg-white text-C2-default px-3 py-1 rounded"
-      >
-        {content}
-      </a>
-    </div>
-  );
-};
+import IconLeft from "../../images/svg/ic-chevron-left.svg";
+import IconRight from "../../images/svg/ic-chevron-right.svg";
+import Envelope from "../../images/svg/ic-contact-mail.svg";
 
 const index = () => {
   return (
-    <>
-      <div className="mt-4">
+    <div className="flex">
+      <div className="m-4 w-4/5">
         <ComponentsContainer title="Modals" id="modals">
           <Modal title="Bigus Dickus" />
         </ComponentsContainer>
+        <ComponentsContainer title="Buttons" id="buttons">
+          <Button
+            className="text-black border border-C2-default rounded px-12 py-4"
+            content="Disabled button"
+            onClick={() => console.log(1)}
+            icon={IconLeft}
+            iconPosition="left"
+            disabled={true}
+          />
+          <Button
+            className="text-black border border-C2-default rounded px-4 py-2 hover:bg-C2-default hover:text-white"
+            content="Disabled button"
+            icon={IconRight}
+            iconPosition="right"
+          />
+        </ComponentsContainer>
+        <ComponentsContainer title="Inputs" id="inputs">
+          <Input
+            label="Label"
+            placeholder="Input value"
+            error={false}
+            errorMessage="error message"
+          />
+          <Input
+            label="Label"
+            placeholder="Input value"
+            error={false}
+            errorMessage="error message"
+            icon={Envelope}
+            error={true}
+          />
+          <Input
+            label="Label"
+            placeholder="Input value"
+            // classLabel=""
+            // classInput=""
+            // error={false}
+            // errorMessage="error message"
+            icon={Envelope}
+            iconPosition="right"
+            className="w-1/3"
+            // error={false}
+          />
+        </ComponentsContainer>
       </div>
-      <div className="bg-gray-400 fixed flex flex-wrap p-2 right-0 top-0 w-2/12 min-h-screen">
+      <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
         <Link id="#modals" content="Modal" />
+        <Link id="#buttons" content="Buttons" />
+        <Link id="#inputs" content="Inputs" />
       </div>
-    </>
+    </div>
   );
 };
 
