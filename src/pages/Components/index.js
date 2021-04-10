@@ -2,9 +2,9 @@ import { Modal, Button, Input } from "../../components";
 import ComponentsContainer from "./ComponentsContainer";
 import Link from "./Link";
 
-// import IconLeft from "../../images/svg/ic-chevron-left.svg";
-// import IconRight from "../../images/svg/ic-chevron-right.svg";
-// import Envelope from "../../images/svg/ic-contact-mail.svg";
+import IconLeft from "../../images/svg/ic-chevron-left.svg";
+import IconRight from "../../images/svg/ic-chevron-right.svg";
+import Envelope from "../../images/svg/ic-contact-mail.svg";
 
 const index = () => {
   return (
@@ -15,17 +15,17 @@ const index = () => {
         </ComponentsContainer>
         <ComponentsContainer title="Buttons" id="buttons">
           <Button
-            className="text-black border border-C2-default rounded px-12 py-4"
+            className="text-black border border-C2-default rounded px-12 py-4 hover:shadow-none"
             content="Disabled button"
             onClick={() => console.log(1)}
-            icon="svg/ic-chevron-left.svg"
+            icon={IconLeft}
             iconPosition="left"
             disabled={true}
           />
           <Button
             className="text-black border border-C2-default rounded px-4 py-2 hover:bg-C2-default hover:text-white"
             content="Disabled button"
-            icon="svg/ic-chevron-right.svg"
+            icon={IconRight}
             iconPosition="right"
           />
         </ComponentsContainer>
@@ -41,7 +41,7 @@ const index = () => {
             placeholder="Input value"
             error={true}
             errorMessage="error message"
-            icon="svg/ic-contact-mail.svg"
+            icon={Envelope}
           />
           <Input
             label="Label"
@@ -50,7 +50,7 @@ const index = () => {
             // classInput=""
             // error={false}
             // errorMessage="error message"
-            icon="svg/ic-contact-mail.svg"
+            icon={Envelope}
             iconPosition="right"
             className="w-1/3"
             // error={false}
