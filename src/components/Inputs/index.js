@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "../Image";
 
 const index = ({
   label,
@@ -37,11 +37,11 @@ const index = ({
         }`}
       >
         {icon && (
-          <img
+          <Image
             className={`${
               iconPosition === "right" ? "ml-3 " : "mr-3 "
             } w-4 h-4`}
-            src={icon}
+            icon={icon}
             alt=""
           />
         )}
