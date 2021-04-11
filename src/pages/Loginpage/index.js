@@ -84,14 +84,13 @@ const Index = () => {
             </div>
             <div className="py-2 sm:py-6 w-full flex justify-between px-2 sm:px-6">
               <div className="flex items-center">
-                <input
-                  id="rememberme"
-                  className="w-3 h-3 mr-2"
+                <Input
+                  value="Remember Me"
+                  errore={false}
+                  classInput="border-none -mt-1"
                   type="checkbox"
                 />
-                <label htmlFor="rememberme" className="text-xs">
-                  Remember Me
-                </label>
+                <div className="font-bold sm:text-xs">Remember Me</div>
               </div>
               <Button
                 className="bg-white hover:bg-gray-200 text-C2-default sm:text-xs mx-7 px-4"
@@ -125,12 +124,3 @@ const Index = () => {
   );
 };
 export default Index;
-
-// Goes in input checkbox div
-/* <Input
-value="Remember Me"
-errore={false}
-classInput="border-none -mt-1"
-type="checkbox"
-/>
-<div className="font-bold sm:text-xs">Remember Me</div> */

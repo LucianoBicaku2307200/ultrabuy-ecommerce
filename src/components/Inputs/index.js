@@ -2,13 +2,14 @@ const Inputs = ({
   label,
   onChange,
   value,
+  type,
   placeholder,
-  className,
   error,
   errorMessage,
   focused,
   icon,
   iconPosition,
+  className,
   classLabel,
   classInput,
 }) => {
@@ -46,6 +47,7 @@ const Inputs = ({
         <input
           className={` placeholder-C1-D  focus:outline-none flex-1`}
           value={value}
+          type={type}
           onChange={handleChange}
           placeholder={placeholder}
         />
