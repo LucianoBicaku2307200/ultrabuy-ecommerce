@@ -1,5 +1,3 @@
-import Image from "../Image/index";
-
 const Button = ({
   className,
   content,
@@ -14,7 +12,7 @@ const Button = ({
   return (
     <button
       className={
-        "flex justify-center px-2 py-2 rounded-md items-center focus:outline-none text-sm font-bold outline-none ease-linear transition-all duration-200 hover:shadow-md " +
+        "flex justify-center px-2 py-2 rounded-md items-center focus:outline-none text-sm font-bold outline-none ease-linear transition-all duration-200 hover:shadow-lg " +
         className +
         (iconPosition === "left" ? " flex-row-reverse" : " flex-row ") +
         (disabled ? " cursor-not-allowed" : "")
@@ -23,7 +21,7 @@ const Button = ({
       disabled={disabled}
     >
       {content}
-      {icon ? <Image className="mx-1" icon={icon} alt="" /> : ""}
+      {icon ? <img className="mx-1" src={icon} alt="" /> : ""}
     </button>
   );
 };
