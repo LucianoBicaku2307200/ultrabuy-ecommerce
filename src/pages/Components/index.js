@@ -1,4 +1,4 @@
-import { Modal, Button, Input } from "../../components";
+import { Modal, Button, Input, Select } from "../../components";
 import ComponentsContainer from "./ComponentsContainer";
 import Link from "./Link";
 
@@ -56,11 +56,23 @@ const index = () => {
             // error={false}
           />
         </ComponentsContainer>
+        <ComponentsContainer title="Selects" id="selects">
+          <Select
+            label="Label"
+            placeholder="Input value"
+            error={false}
+            errorMessage="error message"
+            // checkedValue=""
+            values={["value1", "value2", "value3"]}
+            onChange={(value) => console.log(value)}
+          />
+        </ComponentsContainer>
       </div>
       <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
         <Link id="#modals" content="Modal" />
         <Link id="#buttons" content="Buttons" />
         <Link id="#inputs" content="Inputs" />
+        <Link id="#selects" content="Selects" />
       </div>
     </div>
   );
