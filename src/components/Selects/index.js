@@ -1,0 +1,73 @@
+import React, { useState } from "react";
+import image from "../../images/svg/ic-chevron-top-bottom.svg";
+const Select = ({
+  label,
+  onChange,
+  checkedValue,
+  placeholder,
+  className,
+  error,
+  errorMessage,
+  classLabel,
+  classSelect,
+  values,
+}) => {
+  const [selectedValue, setSelectedValue] = useState(
+    checkedValue ? checkedValue : ""
+  );
+  const [dropdown, setDropdown] = useState(false);
+
+  const handleChange = (value) => {
+    setSelectedValue(value);
+    if (onChange) onChange(value);
+  };
+  const showDropDown = () => {
+    setDropdown(!dropdown);
+  };
+  return (
+    <div className={"flex flex-col cursor-pointer z-10 " + className}>
+      <label
+        className={
+          "font-bold text-xs transition-colors duration-100 leading-normal mb-1 " +
+          classLabel
+        }
+      >
+        {error ? errorMessage : label}
+      </label>
+      <div
+        onClick={showDropDown}
+        className={`relative flex px-4 py-2 text-sm transition-all z-10 duration-200 border rounded-lg items-center justify-between ${
+          (error ? " border-red-500 " : " border-C1-C ") +
+          classSelect +
+          (dropdown ? "" : " overflow-hidden")
+        }`}
+      >
+        <input
+          className={`placeholder-C1-D focus:outline-none flex-1 cursor-pointer`}
+          value={selectedValue}
+          placeholder={placeholder}
+          disabled={true}
+        />
+        <img className="ml-3  w-4 h-4" src={image} alt="" />
+        {/* dropdown */}
+        <ul
+          className={`absolute left-0 top-full w-full px-2 py-2 bg-gray-200 transition-all ease-in-out duration-150 ${
+            dropdown ? "show__dropdown" : "hide__dropdown"
+          }  `}
+        >
+          {values.map((value, index) => (
+            <li
+              key={index}
+              className="py-1 px-2 rounded-sm text-sm hover:bg-white transition-all ease-linear duration-100"
+              onClick={() => handleChange(value)}
+            >
+              {value}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default Select;

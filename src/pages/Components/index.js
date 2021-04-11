@@ -1,4 +1,4 @@
-import { Modal, Button, Input, Select } from "../../components";
+import { Modal, Button, Input, Select, SelectNumber } from "../../components";
 import ComponentsContainer from "./ComponentsContainer";
 import Link from "./Link";
 
@@ -64,6 +64,13 @@ const index = () => {
             errorMessage="error message"
             // checkedValue=""
             values={["value1", "value2", "value3"]}
+            onChange={(value) => console.log(value)}
+          />
+          <SelectNumber
+            placeholder="Input value"
+            error={true}
+            checkedValue="Nmb"
+            values={["Pcs", "Kg", "Nmb"]}
             onChange={(value) => console.log(value)}
           />
         </ComponentsContainer>
