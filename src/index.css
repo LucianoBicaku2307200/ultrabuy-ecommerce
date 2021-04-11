@@ -7,3 +7,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hide__dropdown {
+  transform: translateY(-100%);
+  opacity: 0;
+  z-index: -1;
+}
+.show__dropdown {
+  transform: translateY(0);
+  opacity: 1;
+  z-index: 0;
+}

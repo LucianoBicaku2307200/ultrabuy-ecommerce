@@ -1,4 +1,4 @@
-const index = ({
+const Inputs = ({
   label,
   onChange,
   value,
@@ -54,4 +54,4 @@ const index = ({
   );
 };
 
-export default index;
+export default Inputs;
