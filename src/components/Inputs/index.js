@@ -1,4 +1,11 @@
+import Dropdown from "../Dropdown";
+
 const Inputs = ({
+  dropdown,
+  dropdownTitle,
+  titleClassName,
+  listContent,
+  listClassName,
   label,
   onChange,
   value,
@@ -19,19 +26,28 @@ const Inputs = ({
     console.log(e.target.value);
   };
   return (
-    <div className={"flex flex-col " + className}>
-      <label
-        className={
-          "font-bold text-xs transition-colors duration-100 leading-normal mb-1 " +
-          classLabel
-        }
-      >
-        {error ? errorMessage : label}
-      </label>
+    <div
+      className={`flex rounded-lg ${
+        (label === "" ? "" : " flex-col ") + className
+      }`}
+    >
+      {label === "" ? (
+        ""
+      ) : (
+        <label
+          className={
+            "font-bold text-xs transition-colors duration-100 leading-normal mb-1 " +
+            classLabel
+          }
+        >
+          {error ? errorMessage : label}
+        </label>
+      )}
       <div
-        className={`flex px-4 py-2 text-sm transition-all duration-200 border rounded-lg items-center justify-between ${
+        className={`flex transition-all duration-700 border rounded-lg items-center ${
           (error ? " border-red-500 " : " border-C1-C ") +
           (iconPosition === "right" ? " flex-row-reverse " : "") +
+          (dropdown === true ? " justify-between " : "") +
           classInput
         }`}
       >
@@ -45,12 +61,20 @@ const Inputs = ({
           />
         )}
         <input
-          className={` placeholder-C1-D  focus:outline-none flex-1`}
+          className={`placeholder-C1-D focus:outline-none focus:border flex items-center`}
           value={value}
           type={type}
           onChange={handleChange}
           placeholder={placeholder}
         />
+        {dropdown && (
+          <Dropdown
+            titleContent={dropdownTitle}
+            titleClassName={titleClassName}
+            listClassName={listClassName}
+            listContent={listContent}
+          />
+        )}
       </div>
     </div>
   );
