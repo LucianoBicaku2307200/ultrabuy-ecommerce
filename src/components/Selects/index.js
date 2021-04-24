@@ -20,6 +20,7 @@ const Select = ({
   const handleChange = (value) => {
     setSelectedValue(value);
     if (onChange) onChange(value);
+    showDropDown();
   };
   const showDropDown = () => {
     setDropdown(!dropdown);
@@ -34,24 +35,25 @@ const Select = ({
       >
         {error ? errorMessage : label}
       </label>
-      <div
-        onClick={showDropDown}
-        className={`relative flex px-4 py-2 text-sm transition-all z-10 duration-200 border rounded-lg items-center justify-between ${
-          (error ? " border-red-500 " : " border-C1-C ") +
-          classSelect +
-          (dropdown ? "" : " overflow-hidden")
-        }`}
-      >
-        <input
-          className={`placeholder-C1-D focus:outline-none flex-1 cursor-pointer`}
-          value={selectedValue}
-          placeholder={placeholder}
-          disabled={true}
-        />
-        <img className="ml-3  w-4 h-4" src={image} alt="" />
+      <div className={"relative " + (dropdown ? "" : " overflow-hidden")}>
+        <div
+          onClick={showDropDown}
+          className={`flex px-4 py-2 bg-C1-F text-sm transition-all z-10 duration-200 border rounded-lg items-center justify-between ${
+            (error ? " border-red-500 " : " border-C1-D ") + classSelect
+          }`}
+        >
+          <input
+            className={`bg-C1-F cursor-pointer flex-1 focus:outline-none placeholder-C1-B`}
+            value={selectedValue}
+            placeholder={placeholder}
+            disabled={true}
+          />
+          <img className="ml-3  w-4 h-4" src={image} alt="" />
+        </div>
         {/* dropdown */}
         <ul
-          className={`absolute left-0 top-full w-full px-2 py-2 bg-gray-200 transition-all ease-in-out duration-150 ${
+          style={{ zIndex: "-1" }}
+          className={`absolute left-0 top-full w-full px-2 py-2 bg-gray-200 transition-all ease-in-out duration-350 ${
             dropdown ? "show__dropdown" : "hide__dropdown"
           }  `}
         >

@@ -4,9 +4,6 @@ import AV1 from "../../images/png/avatar(1).png";
 import AV2 from "../../images/png/avatar(2).png";
 import AV3 from "../../images/png/avatar(3).png";
 
-//Mund ta perdorim per landing page, nqs sna duhet fshije fare
-//Fshiji kto 2 komentet kur ti lexosh XD
-
 const IndexPage = () => {
   return (
     <>

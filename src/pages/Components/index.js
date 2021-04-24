@@ -1,4 +1,13 @@
-import { Modal, Button, Input, Select, SelectNumber } from "../../components";
+import {
+  Modal,
+  Button,
+  Input,
+  Select,
+  SelectNumber,
+  DropDown,
+  SearchWithDropdown,
+  Search,
+} from "../../components";
 import ComponentsContainer from "./ComponentsContainer";
 import Link from "./Link";
 
@@ -35,6 +44,7 @@ const index = () => {
             placeholder="Input value"
             error={false}
             errorMessage="error message"
+            classInput="px-4 py-2"
           />
           <Input
             label="Label"
@@ -42,12 +52,13 @@ const index = () => {
             error={true}
             errorMessage="error message"
             icon={Envelope}
+            classInput="px-4 py-2"
           />
           <Input
             label="Label"
             placeholder="Input value"
             // classLabel=""
-            // classInput=""
+            classInput="px-4 py-2"
             // error={false}
             // errorMessage="error message"
             icon={Envelope}
@@ -74,12 +85,17 @@ const index = () => {
             onChange={(value) => console.log(value)}
           />
         </ComponentsContainer>
+        <ComponentsContainer title="Search" id="Search">
+          <SearchWithDropdown classSearch="w-80 pl-6" />
+          <Search />
+        </ComponentsContainer>
       </div>
       <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
         <Link id="#modals" content="Modal" />
         <Link id="#buttons" content="Buttons" />
         <Link id="#inputs" content="Inputs" />
         <Link id="#selects" content="Selects" />
+        <Link id="#Search" content="Search" />
       </div>
     </div>
   );

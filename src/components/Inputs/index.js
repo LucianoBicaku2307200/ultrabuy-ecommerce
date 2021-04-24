@@ -12,12 +12,9 @@ const Inputs = ({
   className,
   classLabel,
   classInput,
+  onClickIcon,
+  iconClass,
 }) => {
-  const handleChange = (e) => {
-    e.preventDefault();
-    // handleChange();
-    console.log(e.target.value);
-  };
   return (
     <div className={"flex flex-col " + className}>
       <label
@@ -29,8 +26,8 @@ const Inputs = ({
         {error ? errorMessage : label}
       </label>
       <div
-        className={`flex px-4 py-2 text-sm transition-all duration-200 border rounded-lg items-center justify-between ${
-          (error ? " border-red-500 " : " border-C1-C ") +
+        className={`flex text-sm bg-C1-F focus:outline-none placeholder-C1-B transition-all duration-200 border rounded-lg items-center justify-between ${
+          (error ? " border-red-500 " : " border-C1-D ") +
           (iconPosition === "right" ? " flex-row-reverse " : "") +
           classInput
         }`}
@@ -38,17 +35,18 @@ const Inputs = ({
         {icon && (
           <img
             className={`${
-              iconPosition === "right" ? "ml-3 " : "mr-3 "
+              iconClass + (iconPosition === "right" ? " ml-3 " : " mr-3 ")
             } w-4 h-4`}
             src={icon}
             alt=""
+            onClick={onClickIcon}
           />
         )}
         <input
-          className={` placeholder-C1-D  focus:outline-none flex-1`}
+          className={` placeholder-C1-B bg-C1-F  focus:outline-none flex-1`}
           value={value}
           type={type}
-          onChange={handleChange}
+          onChange={onChange}
           placeholder={placeholder}
         />
       </div>
