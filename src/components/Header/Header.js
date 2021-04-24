@@ -5,6 +5,8 @@ import Search from "../../images/svg/ic-search.svg";
 import Person from "../../images/svg/ic-person.svg";
 import Basket from "../../images/svg/ic-basket.svg";
 
+const listCont = ["Profile", "Purchases", "Settings", "Log out"];
+
 const Header = () => (
   <div className="my-8 px-6 flex flex-col sm:flex-row items-center w-full justify-between">
     <div className="flex items-center sm:ml-10">
@@ -15,6 +17,7 @@ const Header = () => (
         dropdown={true}
         dropdownTitle="All categories"
         titleClassName="border-none -ml-2 mr-2 rounded-lg"
+        listContent={listCont}
         placeholder="Search products, categories..."
         icon={Search}
         iconPosition="right"

@@ -2,6 +2,9 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
+import Background from "../../images/png/background.png";
+import CoverPage from "../../images/png/Cover - 1.png";
+
 const IndexPage = () => {
   return (
     <>
@@ -10,7 +13,7 @@ const IndexPage = () => {
         <div className="hidden md:block">
           <img
             className="absolute bg-cover bg-center w-full h-full inset-0"
-            src="https://cdn.tuk.dev/assets/templates/prodify/background.png"
+            src={Background}
             alt=""
           />
         </div>
@@ -31,7 +34,7 @@ const IndexPage = () => {
           <div className>
             <img
               className="w-full lg:-ml-16 xl:-ml-44"
-              src="https://cdn.tuk.dev/assets/templates/prodify/desktop.png"
+              src={CoverPage}
               alt=""
             />
           </div>

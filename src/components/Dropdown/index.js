@@ -1,12 +1,17 @@
 import { useState } from "react";
+import ArrowDown from "../../images/svg/ic-chevron-down.svg";
+import ArrowUp from "../../images/svg/ic-chevron-top.svg";
 
 const Dropdown = ({
   titleContent,
-  titleClassName,
   listContent,
+  error,
+  errorMessage,
   listClassName,
+  titleClassName,
 }) => {
   const [show, setShow] = useState(false);
+  const [categoryValue, setCategoryValue] = useState(titleContent);
 
   return (
     <div className="flex w-auto">
@@ -14,65 +19,40 @@ const Dropdown = ({
         <div className="relative">
           <div
             className={
-              "bg-white flex items-center justify-between border rounded border-gray-300 w-max cursor-pointer " +
+              "bg-white flex items-center justify-between border rounded border-gray-300 w-40 cursor-pointer " +
               titleClassName
             }
             onClick={() => setShow(!show)}
           >
-            <p className="text-black ml-2 py-3 text-md font-semibold leading-3 tracking-normal">
-              {titleContent}
+            <p className="text-black mx-auto py-3 text-md font-semibold leading-3 tracking-normal">
+              {categoryValue}
             </p>
             <div className="flex cursor-pointer text-C2-B">
               {show ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className=" icon icon-tabler icon-tabler-chevron-up"
-                  width={20}
-                  height={20}
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
+                <img className="mr-3 w-4 h-4" src={ArrowUp} alt="" />
               ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-chevron-up"
-                  width={20}
-                  height={20}
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <polyline points="6 15 12 9 18 15" />
-                </svg>
+                <img className="mr-3 w-4 h-4" src={ArrowDown} alt="" />
               )}
             </div>
           </div>
           {show && (
             <div className={"flex h-auto z-50 " + listClassName}>
               <ul className="z-50 flex flex-col transition duration-900 bg-white shadow rounded-lg mt-2 w-max absolute">
-                <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-C2-default hover:text-white rounded rounded-tr-lg rounded-tl-lg px-3 font-normal">
-                  Interface Settings
-                </li>
-                <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-C2-default hover:text-white rounded px-3 font-normal">
-                  Notifications
-                </li>
-                <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-C2-default hover:text-white rounded px-3 font-normal">
-                  Account Data
-                </li>
-                <li className="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-C2-default hover:text-white rounded rounded-br-lg rounded-bl-lg px-3 font-normal">
-                  Sign Out
-                </li>
+                {listContent.map((value, index, { length }) => (
+                  <li
+                    key={index}
+                    className={`cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-3 hover:bg-C2-default hover:text-white rounded px-3 font-normal ${
+                      (index === 0 ? " rounded-tr-lg rounded-tl-lg " : "") +
+                      (index + 1 === length
+                        ? " rounded-br-lg rounded-bl-lg "
+                        : "") +
+                      listClassName
+                    }`}
+                    onClick={() => setCategoryValue(value)}
+                  >
+                    {value}
+                  </li>
+                ))}
               </ul>
             </div>
           )}
