@@ -1,19 +1,19 @@
 import {
-  Modal,
   Button,
+  CheckBox,
   Input,
+  Modal,
+  Search,
+  SearchWithDropdown,
   Select,
   SelectNumber,
-  DropDown,
-  SearchWithDropdown,
-  Search,
+  Tag,
 } from "../../components";
-import ComponentsContainer from "./ComponentsContainer";
-import Link from "./Link";
-
 import IconLeft from "../../images/svg/ic-chevron-left.svg";
 import IconRight from "../../images/svg/ic-chevron-right.svg";
 import Envelope from "../../images/svg/ic-contact-mail.svg";
+import ComponentsContainer from "./ComponentsContainer";
+import Link from "./Link";
 
 const index = () => {
   return (
@@ -89,6 +89,21 @@ const index = () => {
           <SearchWithDropdown classSearch="w-80 pl-6" />
           <Search />
         </ComponentsContainer>
+
+        <ComponentsContainer title="Tags" id="Tags">
+          <Tag
+            value="Tag1"
+            color={"red"}
+            onClick={() => console.log("13213")}
+            displayIcon={true}
+            wrapperClassName="px-2 py-1 rounded-lg bg-C1-E cursor-pointer"
+            textClassName="mr-2"
+          />
+        </ComponentsContainer>
+        <ComponentsContainer title="CheckBoxes" id="CheckBoxes">
+          <CheckBox selected={true} text="some text here" />
+          <CheckBox selected={true} />
+        </ComponentsContainer>
       </div>
       <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
         <Link id="#modals" content="Modal" />
@@ -96,6 +111,8 @@ const index = () => {
         <Link id="#inputs" content="Inputs" />
         <Link id="#selects" content="Selects" />
         <Link id="#Search" content="Search" />
+        <Link id="#Tags" content="Tags" />
+        <Link id="#CheckBoxes" content="CheckBoxes" />
       </div>
     </div>
   );

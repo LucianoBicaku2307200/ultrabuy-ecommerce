@@ -6,6 +6,8 @@ import SelectNumber from "./SelectNumber";
 import DropDown from "./Dropdown";
 import SearchWithDropdown from "./SearchWithDropdown";
 import Search from "./Search";
+import Tag from "./Tag";
+import CheckBox from "./CheckBox";
 export {
   Modal,
   Button,
@@ -15,4 +17,6 @@ export {
   DropDown,
   SearchWithDropdown,
   Search,
+  Tag,
+  CheckBox,
 };

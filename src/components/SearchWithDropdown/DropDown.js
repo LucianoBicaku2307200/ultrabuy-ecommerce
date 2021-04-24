@@ -8,20 +8,20 @@ const DropDown = ({ classDropdown, values }) => {
   return (
     <Menu
       as="div"
-      className={"border-C1-B pr-6 border-r flex  w-1/3 " + classDropdown}
+      className={"border-C1-B pr-6 border-r flex w-36 " + classDropdown}
     >
       {({ open }) => (
-        <div className="cursor-pointer flex">
+        <div className="cursor-pointer flex w-full">
           <Menu.Button
             as="button"
-            className="flex items-center outline-none focus:outline-none"
+            className="flex items-center outline-none w-full justify-between focus:outline-none"
           >
             <div className="font-bold text-sm ">{categoryValue}</div>
             <img className="ml-2" src={DownIcon} alt="" />
           </Menu.Button>
           <Transition
             show={open}
-            className="absolute top-full left-0 w-1/3 bg-C1-E outline-none focus:outline-none"
+            className="absolute top-full left-0 w-36 bg-C1-E outline-none focus:outline-none"
             enter="transform transition duration-100"
             enterFrom="opacity-0 scale-95"
             enterTo="opacity-100 scale-100"
@@ -35,7 +35,7 @@ const DropDown = ({ classDropdown, values }) => {
                   {({ active }) => (
                     <div
                       className={
-                        (active ? "bg-C2-default " : "") +
+                        (active ? "bg-C2-C text-white " : "") +
                         "px-4 py-2 outline-none focus:outline-none"
                       }
                       onClick={() => setCategoryValue(value)}
