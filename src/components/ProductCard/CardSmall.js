@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "..";
 import EmptyStar from "../../images/svg/EmptyStar.svg";
@@ -71,9 +71,9 @@ const CardSmall = ({
           )}
           {loading && (
             <>
-              <h3 className="bg-C1-D w-8/12 h-5 rounded-sm animate-pulse"></h3>
-              <p className="bg-C1-D w-5/12 h-3 rounded-sm animate-pulse mt-1"></p>
-              <p className="bg-C1-D w-5/12 h-3 rounded-sm animate-pulse mt-1"></p>
+              <div className="bg-C1-D w-8/12 h-5 rounded-sm animate-pulse" />
+              <p className="bg-C1-D w-5/12 h-3 rounded-sm animate-pulse mt-1" />
+              <p className="bg-C1-D w-5/12 h-3 rounded-sm animate-pulse mt-1" />
             </>
           )}
         </div>
@@ -100,8 +100,8 @@ const CardSmall = ({
             )}
             {loading && (
               <>
-                <h6 className="bg-C1-D w-20 h-4 rounded-sm animate-pulse mt-2"></h6>
-                <h6 className="bg-C1-D w-16 h-2 rounded-sm animate-pulse mt-2"></h6>
+                <div className="bg-C1-D w-20 h-4 rounded-sm animate-pulse mt-2" />
+                <div className="bg-C1-D w-16 h-2 rounded-sm animate-pulse mt-2" />
               </>
             )}
           </div>
