@@ -3,6 +3,7 @@ import ArrowDown from "../../images/svg/ic-chevron-down.svg";
 import ArrowUp from "../../images/svg/ic-chevron-top.svg";
 
 const Dropdown = ({
+  className,
   titleContent,
   listContent,
   error,
@@ -14,12 +15,12 @@ const Dropdown = ({
   const [categoryValue, setCategoryValue] = useState(titleContent);
 
   return (
-    <div className="flex w-auto">
+    <div className="flex">
       <div className="flex justify-center">
-        <div className="relative">
+        <div className={"justify-center relative " + className}>
           <div
             className={
-              "bg-white flex items-center justify-between border rounded border-gray-300 w-40 cursor-pointer " +
+              "flex items-center justify-between border rounded border-gray-300 w-40 cursor-pointer " +
               titleClassName
             }
             onClick={() => setShow(!show)}
@@ -37,7 +38,7 @@ const Dropdown = ({
           </div>
           {show && (
             <div className={"flex h-auto z-50 " + listClassName}>
-              <ul className="z-50 flex flex-col transition duration-900 bg-white shadow rounded-lg mt-2 w-max absolute">
+              <ul className="z-50 flex flex-col transition duration-900 bg-white shadow rounded-lg mt-2 w-full absolute">
                 {listContent.map((value, index, { length }) => (
                   <li
                     key={index}

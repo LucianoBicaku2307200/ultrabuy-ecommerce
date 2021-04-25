@@ -8,6 +8,7 @@ import SearchWithDropdown from "./SearchWithDropdown";
 import Search from "./Search";
 import Tag from "./Tag";
 import CheckBox from "./CheckBox";
+import Dropdown from "./Dropdown";
 export {
   Modal,
   Button,
@@ -19,4 +20,5 @@ export {
   Search,
   Tag,
   CheckBox,
+  Dropdown,
 };

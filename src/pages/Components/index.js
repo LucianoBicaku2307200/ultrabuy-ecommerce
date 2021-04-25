@@ -7,6 +7,7 @@ import {
   SearchWithDropdown,
   Select,
   SelectNumber,
+  Dropdown,
   Tag,
 } from "../../components";
 import IconLeft from "../../images/svg/ic-chevron-left.svg";
@@ -14,6 +15,7 @@ import IconRight from "../../images/svg/ic-chevron-right.svg";
 import Envelope from "../../images/svg/ic-contact-mail.svg";
 import ComponentsContainer from "./ComponentsContainer";
 import Link from "./Link";
+import DropDown from "../../components/SearchWithDropdown/DropDown";
 
 const index = () => {
   return (
@@ -104,6 +106,12 @@ const index = () => {
           <CheckBox selected={true} text="some text here" />
           <CheckBox selected={true} />
         </ComponentsContainer>
+        <ComponentsContainer title="Dropdown" id="Dropdown">
+          <Dropdown
+            titleContent="Options"
+            listContent={["Account", "Settings", "Log out"]}
+          />
+        </ComponentsContainer>
       </div>
       <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
         <Link id="#modals" content="Modal" />
@@ -113,6 +121,7 @@ const index = () => {
         <Link id="#Search" content="Search" />
         <Link id="#Tags" content="Tags" />
         <Link id="#CheckBoxes" content="CheckBoxes" />
+        <Link id="#Dropdown" content="DropDown" />
       </div>
     </div>
   );

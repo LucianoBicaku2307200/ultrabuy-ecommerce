@@ -3,6 +3,7 @@ import Dropdown from "../Dropdown";
 const Inputs = ({
   dropdown,
   dropdownTitle,
+  dropdownClassName,
   titleClassName,
   listContent,
   listClassName,
@@ -67,10 +68,11 @@ const Inputs = ({
         />
         {dropdown && (
           <Dropdown
+            className={dropdownClassName}
             titleContent={dropdownTitle}
             titleClassName={titleClassName}
-            listClassName={listClassName}
             listContent={listContent}
+            listClassName={listClassName}
           />
         )}
       </div>
