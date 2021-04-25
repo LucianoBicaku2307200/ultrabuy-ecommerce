@@ -9,6 +9,7 @@ import Search from "./Search";
 import Tag from "./Tag";
 import CheckBox from "./CheckBox";
 import Dropdown from "./Dropdown";
+import { CardSmall } from "./ProductCard";
 export {
   Modal,
   Button,
@@ -21,4 +22,5 @@ export {
   Tag,
   CheckBox,
   Dropdown,
+  CardSmall,
 };
