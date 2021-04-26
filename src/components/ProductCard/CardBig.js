@@ -2,6 +2,7 @@ import React from "react";
 import EmptyStar from "../../images/svg/EmptyStar.svg";
 import FilledStar from "../../images/svg/ic-actions-star.svg";
 import IconRight from "../../images/svg/ic-chevron-right.svg";
+import { Link } from "react-router-dom";
 import Button from "../Button";
 const CardBig = ({
   title,
@@ -43,8 +44,8 @@ const CardBig = ({
     return array;
   };
   return (
-    <div className="max-w-5xl w-full flex border flex-col md:flex-row border-C1-C rounded-xl">
-      <div className="md:w-2/6 w-full">
+    <div className="max-w-5xl w-full flex border flex-col lg:flex-row border-C1-C rounded-xl">
+      <div className="lg:w-2/6 w-full">
         {loading ? (
           <div className="bg-C1-D w-full rounded-xl h-44 animate-pulse" />
         ) : (
@@ -106,16 +107,17 @@ const CardBig = ({
               <p className="text-xs text-C1-C">Delivery in 1 day</p>
             </div>
           </div>
-
-          <div className="mt-auto">
-            <Button
-              className="text-white border hover:border-C2-default bg-C2-default rounded px-4 py-3 hover:shadow-none transition duration-200 hover:bg-white hover:text-C2-default ease-linear"
-              content="Disabled button"
-              onClick={() => console.log(1)}
-              icon={IconRight}
-              iconPosition="right"
-            />
-          </div>
+          {!loading && (
+            <Link to={redirectUrl} className="mt-auto">
+              <Button
+                className="text-white border hover:border-C2-default bg-C2-default rounded px-4 py-3 hover:shadow-none transition duration-200 hover:bg-white hover:text-C2-default ease-linear"
+                content="Disabled button"
+                onClick={() => console.log(1)}
+                icon={IconRight}
+                iconPosition="right"
+              />
+            </Link>
+          )}
         </div>
       </div>
     </div>
