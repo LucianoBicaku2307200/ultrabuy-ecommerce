@@ -200,6 +200,18 @@ const index = () => {
               redirectUrl="/"
               imageUrl={Img}
             />
+            <CardBig
+              classNameCard="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 border border-C1-D h-full p-4 relative rounded-xl w-full"
+              title="Product Name"
+              description="Space for a small product description"
+              rating={null}
+              price="36.99"
+              currency="All"
+              previousPrice="40.99"
+              loading={true}
+              redirectUrl="/"
+              imageUrl={Img}
+            />
           </div>
         </ComponentsContainer>
       </div>
