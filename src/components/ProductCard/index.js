@@ -1,3 +1,3 @@
 import CardSmall from "./CardSmall";
-
-export { CardSmall };
+import CardBig from "./CardBig";
+export { CardSmall, CardBig };
