@@ -2,6 +2,7 @@ import React from "react";
 import EmptyStar from "../../images/svg/EmptyStar.svg";
 import FilledStar from "../../images/svg/ic-actions-star.svg";
 import IconRight from "../../images/svg/ic-chevron-right.svg";
+import FavouriteIcon from "../../images/svg/ic-actions-heart.svg";
 import { Link } from "react-router-dom";
 import Button from "../Button";
 const CardBig = ({
@@ -132,7 +133,7 @@ const CardBig = ({
             loading ? "items-start" : "lg:justify-end"
           }`}
         >
-          <div className="flex md:block w-full justify-between md:w-auto mb-2 md:mb-auto">
+          <div className="flex md:block w-full justify-between md:w-auto mb-4 md:mb-auto">
             {loading && (
               <div className=" w-full">
                 <p className="bg-C1-D w-8/12 h-5 rounded-sm animate-pulse" />
@@ -159,15 +160,24 @@ const CardBig = ({
             )}
           </div>
           {!loading && (
-            <Link to={redirectUrl} className="mt-auto">
+            <div className="w-full sm:w-auto">
+              <Link to={redirectUrl} className="mt-auto">
+                <Button
+                  className="text-white w-full border hover:border-C2-default bg-C2-default rounded px-4 py-3 hover:shadow-none transition duration-200 hover:bg-white hover:text-C2-default ease-linear"
+                  content="Disabled button"
+                  onClick={() => console.log(1)}
+                  icon={IconRight}
+                  iconPosition="right"
+                />
+              </Link>
               <Button
-                className="text-white border hover:border-C2-default bg-C2-default rounded px-4 py-3 hover:shadow-none transition duration-200 hover:bg-white hover:text-C2-default ease-linear"
-                content="Disabled button"
+                className="w-full border hover:border-C2-default bg-C1-F mt-1  rounded px-4 py-2 hover:shadow-none transition duration-200 hover:bg-white hover:text-C2-default ease-linear"
+                content="Add to wish list"
                 onClick={() => console.log(1)}
-                icon={IconRight}
-                iconPosition="right"
+                icon={FavouriteIcon}
+                iconPosition="left"
               />
-            </Link>
+            </div>
           )}
         </div>
       </div>
