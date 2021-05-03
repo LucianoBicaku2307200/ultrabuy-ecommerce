@@ -273,7 +273,69 @@ const index = () => {
                 />
               </div>
             </Layout1>
-            <Layout2 />
+            <Layout2
+              title="Section Headline"
+              buttonText="Button"
+              buttonUrl="/"
+              classNameChildren="w-full flex flex-wrap mt-9"
+            >
+              <div className="p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <CardSmall
+                  classNameCard="w-full border border-C1-D rounded-lg"
+                  title="Product Name"
+                  description="Space for a small product description"
+                  rating={3.2}
+                  price="36.99"
+                  currency="All"
+                  previousPrice="40.99"
+                  loading={false}
+                  redirectUrl="/"
+                  imageUrl={Img}
+                />
+              </div>
+              <div className="p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <CardSmall
+                  classNameCard="w-full border border-C1-D rounded-lg"
+                  title="Product Name"
+                  description="Space for a small product description"
+                  rating={3.2}
+                  price="36.99"
+                  currency="All"
+                  previousPrice="40.99"
+                  loading={false}
+                  redirectUrl="/"
+                  imageUrl={Img}
+                />
+              </div>
+              <div className="p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <CardSmall
+                  classNameCard="w-full border border-C1-D rounded-lg"
+                  title="Product Name"
+                  description="Space for a small product description"
+                  rating={4.6}
+                  price="36.99"
+                  currency="All"
+                  previousPrice="40.99"
+                  loading={false}
+                  redirectUrl="/"
+                  imageUrl={Img}
+                />
+              </div>
+              <div className="p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <CardSmall
+                  classNameCard="w-full border border-C1-D rounded-lg"
+                  title="Product Name"
+                  description="Space for a small product description"
+                  rating={1}
+                  price="36.99"
+                  currency="All"
+                  previousPrice="40.99"
+                  loading={false}
+                  redirectUrl="/"
+                  imageUrl={Img}
+                />
+              </div>
+            </Layout2>
             <Layout3 />
           </div>
         </ComponentsContainer>
