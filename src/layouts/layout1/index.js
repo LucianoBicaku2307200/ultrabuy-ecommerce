@@ -2,9 +2,17 @@ import React from "react";
 import { Button, CardSmall } from "../../components";
 import IconRight from "../../images/svg/ic-chevron-right.svg";
 import Img from "../../images/png/product_image_test.jpg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const Layout1 = ({ children, childrenClassName, title, links }) => {
+const Layout1 = ({
+  children,
+  childrenClassName,
+  title,
+  links,
+  buttuonUrl,
+  buttonContent,
+}) => {
+  const history = useHistory();
   return (
     <div className="flex w-full flex-col xl:py-16 xl:px-11 md:py-8 md:px-6 p-4 md:flex-row md:mb-3">
       <div className="w-auto flex flex-col mb-3 md:w-1/4">
@@ -18,8 +26,8 @@ const Layout1 = ({ children, childrenClassName, title, links }) => {
         </ul>
         <Button
           className="text-black bg-C1-F rounded px-4 py-3 hover:shadow-none mt-8 w-full sm:w-4/5"
-          content="Disabled button"
-          onClick={() => console.log(1)}
+          content={buttonContent}
+          onClick={() => history.push(buttuonUrl)}
           icon={IconRight}
           iconPosition="right"
           disabled={false}
