@@ -18,6 +18,7 @@ import Envelope from "../../images/svg/ic-contact-mail.svg";
 import ComponentsContainer from "./ComponentsContainer";
 import Link from "./Link";
 import Img from "../../images/png/product_image_test.jpg";
+import { Layout1, Layout2, Layout3 } from "../../layouts";
 import DropDown from "../../components/SearchWithDropdown/DropDown";
 
 const index = () => {
@@ -214,6 +215,66 @@ const index = () => {
             />
           </div>
         </ComponentsContainer>
+        <ComponentsContainer title="Layouts" id="Layouts">
+          <div className="flex flex-col w-full">
+            <Layout1
+              childrenClassName="flex flex-wrap -m-1"
+              title="Category menu"
+              links={[
+                { text: "Bakery", url: "/" },
+                { text: "Fruit and vegetables", url: "/" },
+                { text: "Meat and fish", url: "/" },
+                { text: "Drinks", url: "/" },
+                { text: "Kitchen", url: "/" },
+              ]}
+            >
+              <div className="p-1 md:w-1/2 lg:w-1/3">
+                <CardSmall
+                  classNameCard="w-full border border-C1-D rounded-lg"
+                  title="Product Name"
+                  description="Space for a small product description"
+                  rating={null}
+                  price="36.99"
+                  currency="All"
+                  previousPrice="40.99"
+                  loading={false}
+                  redirectUrl="/"
+                  imageUrl={Img}
+                />
+              </div>
+              <div className="p-1 md:w-1/2 lg:w-1/3">
+                <CardSmall
+                  classNameCard="w-full border border-C1-D rounded-lg"
+                  title="Product Name"
+                  description="Space for a small product description"
+                  rating={null}
+                  price="36.99"
+                  currency="All"
+                  previousPrice="40.99"
+                  loading={false}
+                  redirectUrl="/"
+                  imageUrl={Img}
+                />
+              </div>
+              <div className="p-1 md:w-1/2 lg:w-1/3">
+                <CardSmall
+                  classNameCard="w-full border border-C1-D rounded-lg"
+                  title="Product Name"
+                  description="Space for a small product description"
+                  rating={null}
+                  price="36.99"
+                  currency="All"
+                  previousPrice="40.99"
+                  loading={false}
+                  redirectUrl="/"
+                  imageUrl={Img}
+                />
+              </div>
+            </Layout1>
+            <Layout2 />
+            <Layout3 />
+          </div>
+        </ComponentsContainer>
       </div>
       <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
         <Link id="#modals" content="Modal" />
@@ -225,6 +286,7 @@ const index = () => {
         <Link id="#CheckBoxes" content="CheckBoxes" />
         <Link id="#Dropdown" content="DropDown" />
         <Link id="#productCards" content="Product cards" />
+        <Link id="#Layouts" content="Layouts" />
       </div>
     </div>
   );
