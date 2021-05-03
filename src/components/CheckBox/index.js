@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Switch } from "@headlessui/react";
 import Checked from "../../images/svg/checked.svg";
-const CheckBox = ({ selected, text }) => {
+const CheckBox = ({ selected, text, className }) => {
   const [enabled, setEnabled] = useState(selected);
   return (
     <div className="flex items-center p-1">
@@ -10,7 +10,7 @@ const CheckBox = ({ selected, text }) => {
         onChange={setEnabled}
         className={`${
           enabled ? "bg-C2-default  border-C2-B" : "bg-transparent border-C1-D "
-        } relative border-2 transition duration-200 ease-linear outline-none focus:outline-none inline-flex items-center h-5 rounded-sm w-5`}
+        } relative border-2 transition duration-200 ease-linear outline-none focus:outline-none inline-flex items-center h-5 rounded-sm w-5 ${className}`}
       >
         <img
           className={`${

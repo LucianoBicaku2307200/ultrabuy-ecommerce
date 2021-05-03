@@ -45,7 +45,12 @@ const CardBig = ({
     return array;
   };
   return (
-    <div className="max-w-5xl w-full flex border flex-col lg:flex-row border-C1-C rounded-xl">
+    <div
+      className={
+        "max-w-5xl w-full flex border flex-col lg:flex-row border-C1-C rounded-xl " +
+        classNameCard
+      }
+    >
       <div className="lg:w-2/6 w-full">
         {loading ? (
           <div className="bg-C1-D w-full h-48 lg:h-full rounded-xl animate-pulse" />

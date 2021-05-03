@@ -1,7 +1,6 @@
 import React from "react";
-import { Button, CardSmall } from "../../components";
+import { Button } from "../../components";
 import IconRight from "../../images/svg/ic-chevron-right.svg";
-import Img from "../../images/png/product_image_test.jpg";
 import { Link, useHistory } from "react-router-dom";
 
 const Layout1 = ({

@@ -44,7 +44,7 @@ const CardSmall = ({
     return array;
   };
   return (
-    <div className={"flex flex-col p-4 2xl:w-72 " + classNameCard}>
+    <div className={"flex flex-col p-4 " + classNameCard}>
       <div className="w-full h-full relative">
         {!loading && (
           <div className="absolute top-3 left-3 rounded px-2 bg-C1-D text-C2-default text-xs font-semibold">
