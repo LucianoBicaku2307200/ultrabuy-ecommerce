@@ -10,6 +10,7 @@ import Tag from "./Tag";
 import CheckBox from "./CheckBox";
 import Dropdown from "./Dropdown";
 import { CardSmall, CardBig } from "./ProductCard";
+import Rating from "./Rating";
 
 export {
   Modal,
@@ -25,4 +26,5 @@ export {
   Dropdown,
   CardSmall,
   CardBig,
+  Rating,
 };

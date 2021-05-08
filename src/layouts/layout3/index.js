@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CheckBox } from "../../components";
+import { CheckBox, Rating } from "../../components";
 const Layout3 = ({ children, childrenClassName }) => {
   const categories = [
     { text: "Category name", link: "/", number: "320" },
@@ -34,6 +34,10 @@ const Layout3 = ({ children, childrenClassName }) => {
             <CheckBox selected={true} text="some text here" className="my-2" />
             <CheckBox selected={true} text="some text here" className="my-2" />
           </div>
+        </div>
+        <div className="w-full mb-12">
+          <h4 className="font-semibold text-lg mb-4">Rating</h4>
+          <Rating rating={5} className="" />
         </div>
       </div>
 

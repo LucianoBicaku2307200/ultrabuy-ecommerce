@@ -285,9 +285,9 @@ const ComponentsPage = () => {
                 title="Section Headline"
                 buttonText="Button"
                 buttonUrl="/"
-                classNameChildren="w-full flex flex-wrap mt-9"
+                classNameChildren="w-full flex flex-wrap mt-9 md:-mx-1"
               >
-                <div className="p-0 md:m-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <div className="p-0 md:p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
                   <CardSmall
                     classNameCard="w-full border border-C1-D rounded-lg"
                     title="Product Name"
@@ -301,7 +301,7 @@ const ComponentsPage = () => {
                     imageUrl={Img}
                   />
                 </div>
-                <div className="p-0 md:m-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <div className="p-0 md:p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
                   <CardSmall
                     classNameCard="w-full border border-C1-D rounded-lg"
                     title="Product Name"
@@ -315,7 +315,7 @@ const ComponentsPage = () => {
                     imageUrl={Img}
                   />
                 </div>
-                <div className="p-0 md:m-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <div className="p-0 md:p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
                   <CardSmall
                     classNameCard="w-full border border-C1-D rounded-lg"
                     title="Product Name"
@@ -329,7 +329,7 @@ const ComponentsPage = () => {
                     imageUrl={Img}
                   />
                 </div>
-                <div className="p-0 md:m-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
+                <div className="p-0 md:p-1 md:w-1/2 lg:w-1/3 xl:w-1/4">
                   <CardSmall
                     classNameCard="w-full border border-C1-D rounded-lg"
                     title="Product Name"
