@@ -2,7 +2,7 @@ import React from "react";
 import FilledStar from "../../images/svg/start-filled.svg";
 import EmptyStar from "../../images/svg/EmptyStar.svg";
 
-const RatingComponent = ({ rating }) => {
+const RatingComponent = ({ rating, className }) => {
   const Rating = () => {
     let array = [];
     if (rating > 4.5)
@@ -31,7 +31,7 @@ const RatingComponent = ({ rating }) => {
     return array;
   };
   return (
-    <div>
+    <div className={className}>
       {Rating().map((vl, index) =>
         vl ? (
           <img key={index} src={FilledStar} alt="" />

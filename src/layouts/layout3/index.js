@@ -1,46 +1,54 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { CheckBox, Rating } from "../../components";
+import React, { useState } from "react";
+import { Categories, Brands, Ratings, Price } from "./components";
+import { Button } from "../../components";
 const Layout3 = ({ children, childrenClassName }) => {
-  const categories = [
-    { text: "Category name", link: "/", number: "320" },
-    { text: "Category name", link: "/", number: "320" },
-    { text: "Category name", link: "/", number: "32" },
-    { text: "Category name", link: "/", number: "3" },
-  ];
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedRatings, setSelectedRatings] = useState([]);
+  const [price, setPrice] = useState({ min: 0, max: 0 });
+
+  const handlePriceChange = (min, max) => {
+    setPrice({ ...price, min: min, max: max });
+  };
+
   return (
     <div className="flex w-full flex-col xl:py-16 xl:px-11 md:py-8 md:px-6 p-4 md:flex-row md:mb-3 justify-between">
       <div className="w-auto flex-col mb-3 hidden md:flex md:w-1/4 md:mr-8">
-        <div className="w-full mb-12">
-          <h4 className="font-semibold text-lg mb-4">Categories</h4>
-          <div className="-mb-3">
-            {categories.map((el, index) => (
-              <Link key={index} to={el.link}>
-                <div className="flex justify-between my-3 hover:underline hover:text-C2-default transition-all ease-linear duration-300">
-                  <div className="font-normal text-sm">{el.text}</div>
-                  <div className="text-xs text-C2-default px-2 rounded bg-C1-E flex items-center justify-center">
-                    {el.number}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="w-full mb-12">
-          <h4 className="font-semibold text-lg mb-4">Brands</h4>
-          <div className="-mb-3">
-            <CheckBox selected={true} text="some text here" className="my-2" />
-            <CheckBox selected={true} text="some text here" className="my-2" />
-            <CheckBox selected={true} text="some text here" className="my-2" />
-            <CheckBox selected={true} text="some text here" className="my-2" />
-          </div>
-        </div>
-        <div className="w-full mb-12">
-          <h4 className="font-semibold text-lg mb-4">Rating</h4>
-          <Rating rating={5} className="" />
+        <Categories />
+        <Brands
+          selectedBrands={selectedBrands}
+          addbrand={(newBrand) => {
+            if (!selectedBrands.includes(newBrand)) {
+              setSelectedBrands((prevState) => [...prevState, newBrand]);
+            } else {
+              setSelectedBrands(selectedBrands.filter((el) => el !== newBrand));
+            }
+          }}
+        />
+        <Ratings
+          selectedRatings={selectedRatings}
+          addRating={(newRating) => {
+            if (!selectedRatings.includes(newRating)) {
+              setSelectedRatings((prevState) => [...prevState, newRating]);
+            } else {
+              setSelectedRatings(
+                selectedRatings.filter((el) => el !== newRating)
+              );
+            }
+          }}
+        />
+        <Price price={price} setPrice={handlePriceChange} />
+        <div className="flex">
+          <Button
+            onClick={() => console.log(selectedBrands, selectedRatings, price)}
+            content="Apply"
+            className="mt-8 mr-4 bg-C2-default text-white text-sm font-bold py-3 px-4 border-2 border-C2-B  transition-all ease-linear duration-300 hover:text-black hover:bg-transparent hover:border-C1-C"
+          />
+          <Button
+            content="Reset"
+            className="mt-8 mr-4 text-C1-C text-sm font-bold py-3 px-4 border-2 border-transparent hover:border-C1-C  transition-all ease-linear duration-300 hover:text-black hover:bg-transparentborder-C1-C"
+          />
         </div>
       </div>
-
       <div className={"flex-1 " + childrenClassName}>{children}</div>
     </div>
   );
