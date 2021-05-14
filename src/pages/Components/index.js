@@ -12,6 +12,8 @@ import {
   Select,
   SelectNumber,
   Tag,
+  PageTitle,
+  Menu,
 } from "../../components";
 import Img from "../../images/png/product_image_test.jpg";
 import IconLeft from "../../images/svg/ic-chevron-left.svg";
@@ -20,9 +22,18 @@ import Envelope from "../../images/svg/ic-contact-mail.svg";
 import { Layout1, Layout2, Layout3 } from "../../layouts";
 import ComponentsContainer from "./ComponentsContainer";
 import Link from "./Link";
-
+const MenuItems = [
+  { categorie: "Bakery", subcategories: ["value1", "value2", "value3"] },
+  {
+    categorie: "Fruit and vegetables",
+    subcategories: ["value1", "value2", "value3"],
+  },
+  { categorie: "Meat and fish", subcategories: ["value1", "value2", "value3"] },
+  { categorie: "Drinks", subcategories: ["value1", "value2", "value3"] },
+];
 const ComponentsPage = () => {
   const [toggle, setToggle] = useState(false);
+  const [type, setType] = useState("grid");
   return (
     <>
       <button
@@ -122,6 +133,9 @@ const ComponentsPage = () => {
               titleContent="Options"
               listContent={["Account", "Settings", "Log out"]}
             />
+          </ComponentsContainer>
+          <ComponentsContainer title="Menu" id="menu">
+            <Menu items={MenuItems} />
           </ComponentsContainer>
           <ComponentsContainer title="Product cards" id="productCards">
             <div className="w-full flex flex-wrap -mx-4">
@@ -396,6 +410,13 @@ const ComponentsPage = () => {
               </Layout3>
             </div>
           </ComponentsContainer>
+          <ComponentsContainer title="Page Title" id="pagetitle">
+            <PageTitle
+              title={"Fruit and vegetables"}
+              type={type}
+              setType={setType}
+            />
+          </ComponentsContainer>
         </div>
         {toggle && (
           <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
@@ -409,6 +430,8 @@ const ComponentsPage = () => {
             <Link id="#Dropdown" content="DropDown" />
             <Link id="#productCards" content="Product cards" />
             <Link id="#Layouts" content="Layouts" />
+            <Link id="#pagetitle" content="Page Title" />
+            <Link id="#menu" content="Menu" />
           </div>
         )}
       </div>

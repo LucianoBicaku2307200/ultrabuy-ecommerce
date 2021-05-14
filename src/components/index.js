@@ -11,7 +11,8 @@ import CheckBox from "./CheckBox";
 import Dropdown from "./Dropdown";
 import { CardSmall, CardBig } from "./ProductCard";
 import Rating from "./Rating";
-
+import PageTitle from "./PageTitle";
+import Menu from "./Menu";
 export {
   Modal,
   Button,
@@ -27,4 +28,6 @@ export {
   CardSmall,
   CardBig,
   Rating,
+  PageTitle,
+  Menu,
 };
