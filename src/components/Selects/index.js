@@ -53,7 +53,7 @@ const Select = ({
         {/* dropdown */}
         <ul
           style={{ zIndex: "-1" }}
-          className={`absolute left-0 top-full w-full px-2 py-2 bg-gray-200 transition-all ease-in-out duration-350 ${
+          className={`absolute left-0 top-full w-full px-2 py-2 bg-gray-200 transition-all ease-in-out duration-350 rounded-lg mt-1 ${
             dropdown ? "show__dropdown" : "hide__dropdown"
           }  `}
         >

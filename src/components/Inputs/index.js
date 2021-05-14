@@ -1,12 +1,4 @@
-import Dropdown from "../Dropdown";
-
 const Inputs = ({
-  dropdown,
-  dropdownTitle,
-  dropdownClassName,
-  titleClassName,
-  listContent,
-  listClassName,
   label,
   onChange,
   value,
@@ -45,15 +37,12 @@ const Inputs = ({
         className={`flex text-sm bg-C1-F focus:outline-none placeholder-C1-B transition-all duration-200 border rounded-lg items-center justify-between ${
           (error ? " border-red-500 " : " border-C1-D ") +
           (iconPosition === "right" ? " flex-row-reverse " : "") +
-          (dropdown === true ? " justify-between " : "") +
           classInput
         }`}
       >
         {icon && (
           <img
-            className={`${
-              iconClass + (iconPosition === "right" ? " ml-3 " : " mr-3 ")
-            } w-4 h-4`}
+            className={`${iconClass} w-4 h-4`}
             src={icon}
             alt=""
             onClick={onClickIcon}
@@ -66,15 +55,6 @@ const Inputs = ({
           onChange={onChange}
           placeholder={placeholder}
         />
-        {dropdown && (
-          <Dropdown
-            className={dropdownClassName}
-            titleContent={dropdownTitle}
-            titleClassName={titleClassName}
-            listContent={listContent}
-            listClassName={listClassName}
-          />
-        )}
       </div>
     </div>
   );

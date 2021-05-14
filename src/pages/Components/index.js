@@ -4,7 +4,6 @@ import {
   CardBig,
   CardSmall,
   CheckBox,
-  Dropdown,
   Input,
   Modal,
   Search,
@@ -127,12 +126,6 @@ const ComponentsPage = () => {
           <ComponentsContainer title="CheckBoxes" id="CheckBoxes">
             <CheckBox selected={true} text="some text here" />
             <CheckBox selected={true} />
-          </ComponentsContainer>
-          <ComponentsContainer title="Dropdown" id="Dropdown">
-            <Dropdown
-              titleContent="Options"
-              listContent={["Account", "Settings", "Log out"]}
-            />
           </ComponentsContainer>
           <ComponentsContainer title="Menu" id="menu">
             <Menu items={MenuItems} />
@@ -427,7 +420,6 @@ const ComponentsPage = () => {
             <Link id="#Search" content="Search" />
             <Link id="#Tags" content="Tags" />
             <Link id="#CheckBoxes" content="CheckBoxes" />
-            <Link id="#Dropdown" content="DropDown" />
             <Link id="#productCards" content="Product cards" />
             <Link id="#Layouts" content="Layouts" />
             <Link id="#pagetitle" content="Page Title" />

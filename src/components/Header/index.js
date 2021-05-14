@@ -1,35 +1,32 @@
-import Input from "../Inputs";
 import Button from "../Button";
 import SearchWithDropdown from "../SearchWithDropdown";
 
-import Search from "../../images/svg/ic-search.svg";
 import Person from "../../images/svg/ic-person.svg";
 import Basket from "../../images/svg/ic-basket.svg";
+import Burger from "../../images/svg/ic-editor-block.svg";
 
 const Header = () => (
-  <div className="my-8 px-6 flex flex-col flex-wrap md:flex-row items-center justify-between">
-    <div className="flex justify-center md:justify-start sm:my-10 w-full md:w-1/3">
-      <div className="text-3xl font-extrabold">UltraBuy</div>
+  <div className="my-8 px-6 flex flex-wrap md:flex-row flex-col items-center justify-between">
+    <div className="flex justify-center lg:justify-start pb-5 w-full lg:w-1/3">
+      <div className="text-3xl font-extrabold sm:w-full w-1/2 content-center">
+        UltraBuy
+      </div>
+      <div className="flex sm:hidden w-1/2 justify-end">
+        <Button
+          className="rounded px-0 py-0"
+          onClick={() => alert("Still working")}
+          icon={Burger}
+        />
+      </div>
     </div>
-    <div className="hidden sm:flex justify-center w-1/3">
-      {/*<Input
-        dropdown={true}
-        dropdownClassName=""
-        dropdownTitle="All categories"
-        titleClassName="border-none mr-2 rounded-lg"
-        listContent={["Profile", "Purchases", "Settings", "Log out"]}
-        placeholder="Search products, categories..."
-        icon={Search}
-        iconPosition="right"
-        classInput="h-10 px-2 mx-auto w-full rounded mt-2 focus:outline-none shadow text-gray-700"
-      />*/}
+    <div className="hidden sm:flex md:justify-center lg:w-1/3 md:mx-0 mx-auto">
       <SearchWithDropdown
-        classSearch="w-80 pl-6 z-50"
-        classContainer="z-50"
+        classContainer="z-50 flex justify-center"
         classDropdown="z-50"
+        classSearch="ml-3 z-50"
       />
     </div>
-    <div className="hidden md:flex md:justify-end w-1/3">
+    <div className="hidden md:flex md:justify-end lg:w-1/3 md:w-auto">
       <div className="">
         <Button
           className="rounded px-0 py-0"

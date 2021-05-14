@@ -1,133 +1,104 @@
-//import { useState } from "react";
-import Link from "../../pages/Components/Link";
-
 const Footer = () => {
+  const aStyle = "bg-white text-black py-1 flex flex-wrap";
+  const h2Style = "text-xl font-bold py-2 text-C2-default";
   return (
     <>
-      <div className="pt-12 flex w-screen">
-        <div className="border-t border-b border-gray-200 py-10 w-full">
-          <div className="mx-24 flex flex-col md:flex-row items-baseline justify-between">
-            <div className="flex mt-6 w-full sm:w-1/4 justify-center mx-auto">
+      <footer className="text-white flex">
+        <div className="px-5 py-20 flex flex-wrap flex-col md:flex-row w-full">
+          <div className="flex flex-wrap lg:w-full lg:justify-around lg:items-baseline">
+            <div className="lg:w-1/6  lg:mx-0 mx-20 lg:pl-5 lg:pb-0 pb-10">
+              <h2 className={h2Style}>Get in touch</h2>
               <ul>
-                <div className="text-xl font-bold my-2">Get in touch</div>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="About Us"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    About Us
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Careers"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Careers
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Press Releases"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Press Releases
+                  </a>
                 </li>
               </ul>
             </div>
-            <div className="flex mt-6 w-full sm:w-1/4 justify-center mx-auto">
+            <div className="lg:w-1/6  lg:mx-0 mx-20 lg:pb-0 pb-10">
+              <h2 className={h2Style}>Connections</h2>
               <ul>
-                <div className="text-xl font-bold my-2">Connections</div>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="About Us"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    About Us
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Careers"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Careers
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Press Releases"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Press Releases
+                  </a>
                 </li>
               </ul>
             </div>
-            <div className="flex mt-6 w-full sm:w-1/4 justify-center mx-auto">
+            <div className="lg:w-1/6  lg:mx-0 mx-20 lg:pb-0 pb-10">
+              <h2 className={h2Style}>Get in touch</h2>
               <ul>
-                <div className="text-xl font-bold my-2">Get in touch</div>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="About Us"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    About Us
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Careers"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Careers
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Press Releases"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Press Releases
+                  </a>
                 </li>
               </ul>
             </div>
-            <div className="flex mt-6 w-full sm:w-1/4 justify-center mx-auto">
+            <div className="lg:w-1/6  lg:mx-0 mx-20">
+              <h2 className={h2Style}>Account</h2>
               <ul>
-                <div className="text-xl font-bold my-2">Account</div>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Your account"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Your account
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Returns Center"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Returns Center
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="100% Purchase Protection"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    100% Purchase Protection
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Chat with us"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Chat with us
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    id="https://www.apple.com"
-                    className="text-C2-C border-none sm:-ml-3"
-                    content="Help"
-                  />
+                  <a href="https://www.apple.com" className={aStyle}>
+                    Help
+                  </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-      </div>
+      </footer>
     </>
   );
 };
