@@ -1,56 +1,76 @@
-import React, { useState } from "react";
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import Button from "../Button";
 export default function Modal({ title }) {
-  const [showModal, setShowModal] = useState(false);
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
   return (
-    <div>
-      <Button
-        className="bg-pink-500 text-white hover:bg-pink-400 font-bold uppercase text-sm shadow hover:shadow-lg"
-        onClick={() => setShowModal(true)}
-        content="Show Modal"
-      />
-      {showModal ? (
-        <div>
-          <div className="flex flex-wrap justify-start items-center relative z-50 outline-none focus:outline-none">
-            <div className="flex w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-xl relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex justify-between items-center p-5">
-                  <h3 className="text-3xl font-semibold p-3">{title}</h3>
-                  <div className="w-min">
-                    <Button
-                      onClick={() => setShowModal(false)}
-                      content={
-                        <svg
-                          width="25"
-                          height="25"
-                          viewBox="0 0 40 40"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M30.5997 30.5999L9.39966 9.3999"
-                            stroke="#151515"
-                            stroke-width="2.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="bevel"
-                          />
-                          <path
-                            d="M30.5997 9.3999L9.39966 30.5999"
-                            stroke="#151515"
-                            stroke-width="2.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="bevel"
-                          />
-                        </svg>
-                      }
-                    />
-                  </div>
-                </div>
+    <>
+      <div>
+        <Button
+          className="bg-pink-500 text-white hover:bg-pink-400 font-bold uppercase text-sm shadow hover:shadow-lg px-2 py-2"
+          onClick={openModal}
+          content="Show Modal"
+        />
+      </div>
+
+      <Transition show={isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          static
+          className="fixed inset-0 z-10 overflow-y-auto"
+          open={isOpen}
+          onClose={closeModal}
+          onClick={closeModal}
+        >
+          <div className="min-h-screen px-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="inline-flex h-screen align-middle"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="inline-flex flex-col w-full lg:max-w-4xl md:max-w-2xl sm:max-w-lg p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-xl">
+                {/*title*/}
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-gray-900"
+                >
+                  Payment successful
+                </Dialog.Title>
                 {/*body*/}
-                <div className="relative p-6 flex">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed p-3">
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Turpis egestas pretium aenean pharetra. Orci eu
@@ -62,25 +82,20 @@ export default function Modal({ title }) {
                     Nunc sed blandit libero volutpat.
                   </p>
                 </div>
+
                 {/*footer*/}
-                <div className="flex self-end items-end justify-end p-6 w-auto">
+                <div className="mt-4">
                   <Button
-                    className="text-red-500 background-transparent shadow hover:shadow-lg"
-                    onClick={() => setShowModal(false)}
-                    content="Close"
-                  />
-                  <Button
-                    className="bg-green-500 text-white hover:bg-green-600 shadow hover:shadow-lg"
-                    onClick={() => setShowModal(false)}
-                    content="Save Changes"
+                    className="inline-flex px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent  hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={closeModal}
+                    content="Got it, thanks!"
                   />
                 </div>
               </div>
-            </div>
+            </Transition.Child>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </div>
-      ) : null}
-    </div>
+        </Dialog>
+      </Transition>
+    </>
   );
 }

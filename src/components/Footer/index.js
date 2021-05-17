@@ -1,13 +1,52 @@
+import Tag from "../Tag";
+
+const tagVlues = [
+  "Apple",
+  "Orange",
+  "Pineapple",
+  "Plum",
+  "Carrot",
+  "Watermelon",
+  "Tomato",
+  "Potato",
+  "Apple",
+  "Orange",
+  "Pineapple",
+  "Plum",
+  "Carrot",
+  "Watermelon",
+  "Tomato",
+  "Potato",
+  "Apple",
+  "Orange",
+  "Pineapple",
+  "Plum",
+  "Carrot",
+  "Watermelon",
+  "Tomato",
+  "Potato",
+  "Apple",
+  "Orange",
+  "Pineapple",
+  "Plum",
+  "Carrot",
+  "Watermelon",
+  "Tomato",
+  "Potato",
+];
+
 const Footer = () => {
-  const aStyle = "bg-white text-black py-1 flex flex-wrap";
-  const h2Style = "text-xl font-bold py-2 text-C2-default";
+  const aStyle =
+    "bg-white text-black py-1 flex flex-wrap text-sm md:justify-start justify-center";
+  const h3Style = "font-bold py-2 text-C2-default md:text-justify text-center";
+
   return (
     <>
       <footer className="text-white flex">
-        <div className="px-5 py-20 flex flex-wrap flex-col md:flex-row w-full">
-          <div className="flex flex-wrap lg:w-full lg:justify-around lg:items-baseline">
-            <div className="lg:w-1/6  lg:mx-0 mx-20 lg:pl-5 lg:pb-0 pb-10">
-              <h2 className={h2Style}>Get in touch</h2>
+        <div className="md:px-10 sm:px-5 lg:py-20 py-10 flex w-full flex-col">
+          <div className="flex flex-wrap w-full lg:justify-around lg:items-baseline lg:pl-14 sm:flex-row">
+            <div className="lg:w-1/4 sm:w-1/2 w-full lg:pb-0 pb-10">
+              <h3 className={h3Style}>Get in touch</h3>
               <ul>
                 <li>
                   <a href="https://www.apple.com" className={aStyle}>
@@ -26,8 +65,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="lg:w-1/6  lg:mx-0 mx-20 lg:pb-0 pb-10">
-              <h2 className={h2Style}>Connections</h2>
+            <div className="lg:w-1/4 sm:w-1/2 w-full lg:pb-0 pb-10">
+              <h2 className={h3Style}>Connections</h2>
               <ul>
                 <li>
                   <a href="https://www.apple.com" className={aStyle}>
@@ -46,8 +85,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="lg:w-1/6  lg:mx-0 mx-20 lg:pb-0 pb-10">
-              <h2 className={h2Style}>Get in touch</h2>
+            <div className="lg:w-1/4 sm:w-1/2 w-full lg:pb-0 pb-10">
+              <h2 className={h3Style}>Get in touch</h2>
               <ul>
                 <li>
                   <a href="https://www.apple.com" className={aStyle}>
@@ -66,8 +105,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="lg:w-1/6  lg:mx-0 mx-20">
-              <h2 className={h2Style}>Account</h2>
+            <div className="lg:w-1/4 sm:w-1/2 w-full">
+              <h2 className={h3Style}>Account</h2>
               <ul>
                 <li>
                   <a href="https://www.apple.com" className={aStyle}>
@@ -95,6 +134,26 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex md:justify-start justify-center pb-5">
+              <h1 className="font-semibold lg:text-4xl md:text-2xl text-lg text-black">
+                Footer tags
+              </h1>
+            </div>
+            <div className="flex flex-wrap items-center justify-around w-full">
+              {tagVlues.map((value) => (
+                <div className="px-2 py-2">
+                  <Tag
+                    value={value}
+                    onClick={() => console.log("13213")}
+                    displayIcon={false}
+                    wrapperClassName="px-2 py-1 rounded-lg bg-C1-E cursor-pointer"
+                    textClassName="mr-2 text-black"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

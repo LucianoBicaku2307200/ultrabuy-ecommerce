@@ -42,7 +42,9 @@ const Inputs = ({
       >
         {icon && (
           <img
-            className={`${iconClass} w-4 h-4`}
+            className={`${
+              iconClass + (iconPosition === "right" ? " ml-3 " : " mr-3 ")
+            } w-4 h-4`}
             src={icon}
             alt=""
             onClick={onClickIcon}

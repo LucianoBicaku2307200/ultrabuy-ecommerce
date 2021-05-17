@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Search from "./Search";
-import DropDown from "../Dropdown";
+import DropDown from "./DropDown";
 
 const DropDownValues = ["value1", "value2", "value3"];
 
