@@ -17,7 +17,7 @@ const DropDown = ({ classDropdown, values, categorie }) => {
           </Menu.Button>
           <Transition
             show={open}
-            className="absolute top-full left-0 z-30 w-36 bg-C1-E outline-none focus:outline-none"
+            className="absolute top-full left-0 z-50 w-36"
             enter="transform transition duration-100"
             enterFrom="opacity-0 scale-95"
             enterTo="opacity-100 scale-100"
@@ -25,13 +25,20 @@ const DropDown = ({ classDropdown, values, categorie }) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Menu.Items as="div">
-              {values.map((value, index) => (
+            <Menu.Items
+              as="div"
+              className="bg-C1-E outline-none focus:outline-none shadow-sm rounded-lg mt-1"
+            >
+              {values.map((value, index, { length }) => (
                 <Menu.Item key={index}>
                   {({ active }) => (
                     <div
                       className={
                         (active ? "bg-C2-C text-white " : "") +
+                        (index === 0 ? " rounded-tr-lg rounded-tl-lg " : "") +
+                        (index + 1 === length
+                          ? " rounded-br-lg rounded-bl-lg "
+                          : "") +
                         "px-4 py-2 text-sm outline-none focus:outline-none"
                       }
                       onClick={() => history.push(value)}

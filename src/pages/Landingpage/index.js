@@ -10,14 +10,14 @@ const IndexPage = () => {
     <>
       <Header />
       <div className="relative w-full h-full">
-        <div className="hidden md:block">
+        <div className="hidden md:flex">
           <img
             className="absolute bg-cover bg-center w-full h-full inset-0"
             src={Background}
             alt=""
           />
         </div>
-        <div className="relative px-4 xl:px-0  container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 pt-16 lg:pt-36 gap-8">
+        <div className="relative px-4 xl:px-0 container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 pt-16 lg:pt-36 gap-8">
           <div className="text-color">
             <h1 className="text-7xl w-1/2 xl:w-full xl:text-9xl font-black f-f-l">
               Build. Review. Ship.

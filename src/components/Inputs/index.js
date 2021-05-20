@@ -1,12 +1,4 @@
-import Dropdown from "../Dropdown";
-
 const Inputs = ({
-  dropdown,
-  dropdownTitle,
-  dropdownClassName,
-  titleClassName,
-  listContent,
-  listClassName,
   label,
   onChange,
   value,
@@ -45,7 +37,6 @@ const Inputs = ({
         className={`flex text-sm bg-C1-F focus:outline-none placeholder-C1-B transition-all duration-200 border rounded-lg items-center justify-between ${
           (error ? " border-red-500 " : " border-C1-D ") +
           (iconPosition === "right" ? " flex-row-reverse " : "") +
-          (dropdown === true ? " justify-between " : "") +
           classInput
         }`}
       >
@@ -66,15 +57,6 @@ const Inputs = ({
           onChange={onChange}
           placeholder={placeholder}
         />
-        {dropdown && (
-          <Dropdown
-            className={dropdownClassName}
-            titleContent={dropdownTitle}
-            titleClassName={titleClassName}
-            listContent={listContent}
-            listClassName={listClassName}
-          />
-        )}
       </div>
     </div>
   );

@@ -53,7 +53,7 @@ const SelectNumber = ({
 
           <div className="flex items-center" onClick={showDropDown}>
             <input
-              className={`placeholder-C1-D focus:outline-none w-9 cursor-pointer font-bold`}
+              className={`placeholder-C1-D focus:outline-none w-9 cursor-pointer font-bold bg-transparent`}
               value={selectedValue}
               placeholder={placeholder}
               disabled={true}
