@@ -1,6 +1,6 @@
 import { Range } from "rc-slider";
 import "rc-slider/assets/index.css";
-import React, { useState } from "react";
+import React from "react";
 
 const Price = ({ price, setPrice }) => {
   return (
