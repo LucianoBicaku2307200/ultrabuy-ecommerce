@@ -21,7 +21,7 @@ const DropDown = ({ classDropdown, values }) => {
           </Menu.Button>
           <Transition
             show={open}
-            className="absolute top-full left-0 w-36 bg-C1-E outline-none focus:outline-none z-30"
+            className="absolute top-full left-0 w-36 bg-C1-E z-50 rounded-lg overflow-hidden"
             enter="transform transition duration-100"
             enterFrom="opacity-0 scale-95"
             enterTo="opacity-100 scale-100"
@@ -29,7 +29,10 @@ const DropDown = ({ classDropdown, values }) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Menu.Items as="div">
+            <Menu.Items
+              as="div"
+              className="outline-none focus:outline-none z-50"
+            >
               {values.map((value, index) => (
                 <Menu.Item key={index}>
                   {({ active }) => (
