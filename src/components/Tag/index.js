@@ -38,8 +38,8 @@ const Tag = ({
       className={`flex items-center ` + wrapperClassName}
       onClick={() => onClick()}
     >
-      <div className={`font-bold text-xs ` + textClassName}>{value}</div>
-      {displayIcon && <SvgIcon color={color} />}
+      <div className={`text-xs ` + textClassName}>{value}</div>
+      {displayIcon ? <SvgIcon color={color} /> : null}
     </div>
   );
 };

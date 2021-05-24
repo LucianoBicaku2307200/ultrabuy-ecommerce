@@ -1,7 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Button, Input } from "../../components";
+
 import Envelope from "../../images/svg/ic-contact-mail.svg";
+import Lock from "../../images/svg/ic-security-locked.svg";
+import Person from "../../images/svg/ic-person.svg";
 import Thing from "../../images/svg/loginscreen-thing.js";
 
 const Index = () => {
@@ -41,7 +44,7 @@ const Index = () => {
           <div className="mb-40">
             <h2 className="font-bold text-xl">
               We sell
-              <span className="text-C2-default">everything</span>
+              <span className="text-C2-default"> everything </span>
               24/7.
               <br />
               You just have to pick.
@@ -51,7 +54,7 @@ const Index = () => {
       </div>
 
       <div className="bg-C2-default sm:h-screen w-full flex overflow-scroll h-auto py-10">
-        <div className="flex flex-col mx-auto my-auto justify-center items-center sm:h-full w-full">
+        <div className="flex flex-col mx-auto justify-center items-center h-full w-full">
           <div className="text-white px-0 sm:px-2 flex flex-col">
             <div className="px-2 flex flex-col items-center justify-center sm:pb-5">
               <h1 className="text-2xl sm:text-2xl xl:text-4xl font-bold leading-tight sm:py-6 sm:mt-8">
@@ -66,7 +69,7 @@ const Index = () => {
                 label="Username"
                 placeholder="Input your username"
                 errore={false}
-                icon={Envelope}
+                icon={Person}
                 className="rounded-lg"
                 classLabel="text-lg font-semibold fleading-tight mt-3"
                 classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
@@ -75,6 +78,7 @@ const Index = () => {
                 label="Email"
                 placeholder="Input your email"
                 errore={false}
+                type="email"
                 icon={Envelope}
                 className="rounded-lg"
                 classLabel="text-lg font-semibold fleading-tight mt-3"
@@ -84,16 +88,17 @@ const Index = () => {
                 label="Password"
                 placeholder="Input your password"
                 errore={false}
-                icon={Envelope}
+                icon={Lock}
                 className="rounded-lg"
                 classLabel="text-lg font-semibold fleading-tight mt-3"
                 classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
+                type="password"
               />
               <Input
                 label="Confirm Password"
                 placeholder="Confirm your password"
                 errore={false}
-                icon={Envelope}
+                icon={Lock}
                 className="rounded-lg"
                 classLabel="text-lg font-semibold fleading-tight mt-3"
                 classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
@@ -102,7 +107,7 @@ const Index = () => {
             </div>
             <div className="px-3 sm:px-6 flex flex-col items-center">
               <Button
-                className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 sm:py-3 text-base mt-6"
+                className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 sm:py-2 py-1 text-base mt-6"
                 content="Sign Up"
               />
               <div className="mt-4 md:mt-16 text-xs flex items-center">
@@ -110,7 +115,7 @@ const Index = () => {
                 <Route
                   render={({ history }) => (
                     <Button
-                      className="text-sm w-fit-content hover:shadow-none hover:underline"
+                      className="text-sm w-fit-content hover:shadow-none hover:underline px-2"
                       content="Log In"
                       onClick={() => {
                         history.push("/login");

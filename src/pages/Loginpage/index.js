@@ -1,7 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Button, Input } from "../../components";
+
 import Envelope from "../../images/svg/ic-contact-mail.svg";
+import Lock from "../../images/svg/ic-security-locked.svg";
 import Thing from "../../images/svg/loginscreen-thing.js";
 
 const Index = () => {
@@ -47,7 +49,7 @@ const Index = () => {
             <div className="mb-40">
               <h2 className="font-bold text-xl">
                 We sell
-                <span className="text-C2-default">everything</span>
+                <span className="text-C2-default"> everything </span>
                 24/7.
                 <br />
                 You just have to pick.
@@ -57,7 +59,7 @@ const Index = () => {
         </div>
 
         <div className="bg-C2-default sm:h-screen w-full flex overflow-scroll h-auto py-10">
-          <div className="flex flex-col mx-auto my-auto justify-center items-center sm:h-full w-full">
+          <div className="flex flex-col mx-auto justify-center items-center sm:h-full w-full">
             <div className="text-white px-0 sm:px-2 flex flex-col">
               <div className="px-2 flex flex-col items-center justify-center pb-5">
                 <h1 className="text-4xl sm:text-3xl xl:text-4xl font-bold leading-tight pb-3 sm:py-9 sm:mt-8">
@@ -72,6 +74,7 @@ const Index = () => {
                   label="Email"
                   placeholder="Input your email"
                   errore={false}
+                  type="email"
                   icon={Envelope}
                   className="rounded-lg"
                   classLabel="text-lg font-semibold fleading-tight"
@@ -81,7 +84,7 @@ const Index = () => {
                   label="Password"
                   placeholder="Input your password"
                   errore={false}
-                  icon={Envelope}
+                  icon={Lock}
                   className="rounded-lg"
                   classLabel="text-lg font-semibold fleading-tight mt-3"
                   classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
@@ -99,7 +102,7 @@ const Index = () => {
                   <div className="font-bold sm:text-xs">Remember Me</div>
                 </div>
                 <Button
-                  className="bg-white hover:bg-gray-200 text-C2-default sm:text-xs mx-7 px-4"
+                  className="bg-white hover:bg-gray-200 text-C2-default sm:text-xs mx-7 px-4 py-1"
                   content="Forgot Password?"
                 />
               </div>
@@ -113,7 +116,7 @@ const Index = () => {
                   <Route
                     render={({ history }) => (
                       <Button
-                        className="text-sm w-fit-content hover:shadow-none hover:underline"
+                        className="text-sm w-fit-content hover:shadow-none hover:underline px-2"
                         content="Sign Up"
                         onClick={() => {
                           history.push("/signup");

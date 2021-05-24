@@ -5,9 +5,11 @@ const Search = ({ className, onChange, onSearch, value }) => {
   return (
     <div className={className}>
       <Input
-        placeholder="Search Products, categories ..."
+        placeholder="Search products, categories ..."
         // classLabel=""
-        classInput="border-none py-0 px-0"
+        classInput="border-none px-1 w-full"
+        classInputInside="w-full"
+        className="w-full"
         // error={false}
         // errorMessage="error message"
         icon={SearchIcon}

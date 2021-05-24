@@ -16,7 +16,7 @@ const SearchWithDropdown = ({ classContainer, classDropdown, classSearch }) => {
 
   return (
     <div
-      className={`border bg-C1-F border-C1-D flex px-4 py-2.5 relative rounded ${classContainer}`}
+      className={`border bg-C1-F border-C1-D flex px-4 py-2.5 relative rounded h-10 ${classContainer}`}
     >
       <DropDown className={classDropdown} values={DropDownValues} />
       <Search
