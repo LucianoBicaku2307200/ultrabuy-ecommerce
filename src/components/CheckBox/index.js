@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import { Switch } from "@headlessui/react";
 import Checked from "../../images/svg/checked.svg";
-const CheckBox = ({ selected, text, className, name, activate }) => {
+
+const CheckBox = ({ selected, text, className, checkBg, name, activate }) => {
   const [enabled, setEnabled] = useState(selected);
   return (
     <div className="flex items-center p-1">
       <Switch
         checked={enabled}
         onChange={() => {
-          activate(name);
+          //activate(name);
           setEnabled(!enabled);
         }}
         className={`${
-          enabled ? "bg-C2-default  border-C2-B" : "bg-transparent border-C1-D "
+          enabled
+            ? checkBg === "" || checkBg === undefined
+              ? "bg-C2-default  border-C2-B "
+              : checkBg
+            : " bg-transparent border-C1-D "
         } relative border-2 transition duration-200 ease-linear outline-none focus:outline-none inline-flex items-center h-5 rounded-sm w-5 ${className}`}
       >
         <img
           className={`${
-            enabled ? "opacity-100" : "opacity-0"
+            enabled ? " opacity-100 " : " opacity-0 "
           } inline-block transition duration-200 ease-linear outline-none focus:outline-none`}
           src={Checked}
           alt=""
