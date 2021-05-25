@@ -11,6 +11,9 @@ import { CardSmall, CardBig } from "./ProductCard";
 import Rating from "./Rating";
 import PageTitle from "./PageTitle";
 import Menu from "./Menu";
+import Header from "./Header";
+import Footer from "./Footer";
+
 export {
   Modal,
   Button,
@@ -26,4 +29,6 @@ export {
   Rating,
   PageTitle,
   Menu,
+  Header,
+  Footer,
 };
