@@ -1,13 +1,15 @@
 import { Fragment, useState } from "react";
+import { useHistory } from "react-router";
 import { Dialog, Transition } from "@headlessui/react";
+
 import Button from "../Button";
+import PopOver from "./ButtonPopOver";
 import SearchWithDropdown from "../SearchWithDropdown";
 
 import Person from "../../images/svg/ic-person.svg";
 import Basket from "../../images/svg/ic-basket.svg";
 import Burger from "../../images/svg/ic-hamburger.svg";
 import Ex from "../../images/svg/ic-actions-close.svg";
-import { useHistory } from "react-router";
 
 const Header = () => {
   const history = useHistory();
@@ -16,6 +18,7 @@ const Header = () => {
   function handleClick() {
     history.push("/home");
   }
+
   return (
     <>
       <div className="py-5 lg:py-10 px-6 lg:px-16 flex justify-between">
@@ -43,17 +46,15 @@ const Header = () => {
           />
         </div>
         <div className="hidden md:flex justify-end md:w-1/4 lg:mr-0 items-center">
-          <div className="flex justify-between">
-            <Button
-              className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
-              onClick={() => console.log(1)}
-              icon={Person}
-            />
+          <div className="flex justify-around">
+            <PopOver />
 
             <Button
-              className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+              className="rounded px-2 py-2 hover:shadow-md transition-all ease-linear duration-300"
               onClick={() => console.log(1)}
               icon={Basket}
+              badge={true}
+              badgeCount="4"
             />
           </div>
         </div>

@@ -15,6 +15,7 @@ import Header from "./Header";
 import Pagination from "./Pagination";
 import Footer from "./Footer";
 import Reviews from "./Reviews";
+import LottieAnim from "./LottieAnimation";
 
 export {
   Modal,
@@ -35,4 +36,5 @@ export {
   Pagination,
   Footer,
   Reviews,
+  LottieAnim,
 };

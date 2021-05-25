@@ -1,14 +1,9 @@
-//import React, { useState } from "react";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-
 import Background from "../../images/png/background.png";
 import CoverPage from "../../images/png/Cover - 1.png";
 
 const IndexPage = () => {
   return (
     <>
-      <Header />
       <div className="relative w-full h-full">
         <div className="hidden md:flex">
           <img
@@ -40,7 +35,6 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

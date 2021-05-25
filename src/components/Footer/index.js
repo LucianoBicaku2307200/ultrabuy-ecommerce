@@ -64,7 +64,7 @@ const footerLinks = [
 
 const Footer = ({ tagValues }) => {
   const aStyle =
-    "text-C2-default py-1 flex flex-wrap text-sm md:justify-start justify-center hover:underline";
+    "text-C2-default py-1 flex flex-wrap text-center text-sm md:justify-start justify-center hover:underline";
   const h3Style = "font-bold py-2 text-black md:text-justify text-center";
 
   return (

@@ -53,10 +53,10 @@ const CardSmall = ({
           </div>
         )}
         {loading ? (
-          <div className="bg-C1-D w-full rounded-xl h-44 animate-pulse" />
+          <div className="bg-C1-D w-full rounded-lg h-44 animate-pulse" />
         ) : (
           <img
-            className="w-full h-44 rounded-xl bg-C1-D object-cover"
+            className="w-full h-44 rounded-lg bg-C1-D object-cover"
             src={imageUrl}
             alt=""
           />
