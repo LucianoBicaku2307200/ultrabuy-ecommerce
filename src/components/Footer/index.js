@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Tag from "../Tag";
 
 const tagVlues = [
@@ -24,6 +25,43 @@ const tagVlues = [
   "Carrot",
 ];
 
+const footerLinks = [
+  {
+    title: "Get in touch",
+    links: [
+      { content: "About Us", url: "/commingsoon" },
+      { content: "Careers", url: "/commingsoon" },
+      { content: "Press Releases", url: "/commingsoon" },
+    ],
+  },
+  {
+    title: "Connections",
+    links: [
+      { content: "About Us", url: "/commingsoon" },
+      { content: "Careers", url: "/commingsoon" },
+      { content: "Press Releases", url: "/commingsoon" },
+    ],
+  },
+  {
+    title: "Earnings",
+    links: [
+      { content: "About Us", url: "/commingsoon" },
+      { content: "Careers", url: "/commingsoon" },
+      { content: "Press Releases", url: "/commingsoon" },
+    ],
+  },
+  {
+    title: "Account",
+    links: [
+      { content: "Your account", url: "/commingsoon" },
+      { content: "Careers", url: "/commingsoon" },
+      { content: "100% Purchase Protection", url: "/commingsoon" },
+      { content: "Chat with us", url: "/commingsoon" },
+      { content: "Help", url: "/commingsoon" },
+    ],
+  },
+];
+
 const Footer = ({ tagValues }) => {
   const aStyle =
     "text-C2-default py-1 flex flex-wrap text-sm md:justify-start justify-center hover:underline";
@@ -31,117 +69,36 @@ const Footer = ({ tagValues }) => {
 
   return (
     <>
-      <footer className="text-white flex">
+      <footer className="flex md:w-11/12 mx-auto w-full">
         <div className="md:px-8 sm:px-5 lg:py-14 py-10 flex w-full flex-col">
           <div className="flex flex-wrap w-full md:justify-around md:items-baseline sm:flex-row pb-6">
-            <div className="flex justify-center lg:w-1/4 sm:w-1/2 w-full lg:pb-0 pb-10">
-              <div className="flex flex-col w-auto md:w-1/2 lg:w-auto">
-                <h3 className={h3Style}>Get in touch</h3>
-                <ul>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Press Releases
-                    </a>
-                  </li>
-                </ul>
+            {footerLinks.map((el, index) => (
+              <div
+                key={index}
+                className="flex lg:w-1/4 w-1/2 lg:pb-0 pb-10 justify-center md:justify-start"
+              >
+                <div className="flex flex-col ">
+                  <h3 className={h3Style}>{el.title}</h3>
+                  <ul>
+                    {el.links.map((link, index) => (
+                      <Link key={index} to={link.url}>
+                        <p className={aStyle}>{link.content}</p>
+                      </Link>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div className="flex justify-center lg:w-1/4 sm:w-1/2 w-full lg:pb-0 pb-10">
-              <div className="flex flex-col w-auto md:w-1/2 lg:w-auto">
-                <h2 className={h3Style}>Connections</h2>
-                <ul>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Press Releases
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="flex justify-center lg:w-1/4 sm:w-1/2 w-full lg:pb-0 pb-10">
-              <div className="flex flex-col w-auto md:w-1/2 lg:w-auto">
-                <h2 className={h3Style}>Get in touch</h2>
-                <ul>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Press Releases
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="flex justify-center lg:w-1/4 sm:w-1/2 w-full lg:pb-0 pb-10">
-              <div className="flex flex-col w-auto md:w-1/2 lg:w-auto">
-                <h2 className={h3Style}>Account</h2>
-                <ul>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Your account
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Returns Center
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      100% Purchase Protection
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Chat with us
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.apple.com" className={aStyle}>
-                      Help
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="flex flex-col sm:mx-20 mx-7">
-            <div className="flex md:justify-start justify-center pb-5">
+          <div className="flex flex-col px-5 md:px-0">
+            <div className="flex md:justify-start pb-5">
               <h1 className="font-semibold md:text-2xl text-lg text-black">
                 Product tags
               </h1>
             </div>
             <div className="flex flex-wrap items-center gap-3 w-full">
-              {tagVlues.map((value) => (
-                <div className="px-1 py-1">
+              {tagVlues.map((value, index) => (
+                <div className="px-1 py-1" key={index}>
                   <Tag
                     value={value}
                     onClick={() => console.log("13213")}

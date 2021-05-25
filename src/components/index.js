@@ -12,6 +12,10 @@ import Rating from "./Rating";
 import PageTitle from "./PageTitle";
 import Menu from "./Menu";
 import Header from "./Header";
+import Pagination from "./Pagination";
+import Footer from "./Footer";
+import Reviews from "./Reviews";
+
 export {
   Modal,
   Button,
@@ -28,4 +32,7 @@ export {
   PageTitle,
   Menu,
   Header,
+  Pagination,
+  Footer,
+  Reviews,
 };

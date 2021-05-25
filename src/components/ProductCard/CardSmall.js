@@ -109,7 +109,7 @@ const CardSmall = ({
             <Link to={redirectUrl} className="mt-auto">
               <Button
                 className="text-white text-sm border border-C2-B bg-C2-default rounded px-4 py-2
-             hover:bg-white hover:text-C2-default transition duration-300 ease-linear hover:shadow "
+             hover:bg-white hover:text-C2-default transition duration-300 ease-linear hover:shadow"
                 content="Buy now"
                 disabled={false}
               />

@@ -13,6 +13,7 @@ import {
   Tag,
   PageTitle,
   Menu,
+  Pagination,
 } from "../../components";
 import Img from "../../images/png/product_image_test.jpg";
 import IconLeft from "../../images/svg/ic-chevron-left.svg";
@@ -410,6 +411,9 @@ const ComponentsPage = () => {
               setType={setType}
             />
           </ComponentsContainer>
+          <ComponentsContainer title="Pagination" id="pagination">
+            <Pagination />
+          </ComponentsContainer>
         </div>
         {toggle && (
           <div className="bg-gray-400 fixed p-2 right-0 top-0 w-3/12 min-h-screen">
@@ -424,6 +428,7 @@ const ComponentsPage = () => {
             <Link id="#Layouts" content="Layouts" />
             <Link id="#pagetitle" content="Page Title" />
             <Link id="#menu" content="Menu" />
+            <Link id="#pagination" content="Pagination" />
           </div>
         )}
       </div>

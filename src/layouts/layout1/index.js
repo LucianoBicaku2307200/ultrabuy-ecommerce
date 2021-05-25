@@ -10,10 +10,11 @@ const Layout1 = ({
   links,
   buttuonUrl,
   buttonContent,
+  wrapperClassname,
 }) => {
   const history = useHistory();
   return (
-    <div className="flex w-full flex-col xl:py-16 xl:px-11 md:py-8 md:px-6 p-4 md:flex-row md:mb-3">
+    <div className={"flex lg:w-full flex-col md:flex-row " + wrapperClassname}>
       <div className="w-auto flex flex-col mb-3 md:w-1/4">
         <h4 className="font-semibold text-lg mb-4">{title}</h4>
         <ul className="-my-1.5 text-sm font-normal text-C2-default underline">
@@ -24,7 +25,7 @@ const Layout1 = ({
           ))}
         </ul>
         <Button
-          className="text-black bg-C1-F rounded px-4 py-3 hover:shadow-none mt-8 w-full sm:w-4/5"
+          className="text-black bg-C1-F rounded px-4 py-3 hover:shadow-none mt-8 w-full lg:w-4/5"
           content={buttonContent}
           onClick={() => history.push(buttuonUrl)}
           icon={IconRight}

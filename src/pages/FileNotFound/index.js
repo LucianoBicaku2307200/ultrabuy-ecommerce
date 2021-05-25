@@ -1,7 +1,7 @@
 import React from "react";
 
 const index = () => {
-  return <div>file not found</div>;
+  return <div>page not found</div>;
 };
 
 export default index;

@@ -7,16 +7,26 @@ import Person from "../../images/svg/ic-person.svg";
 import Basket from "../../images/svg/ic-basket.svg";
 import Burger from "../../images/svg/ic-hamburger.svg";
 import Ex from "../../images/svg/ic-actions-close.svg";
+import { useHistory } from "react-router";
 
 const Header = () => {
+  const history = useHistory();
   const [show, setShow] = useState(false);
+
+  function handleClick() {
+    history.push("/home");
+  }
   return (
     <>
       <div className="py-5 lg:py-10 px-6 lg:px-16 flex justify-between">
         <div className="flex justify-center md:justify-start md:w-1/4 w-full lg:ml-0 lg:pb-0 lg:pr-0 md:pr-5">
-          <div className="w-full lg:text-3xl text-2xl font-extrabold py-2">
+          <div
+            className="w-full lg:text-3xl text-2xl font-extrabold py-2 cursor-pointer filter hover:drop-shadow-2xl transition ease-linear duration-200"
+            onClick={handleClick}
+          >
             UltraBuy
           </div>
+
           <div className="flex md:hidden w-1/2 justify-end">
             <Button
               className="-mr-3 -mb-4"

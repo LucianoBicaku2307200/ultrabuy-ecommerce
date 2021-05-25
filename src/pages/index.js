@@ -9,7 +9,7 @@ import CategoriesPage from "./Categories";
 import CategoryPage from "./Category";
 import ProductPage from "./Product";
 import CheckOutPage from "./CheckOut";
-
+import UnderConstructionPage from "./Underconstruction";
 export {
   ComponentPage,
   FileNotFoundPage,
@@ -22,4 +22,5 @@ export {
   CheckOutPage,
   LoginPage,
   CategoryPage,
+  UnderConstructionPage,
 };

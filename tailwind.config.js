@@ -14,12 +14,14 @@ module.exports = {
         D: "#D1D1D1",
         E: "#EBEBEB",
         F: "#F5F5F5",
+        H: "#E5E5E5",
       },
       C2: {
         default: "#6A983C",
         B: "#46760A",
         C: "#92C064",
         D: "#C8DEB3",
+        E: "#F4F8EC",
       },
       C3: {
         default: "#D0A866",
@@ -36,7 +38,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      dropShadow: ["hover", "focus"],
+    },
   },
   plugins: [],
 };
