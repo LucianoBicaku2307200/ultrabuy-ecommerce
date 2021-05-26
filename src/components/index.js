@@ -7,7 +7,7 @@ import SearchWithDropdown from "./SearchWithDropdown";
 import Search from "./Search";
 import Tag from "./Tag";
 import CheckBox from "./CheckBox";
-import { CardSmall, CardBig } from "./ProductCard";
+import { CardSmall, CardBig, CardCart } from "./ProductCard";
 import Rating from "./Rating";
 import PageTitle from "./PageTitle";
 import Menu from "./Menu";
@@ -37,4 +37,5 @@ export {
   Footer,
   Reviews,
   LottieAnim,
+  CardCart,
 };

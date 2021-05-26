@@ -1,3 +1,4 @@
 import CardSmall from "./CardSmall";
 import CardBig from "./CardBig";
-export { CardSmall, CardBig };
+import CardCart from "./CardCart";
+export { CardSmall, CardBig, CardCart };

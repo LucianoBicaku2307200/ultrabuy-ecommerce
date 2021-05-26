@@ -1,22 +1,26 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
-import { Dialog, Transition } from "@headlessui/react";
-
-import Button from "../Button";
-import PopOver from "./ButtonPopOver";
-import SearchWithDropdown from "../SearchWithDropdown";
-
-import Person from "../../images/svg/ic-person.svg";
+import { CardCart } from "..";
+import CloseIcon from "../../images/svg/ic-actions-close.svg";
 import Basket from "../../images/svg/ic-basket.svg";
 import Burger from "../../images/svg/ic-hamburger.svg";
-import Ex from "../../images/svg/ic-actions-close.svg";
+import Person from "../../images/svg/ic-person.svg";
+import Button from "../Button";
+import SearchWithDropdown from "../SearchWithDropdown";
+import PopOver from "./ButtonPopOver";
+import SideMenu from "./SideMenu";
 
 const Header = () => {
   const history = useHistory();
   const [show, setShow] = useState(false);
+  const [cart, setCart] = useState(false);
 
   function handleClick() {
-    history.push("/home");
+    history.push("/");
+  }
+
+  function goToCheckout() {
+    history.push("/checkout");
   }
 
   return (
@@ -50,97 +54,98 @@ const Header = () => {
             <PopOver />
 
             <Button
-              className="rounded px-2 py-2 hover:shadow-md transition-all ease-linear duration-300"
-              onClick={() => console.log(1)}
+              className="rounded relative px-2 py-2 hover:shadow-md transition-all ease-linear duration-300 "
               icon={Basket}
               badge={true}
               badgeCount="4"
+              onClick={() => setCart(!cart)}
             />
           </div>
         </div>
       </div>
-      <Transition show={show} as={Fragment}>
-        <Dialog
-          as="div"
-          static
-          className="fixed inset-0"
-          open={show}
-          onClose={setShow}
-        >
-          <div className="absolute inset-0 overflow-hidden">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-in-out duration-500"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in-out duration-500"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <Dialog.Overlay
-                className="absolute inset-0 bg-gray-900 bg-opacity-75 transition-opacity"
-                onClick={() => setShow(false)}
-              />
-            </Transition.Child>
-            <div className="fixed inset-y-0 right-0 sm:w-3/4 w-full flex z-40">
-              <Transition.Child
-                as={Fragment}
-                enter="transform transition ease-in-out duration-500"
-                enterFrom="translate-x-full"
-                enterTo="translate-x-0"
-                leave="transform transition ease-in-out duration-500"
-                leaveFrom="translate-x-0"
-                leaveTo="translate-x-full"
-              >
-                <div className="relative w-full">
-                  <div className="absolute top-0 right-0 px-2 pb-2 flex">
-                    <Button
-                      className="pr-2 pt-5"
-                      icon={Ex}
-                      onClick={() => setShow(false)}
-                    />
-                  </div>
-                  <div className="h-full flex flex-col py-3 bg-white shadow-xl overflow-y-scroll">
-                    {/* head */}
-                    <div className="px-4 mb-6">
-                      <div className="mb-6"></div>
-                    </div>
-                    {/* body */}
-                    <div className="flex w-full flex-col items-start px-2">
-                      <div className="flex justify-center self-center py-3 md:w-3/4 w-full">
-                        <SearchWithDropdown
-                          classContainer="rounded-xl w-full"
-                          classSearch="flex pl-3 w-full"
-                          classDropdwon="z-50"
-                        />
-                      </div>
+      <SideMenu show={show} setShow={setShow} wrapperClass="sm:w-3/4 w-full">
+        <div className="relative w-full">
+          <div className="absolute top-0 right-0 px-2 pb-2 flex">
+            <Button
+              className="pr-2 pt-5"
+              icon={CloseIcon}
+              onClick={() => setShow(false)}
+            />
+          </div>
+          <div className="h-full flex flex-col py-3 bg-white shadow-xl overflow-y-scroll">
+            {/* head */}
+            <div className="px-4 mb-6">
+              <div className="mb-6"></div>
+            </div>
+            {/* body */}
+            <div className="flex w-full flex-col items-start px-2">
+              <div className="flex justify-center self-center py-3 md:w-3/4 w-full">
+                <SearchWithDropdown
+                  classContainer="rounded-xl w-full"
+                  classSearch="flex pl-3 w-full"
+                  classDropdwon="z-50"
+                />
+              </div>
 
-                      <div className="py-3 z-20">
-                        <Button
-                          className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
-                          icon={Person}
-                          iconPosition="left"
-                          content="Account"
-                          onClick={() => console.log(1)}
-                        />
-                      </div>
-                      <div className="sm:-mr-1 py-3 z-20">
-                        <Button
-                          className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
-                          icon={Basket}
-                          iconPosition="left"
-                          content="Cart"
-                          onClick={() => console.log(1)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Transition.Child>
+              <div className="py-3 z-20">
+                <Button
+                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+                  icon={Person}
+                  iconPosition="left"
+                  content="Account"
+                />
+              </div>
+              <div className="sm:-mr-1 py-3 z-20">
+                <Button
+                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+                  icon={Basket}
+                  iconPosition="left"
+                  content="Cart"
+                />
+              </div>
             </div>
           </div>
-        </Dialog>
-      </Transition>
+        </div>
+      </SideMenu>
+      <SideMenu
+        show={cart}
+        setShow={setCart}
+        wrapperClass="sm:w-3/4 w-full max-w-md"
+      >
+        <div className="w-full h-full bg-white px-4 py-8 flex flex-col">
+          <div className="flex items-center justify-between mb-6">
+            <h4 className="font-semibold text-2xl">Shopping cart</h4>
+            <span className="flex items-center gap-1 text-sm text-c1">
+              Close
+              <Button
+                className=""
+                icon={CloseIcon}
+                onClick={() => setCart(!cart)}
+              />
+            </span>
+          </div>
+          <div className="flex flex-col gap-8 overflow-y-scroll">
+            <CardCart rating="4.23" />
+            <CardCart rating="4.23" />
+            <CardCart rating="4.23" />
+            <CardCart rating="4.23" />
+            <CardCart rating="4.23" />
+          </div>
+          <div className="mt-auto pt-2">
+            <p className="font-semibold text-sm">Subtotal</p>
+            <span className="font-semibold text-2xl mt-2 mb-6">73.98 ALL</span>
+            <div className="flex justify-between items-center p-4 border border-t border-C1-E font-bold">
+              Continue shopping
+              <Button
+                className="text-white text-sm border border-C2-B bg-C2-default rounded px-4 py-2
+             hover:bg-white hover:text-C2-default transition duration-300 ease-linear hover:shadow"
+                content="Go to Checkout"
+                onClick={goToCheckout}
+              />
+            </div>
+          </div>
+        </div>
+      </SideMenu>
     </>
   );
 };

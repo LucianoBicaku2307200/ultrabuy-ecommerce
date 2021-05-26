@@ -26,7 +26,7 @@ const Button = ({
       >
         {content}
         {badge ? (
-          <span className="absolute flex h-5 w-5 -ml-5 items-center justify-center transform translate-x-2 translate-y-3 cursor-default font-light text-xs text-white bg-red-600 rounded-full">
+          <span className="absolute left-0 flex h-5 w-5 items-center justify-center transform translate-x-2 translate-y-3 cursor-default font-light text-xs text-white bg-red-600 rounded-full">
             {badgeCount}
           </span>
         ) : (
