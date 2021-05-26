@@ -28,7 +28,7 @@ const CheckBox = ({ selected, text, className, checkBg, name, activate }) => {
           alt=""
         />
       </Switch>
-      <div className="ml-2">{text}</div>
+      <div className="ml-2 cursor-default">{text}</div>
     </div>
   );
 };

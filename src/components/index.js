@@ -16,6 +16,10 @@ import Pagination from "./Pagination";
 import Footer from "./Footer";
 import Reviews from "./Reviews";
 import LottieAnim from "./LottieAnimation";
+import BillingInfo from "./BillingInfo";
+import Shipping from "./Shipping";
+import RadioGr from "./RadioGr";
+import Payment from "./Payment";
 
 export {
   Modal,
@@ -38,4 +42,8 @@ export {
   Reviews,
   LottieAnim,
   CardCart,
+  BillingInfo,
+  Shipping,
+  RadioGr,
+  Payment,
 };

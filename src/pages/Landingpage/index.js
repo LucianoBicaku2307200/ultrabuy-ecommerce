@@ -26,7 +26,7 @@ const IndexPage = () => {
               Let's Build
             </button>
           </div>
-          <div className>
+          <div>
             <img
               className="w-full lg:-ml-16 xl:-ml-44"
               src={CoverPage}
