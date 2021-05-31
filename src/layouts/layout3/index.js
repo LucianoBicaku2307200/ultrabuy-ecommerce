@@ -11,8 +11,8 @@ const Layout3 = ({ children, childrenClassName }) => {
   };
 
   return (
-    <div className="flex w-full flex-col xl:py-16 xl:px-11 md:py-8 md:px-6 p-4 md:flex-row md:mb-3 justify-between">
-      <div className="w-auto flex-col mb-3 hidden md:flex md:w-1/4 md:mr-8">
+    <div className="flex w-full flex-row md:mb-3 justify-between">
+      <div className="flex-col hidden sm:flex mb-3 w-1/4 md:mr-8">
         <Categories />
         <Brands
           selectedBrands={selectedBrands}

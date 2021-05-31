@@ -9,7 +9,36 @@ import Button from "../Button";
 import SearchWithDropdown from "../SearchWithDropdown";
 import PopOver from "./ButtonPopOver";
 import SideMenu from "./SideMenu";
+import { Disclosure, Transition } from "@headlessui/react";
 
+function MyDisclosure() {
+  return (
+    <Disclosure>
+      {({ open }) => (
+        <>
+          <Disclosure.Button>Is team pricing available?</Disclosure.Button>
+
+          {open && (
+            <Transition
+              as="div"
+              enter="transition duration-100 ease-out"
+              enterFrom="transform scale-95 opacity-0"
+              enterTo="transform scale-100 opacity-100"
+              leave="transition duration-75 ease-out"
+              leaveFrom="transform scale-100 opacity-100"
+              leaveTo="transform scale-95 opacity-0"
+            >
+              <Disclosure.Panel static className="text-gray-500">
+                Yes! You can purchase a license that you can share with your
+                entire team.
+              </Disclosure.Panel>
+            </Transition>
+          )}
+        </>
+      )}
+    </Disclosure>
+  );
+}
 const Header = () => {
   const history = useHistory();
   const [show, setShow] = useState(false);
@@ -93,6 +122,23 @@ const Header = () => {
                   icon={Person}
                   iconPosition="left"
                   content="Account"
+                />
+              </div>
+              <div className="sm:-mr-1 py-3 z-20">
+                <Button
+                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+                  icon={Basket}
+                  iconPosition="left"
+                  content="Cart"
+                />
+              </div>
+              <MyDisclosure />
+              <div className="sm:-mr-1 py-3 z-20">
+                <Button
+                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+                  icon={Basket}
+                  iconPosition="left"
+                  content="Cart"
                 />
               </div>
               <div className="sm:-mr-1 py-3 z-20">

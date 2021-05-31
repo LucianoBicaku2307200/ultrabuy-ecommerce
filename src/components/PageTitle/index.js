@@ -74,8 +74,8 @@ const PageTitle = ({ title, type, setType }) => {
   return (
     <div className="flex items-center justify-between w-full">
       <h1 className="font-semibold lg:text-4xl md:text-2xl text-lg">{title}</h1>
-      <div className="flex">
-        <div className="flex mr-6" onClick={() => setType("grid")}>
+      <div className="hidden sm:flex">
+        <div className="flex mr-6 select-none" onClick={() => setType("grid")}>
           <GridIcon className="mr-1" active={type === "grid"} />
           <p
             className={`font-normal text-xs transition-all ease-in-out duration-200 cursor-pointer ${
@@ -85,7 +85,7 @@ const PageTitle = ({ title, type, setType }) => {
             Grid view
           </p>
         </div>
-        <div className="flex mr-6" onClick={() => setType("list")}>
+        <div className="flex mr-6 select-none" onClick={() => setType("list")}>
           <ListIcon className="mr-1" active={type === "list"} />
           <p
             className={`font-normal text-xs transition-all ease-in-out duration-200 cursor-pointer ${

@@ -27,7 +27,11 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) => {
         if (true) {
-          return <Component {...props} />;
+          return (
+            <>
+              <Header /> <Component {...props} /> <Footer />
+            </>
+          );
         } else {
           return (
             <Redirect
@@ -47,59 +51,42 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
 const App = () => {
   return (
-    <div className="bg-C1-H">
+    <div className="bg-C1-H min-h-screen">
       <div className="w-full max-w-7xl mx-auto bg-white">
         <Router>
           <Switch>
             <ProtectedRoute path="/login" exact component={LoginPage} />
             <ProtectedRoute path="/signup" exact component={SignUpPage} />
-            <Fragment>
-              <Header />
-              <Switch>
-                <ProtectedRoute
-                  path="/components-page"
-                  exact
-                  component={ComponentPage}
-                />
-                <ProtectedRoute
-                  path="/404"
-                  exact
-                  component={FileNotFoundPage}
-                />
-                <ProtectedRoute path="/welcome" exact component={LandingPage} />
-                <ProtectedRoute path="/test" exact component={Test} />
-                <ProtectedRoute
-                  path="/checkout"
-                  exact
-                  component={CheckOutPage}
-                />
-                <ProtectedRoute
-                  path="/categories"
-                  exact
-                  component={CategoriesPage}
-                />
-                <ProtectedRoute
-                  path="/category/:category-name"
-                  exact
-                  component={CategoryPage}
-                />
-                <ProtectedRoute
-                  path="/ProductPage/:productid"
-                  exact
-                  component={ProductPage}
-                />
-                <ProtectedRoute exact path="/" component={HomePage} />
-                <ProtectedRoute
-                  exact
-                  path="/commingsoon"
-                  component={UnderConstructionPage}
-                />
-                <Route>
-                  <FileNotFoundPage />
-                </Route>
-              </Switch>
-              <Footer />
-            </Fragment>
+
+            <ProtectedRoute
+              path="/components-page"
+              exact
+              component={ComponentPage}
+            />
+            <ProtectedRoute path="/404" exact component={FileNotFoundPage} />
+            <ProtectedRoute path="/welcome" exact component={LandingPage} />
+            <ProtectedRoute path="/test" exact component={Test} />
+            <ProtectedRoute path="/checkout" exact component={CheckOutPage} />
+
+            <ProtectedRoute
+              path="/category/:categoryId"
+              exact
+              component={CategoriesPage}
+            />
+            <ProtectedRoute
+              path="/product/:productid"
+              exact
+              component={ProductPage}
+            />
+            <ProtectedRoute exact path="/" component={HomePage} />
+            <ProtectedRoute
+              exact
+              path="/commingsoon"
+              component={UnderConstructionPage}
+            />
+            <Route>
+              <FileNotFoundPage />
+            </Route>
           </Switch>
         </Router>
       </div>
