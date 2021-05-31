@@ -29,35 +29,35 @@ const footerLinks = [
   {
     title: "Get in touch",
     links: [
-      { content: "About Us", url: "/commingsoon" },
-      { content: "Careers", url: "/commingsoon" },
-      { content: "Press Releases", url: "/commingsoon" },
+      { content: "About Us", url: "/soon" },
+      { content: "Careers", url: "/soon" },
+      { content: "Press Releases", url: "/soon" },
     ],
   },
   {
     title: "Connections",
     links: [
-      { content: "About Us", url: "/commingsoon" },
-      { content: "Careers", url: "/commingsoon" },
-      { content: "Press Releases", url: "/commingsoon" },
+      { content: "About Us", url: "/soon" },
+      { content: "Careers", url: "/soon" },
+      { content: "Press Releases", url: "/soon" },
     ],
   },
   {
     title: "Earnings",
     links: [
-      { content: "About Us", url: "/commingsoon" },
-      { content: "Careers", url: "/commingsoon" },
-      { content: "Press Releases", url: "/commingsoon" },
+      { content: "About Us", url: "/soon" },
+      { content: "Careers", url: "/soon" },
+      { content: "Press Releases", url: "/soon" },
     ],
   },
   {
     title: "Account",
     links: [
-      { content: "Your account", url: "/commingsoon" },
-      { content: "Careers", url: "/commingsoon" },
-      { content: "100% Purchase Protection", url: "/commingsoon" },
-      { content: "Chat with us", url: "/commingsoon" },
-      { content: "Help", url: "/commingsoon" },
+      { content: "Your account", url: "/soon" },
+      { content: "Careers", url: "/soon" },
+      { content: "100% Purchase Protection", url: "/soon" },
+      { content: "Chat with us", url: "/soon" },
+      { content: "Help", url: "/soon" },
     ],
   },
 ];

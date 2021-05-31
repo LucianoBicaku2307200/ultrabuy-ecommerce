@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
-import { Button, Input } from "../../components";
+import { useHistory } from "react-router";
+import validator from "validator";
+import { Button, CheckBox, Input } from "../../components";
+import passwordValidation from "../../hooks/passwordValidation/passwordValidation";
 
 import Envelope from "../../images/svg/ic-contact-mail.svg";
 import Lock from "../../images/svg/ic-security-locked.svg";
@@ -9,15 +12,107 @@ import Thing from "../../images/svg/loginscreen-thing.js";
 import Logo from "../../images/svg/logo.js";
 
 const Index = () => {
+  const [password, setPassword] = useState({
+    firstPassword: "",
+    secondPassword: "",
+  });
+  const [mailErr, setErrMail] = useState(false);
+  const [passErr, setErrPass] = useState(false);
+
+  const [validLength, hasNumber, upperCase, lowerCase, match, specialChar] =
+    passwordValidation({
+      firstPassword: password.firstPassword,
+      secondPassword: password.secondPassword,
+    });
+  const setFirst = (event) => {
+    setPassword({ ...password, firstPassword: event.target.value });
+    validator.isStrongPassword(event.target.value)
+      ? setErrPass(false)
+      : setErrPass(true);
+  };
+  const setSecond = (event) => {
+    setPassword({ ...password, secondPassword: event.target.value });
+  };
+
+  const history = useHistory();
+
+  function handleClick() {
+    history.push("/");
+  }
+
+  function policyTos() {
+    history.push("/soon");
+  }
+
+  function validateEmail(val) {
+    validator.isEmail(val) ? setErrMail(false) : setErrMail(true);
+  }
+
+  const inputsCont = [
+    {
+      title: "Username",
+      placeholder: "Enter your username",
+      icon: Person,
+      clsInput:
+        "h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white focus-within:border-C2-B",
+      type: "text",
+    },
+
+    {
+      title: "Email address",
+      placeholder: "Enter your email",
+      icon: Envelope,
+      clsInput: `h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
+        mailErr ? " " : " focus-within:border-C2-B "
+      }`,
+      type: "email",
+      onChange: (event) => validateEmail(event.target.value),
+      error: mailErr,
+      errorMessage: mailErr ? "Enter a valid email address" : "",
+    },
+
+    {
+      title: "Password",
+      placeholder: "Enter your password",
+      icon: Lock,
+      clsInput: `h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
+        passErr ? " " : " focus-within:border-C2-B "
+      }`,
+      type: "password",
+      onChange: setFirst,
+      error: passErr,
+      errorMessage: passErr ? "Enter a valid strong password" : "",
+    },
+
+    {
+      title: "Confirm Password",
+      placeholder: "Confirm your password",
+      icon: Lock,
+      clsInput: `h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
+        match ? " focus-within:border-C2-B " : " "
+      }`,
+      type: "password",
+      onChange: setSecond,
+      error: match ? false : true,
+      errorMessage: match ? "" : "The passwords don't match",
+    },
+  ];
+
   return (
     <div className="flex min-h-screen h-full bg-C2-default min-w-screen w-full justify-center">
-      <div className="hidden md:flex md:flex-col min-h-screen h-full md:w-2/5 lg:w-1/2 bg-white">
+      <div className="hidden md:flex md:flex-col min-h-screen md:w-2/5 lg:w-1/2 bg-white">
         <div className="flex flex-row justify-between items-center w-full">
-          <h2 className="font-bold text-xl mx-10">
+          <h2
+            className="font-bold text-xl mx-10 cursor-pointer"
+            onClick={handleClick}
+          >
             <span className="text-C2-default">Ultra</span>
             Buy
           </h2>
-          <div className="flex md:w-8 lg:w-12 xl:w-16 mx-10 py-3">
+          <div
+            className="flex md:w-8 lg:w-12 xl:w-16 mx-10 py-3 cursor-pointer"
+            onClick={handleClick}
+          >
             <Logo />
           </div>
         </div>
@@ -49,60 +144,47 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col w-full px-5 sm:px-8 lg:px-7 xl:px-6 py-4 lg:my-5">
-            <div className="flex pt-2 sm:pt-4 justify-center w-full">
-              <Input
-                label="Username"
-                placeholder="Input your username"
-                errore={false}
-                icon={Person}
-                className="rounded-lg flex h-full w-full"
-                classLabel="text-lg font-semibold fleading-tight -mb-1"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-            </div>
-            <div className="flex pt-2 sm:pt-4 justify-center w-full">
-              <Input
-                label="Email"
-                placeholder="Input your email"
-                errore={false}
-                type="email"
-                icon={Envelope}
-                className="rounded-lg flex h-full w-full"
-                classLabel="text-lg font-semibold fleading-tight -mb-1"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-            </div>
-            <div className="flex pt-2 sm:pt-4 justify-center w-full">
-              <Input
-                label="Password"
-                placeholder="Input your password"
-                errore={false}
-                icon={Lock}
-                type="password"
-                className="rounded-lg flex h-full w-full"
-                classLabel="text-lg font-semibold fleading-tight -mb-1"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-            </div>
-            <div className="flex pt-2 sm:pt-4 justify-center w-full">
-              <Input
-                label="Password"
-                placeholder="Input your password"
-                errore={false}
-                icon={Lock}
-                type="password"
-                className="rounded-lg flex h-full w-full mb-4"
-                classLabel="text-lg font-semibold fleading-tight -mb-1"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-            </div>
+            {inputsCont.map((el, index) => (
+              <div
+                key={index}
+                className="flex pt-2 sm:pt-4 justify-center w-full"
+              >
+                <Input
+                  label={el.title}
+                  placeholder={el.placeholder}
+                  error={el.error}
+                  errorMessage={el.errorMessage}
+                  icon={el.icon}
+                  type={el.type}
+                  onChange={el.onChange}
+                  className="rounded-lg flex h-full w-full"
+                  classLabel="text-lg font-semibold fleading-tight -mb-1"
+                  classInput={el.clsInput}
+                  classInputInside="w-full"
+                />
+              </div>
+            ))}
           </div>
 
-          <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4 lg:mb-0 md:py-3 lg:py-5">
+          <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4 md:py-2">
+            <div className="flex flex-wrap flex-row text-sm py-2 items-center self-start">
+              <CheckBox
+                className="bg-gray-100 pl-px"
+                checkBg="bg-blue-500 border-C2-B"
+                selected={false}
+              />
+              <p className="pl-1">
+                I agree with your{" "}
+                <span className="underline cursor-pointer" onClick={policyTos}>
+                  ToS
+                </span>{" "}
+                and{" "}
+                <span className="underline cursor-pointer" onClick={policyTos}>
+                  privacy policy
+                </span>
+                .
+              </p>
+            </div>
             <Button
               className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 px-2 py-3 text-base"
               content="Sign Up"
@@ -128,87 +210,3 @@ const Index = () => {
   );
 };
 export default Index;
-
-/*
-
-<div className="bg-C2-default sm:h-screen w-full flex overflow-auto h-auto py-10">
-        <div className="flex flex-col mx-auto justify-center items-center h-full w-full">
-          <div className="text-white px-0 sm:px-2 flex flex-col">
-            <div className="px-2 flex flex-col items-center justify-center sm:pb-5">
-              <h1 className="text-2xl sm:text-2xl xl:text-4xl font-bold leading-tight sm:py-6 sm:mt-8">
-                Create an account
-              </h1>
-              <h3 className="text-xl sm:text-xl xl:text-3xl leading-tight sm:py-3">
-                Sign Up
-              </h3>
-            </div>
-            <div className="px-1 sm:px-6 sm:py-3 flex flex-col">
-              <Input
-                label="Username"
-                placeholder="Input your username"
-                errore={false}
-                icon={Person}
-                className="rounded-lg"
-                classLabel="text-lg font-semibold fleading-tight mt-3"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-              <Input
-                label="Email"
-                placeholder="Input your email"
-                errore={false}
-                type="email"
-                icon={Envelope}
-                className="rounded-lg"
-                classLabel="text-lg font-semibold fleading-tight mt-3"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-              <Input
-                label="Password"
-                placeholder="Input your password"
-                errore={false}
-                icon={Lock}
-                type="password"
-                className="rounded-lg"
-                classLabel="text-lg font-semibold fleading-tight mt-3"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-              <Input
-                label="Confirm Password"
-                placeholder="Confirm your password"
-                errore={false}
-                icon={Lock}
-                type="password"
-                className="rounded-lg"
-                classLabel="text-lg font-semibold fleading-tight mt-3"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
-                classInputInside="w-full"
-              />
-            </div>
-            <div className="px-3 sm:px-6 flex flex-col items-center">
-              <Button
-                className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 sm:py-2 py-1 text-base mt-6"
-                content="Sign Up"
-              />
-              <div className="mt-4 md:mt-16 text-xs flex items-center">
-                Already have an account?{" "}
-                <Route
-                  render={({ history }) => (
-                    <Button
-                      className="text-sm w-fit-content hover:shadow-none hover:underline px-2"
-                      content="Log In"
-                      onClick={() => {
-                        history.push("/login");
-                      }}
-                    />
-                  )}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-*/

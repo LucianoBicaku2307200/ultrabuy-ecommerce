@@ -45,10 +45,12 @@ const Header = () => {
   const [cart, setCart] = useState(false);
 
   function handleClick() {
+    setCart(false);
     history.push("/");
   }
 
   function goToCheckout() {
+    setCart(false);
     history.push("/checkout");
   }
 
@@ -73,7 +75,7 @@ const Header = () => {
         </div>
         <div className="hidden md:flex justify-center xl:max-w-xl lg:w-1/2 items-center">
           <SearchWithDropdown
-            classContainer="rounded-xl flex w-full"
+            classContainer="rounded-xl flex w-full focus-within:border-C2-default"
             classSearch="flex md:pl-3 w-full"
             classDropdwon="z-50"
           />
@@ -162,7 +164,6 @@ const Header = () => {
           <div className="flex items-center justify-between mb-6">
             <h4 className="font-semibold text-2xl">Shopping cart</h4>
             <span className="flex items-center gap-1 text-sm text-c1">
-              Close
               <Button
                 className=""
                 icon={CloseIcon}
@@ -181,7 +182,11 @@ const Header = () => {
             <p className="font-semibold text-sm">Subtotal</p>
             <span className="font-semibold text-2xl mt-2 mb-6">73.98 ALL</span>
             <div className="flex justify-between items-center p-4 border border-t border-C1-E font-bold">
-              Continue shopping
+              <Button
+                className="text-black text-sm rounded px-4 py-2 hover:bg-C2-default hover:text-white border border-C2-B transition duration-300 ease-linear hover:shadow"
+                content="Continue shopping"
+                onClick={handleClick}
+              />
               <Button
                 className="text-white text-sm border border-C2-B bg-C2-default rounded px-4 py-2
              hover:bg-white hover:text-C2-default transition duration-300 ease-linear hover:shadow"

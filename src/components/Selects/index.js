@@ -26,7 +26,7 @@ const Select = ({
     setDropdown(!dropdown);
   };
   return (
-    <div className={"flex flex-col cursor-pointer z-10 " + className}>
+    <div className={"flex flex-col cursor-pointer " + className}>
       <label
         className={
           "font-bold text-xs transition-colors duration-100 leading-normal mb-1 " +
@@ -35,15 +35,17 @@ const Select = ({
       >
         {error ? errorMessage : label}
       </label>
-      <div className={"relative " + (dropdown ? "" : " overflow-hidden")}>
+      <div className={"relative " + (dropdown ? " z-30 " : " overflow-hidden")}>
         <div
           onClick={showDropDown}
           className={`flex px-4 py-2 bg-C1-F text-sm transition-all z-10 duration-200 border rounded-lg items-center justify-between ${
-            (error ? " border-red-500 " : " border-C1-D ") + classSelect
+            (error ? " border-red-500 " : " border-C1-D ") +
+            (dropdown ? " border-C2-default " : " border-C1-D ") +
+            classSelect
           }`}
         >
           <input
-            className={`bg-C1-F cursor-pointer flex-1 focus:outline-none placeholder-C1-B`}
+            className={`flex bg-C1-F cursor-pointer focus:outline-none placeholder-C1-B w-full`}
             value={selectedValue}
             placeholder={placeholder}
             disabled={true}

@@ -1,5 +1,7 @@
-import React from "react";
+import { useState } from "react";
 import { Route } from "react-router-dom";
+import { useHistory } from "react-router";
+import validator from "validator";
 import { Button, Input, CheckBox } from "../../components";
 
 import Envelope from "../../images/svg/ic-contact-mail.svg";
@@ -8,15 +10,33 @@ import Thing from "../../images/svg/loginscreen-thing.js";
 import Logo from "../../images/svg/logo.js";
 
 const Index = () => {
+  const [mailErr, setErrMail] = useState(false);
+
+  const history = useHistory();
+
+  function handleClick() {
+    history.push("/");
+  }
+
+  function validateEmail(val) {
+    validator.isEmail(val) ? setErrMail(false) : setErrMail(true);
+  }
+
   return (
     <div className="flex min-h-screen h-full bg-C2-default min-w-screen w-full justify-center">
-      <div className="hidden md:flex md:flex-col min-h-screen h-full md:w-2/5 lg:w-1/2 bg-white">
+      <div className="hidden md:flex md:flex-col min-h-screen md:w-2/5 lg:w-1/2 bg-white">
         <div className="flex flex-row justify-between items-center w-full">
-          <h2 className="font-bold text-xl mx-10">
+          <h2
+            className="font-bold text-xl mx-10 cursor-pointer"
+            onClick={handleClick}
+          >
             <span className="text-C2-default">Ultra</span>
             Buy
           </h2>
-          <div className="flex md:w-8 lg:w-12 xl:w-16 mx-10 py-3">
+          <div
+            className="flex md:w-8 lg:w-12 xl:w-16 mx-10 py-3 cursor-pointer"
+            onClick={handleClick}
+          >
             <Logo />
           </div>
         </div>
@@ -52,12 +72,16 @@ const Index = () => {
               <Input
                 label="Email"
                 placeholder="Email address"
-                errore={false}
+                error={mailErr}
+                errorMessage={mailErr ? "Enter a valid email address" : ""}
+                onChange={(event) => validateEmail(event.target.value)}
                 icon={Envelope}
                 type="email"
                 className="rounded-lg flex h-full w-full"
                 classLabel="text-lg font-semibold fleading-tight -mb-1"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
+                classInput={`h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
+                  mailErr ? " " : " focus-within:border-C2-B "
+                }`}
                 classInputInside="w-full"
               />
             </div>
@@ -65,35 +89,35 @@ const Index = () => {
               <Input
                 label="Password"
                 placeholder="Password"
-                errore={false}
+                error={false}
                 overflow-auto
                 icon={Lock}
                 type="password"
                 className="rounded-lg flex h-full w-full"
                 classLabel="text-lg font-semibold fleading-tight -mb-1 mt-3"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white"
+                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white focus-within:border-C2-B"
                 classInputInside="w-full"
               />
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between sm:mb-10 md:pb-6 lg:pb-8 md:pt-2 px-5 md:px-8 lg:px-7 xl:px-6">
+          <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between sm:pb-6 lg:pb-8 md:pt-2 px-5 md:px-8 lg:px-7 xl:px-6">
             <div className="flex py-3">
               <Button
-                className="hover:underline text-white md:text-base sm:text-sm text-xs px-2 py-1"
+                className="hover:underline text-white sm:text-sm text-xs px-1 sm:px-3 md:px-1 py-1"
                 content="Forgot your password?"
               />
             </div>
-            <div className="flex mt-4 pb-2 sm:pb-0 sm:mb-0 sm:py-2 pl-1">
+            <div className="flex mt-4 md:mt-0 pb-2 w-3/4 md:w-36 lg:w-32 sm:pb-0 sm:mb-0 sm:pl-2 md:pl-0 items-center">
               <CheckBox
-                text="Remember Me"
-                className="bg-white"
+                className="bg-white pl-px"
                 checkBg="bg-blue-500 border-C2-B"
               />
+              <p className="flex flex-wrap text-sm md:pl-1">Remember Me</p>
             </div>
           </div>
 
-          <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4 lg:mb-0">
+          <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4">
             <Button
               className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 px-2 py-3 text-base"
               content="Login"

@@ -57,7 +57,6 @@ const App = () => {
           <Switch>
             <ProtectedRoute path="/login" exact component={LoginPage} />
             <ProtectedRoute path="/signup" exact component={SignUpPage} />
-
             <ProtectedRoute
               path="/components-page"
               exact

@@ -5,7 +5,7 @@ import Checked from "../../images/svg/checked.svg";
 const CheckBox = ({ selected, text, className, checkBg, name, activate }) => {
   const [enabled, setEnabled] = useState(selected);
   return (
-    <div className="flex items-center p-1">
+    <div className="flex items-center">
       <Switch
         checked={enabled}
         onChange={() => {
@@ -28,7 +28,13 @@ const CheckBox = ({ selected, text, className, checkBg, name, activate }) => {
           alt=""
         />
       </Switch>
-      <div className="ml-2 cursor-default">{text}</div>
+      <div
+        className={`cursor-default ${
+          text === "" || text === undefined || text === null ? " " : " ml-2 "
+        }`}
+      >
+        {text}
+      </div>
     </div>
   );
 };

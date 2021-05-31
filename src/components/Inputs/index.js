@@ -15,6 +15,10 @@ const Inputs = ({
   classInputInside,
   onClickIcon,
   iconClass,
+  max,
+  maxLength,
+  min,
+  minLength,
 }) => {
   return (
     <div
@@ -31,7 +35,13 @@ const Inputs = ({
             classLabel
           }
         >
-          {error ? errorMessage : label}
+          {error
+            ? errorMessage === "" ||
+              errorMessage === undefined ||
+              errorMessage === null
+              ? label
+              : errorMessage
+            : label}
         </label>
       )}
       <div
@@ -57,6 +67,10 @@ const Inputs = ({
           type={type}
           onChange={onChange}
           placeholder={placeholder}
+          maxLength={maxLength}
+          max={max}
+          minLength={minLength}
+          min={min}
         />
       </div>
     </div>
