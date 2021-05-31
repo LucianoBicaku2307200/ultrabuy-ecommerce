@@ -91,7 +91,7 @@ const App = () => {
                 <ProtectedRoute exact path="/" component={HomePage} />
                 <ProtectedRoute
                   exact
-                  path="/commingsoon"
+                  path="/soon"
                   component={UnderConstructionPage}
                 />
                 <Route>

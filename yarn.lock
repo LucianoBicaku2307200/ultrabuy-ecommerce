@@ -1218,7 +1218,7 @@
     lodash "^4.17.15"
     webpack-merge "^4.2.2"
 
-"@craco/craco@^6.1.1":
+"@craco/craco@^6.1.2":
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/@craco/craco/-/craco-6.1.2.tgz#30e45288e4609ac6b8cf828085b34acebdc60e69"
   integrity sha512-GlQZn+g+yNlaDvIL5m6mcCoBGyFDwO4kkNx3fNFf98wuldkdWyBFoQbtOFOIb4gvkTh4VntOOxtJEoZfKs7XXw==
@@ -1292,7 +1292,7 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@headlessui/react@^1.0.0":
+"@headlessui/react@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.2.0.tgz#e48652bfce82ddf73d7f331faeb9db6526ee6874"
   integrity sha512-19DkLz8gDgbi+WvkoTzi9vs0NK9TJf94vbYhMzB4LYJo03Kili0gmvXT9CiKZoxXZ7YAvy/b1U1oQKEnjWrqxw==
@@ -1678,7 +1678,7 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@tailwindcss/postcss7-compat@npm:@tailwindcss/postcss7-compat@^2.0.4", "tailwindcss@npm:@tailwindcss/postcss7-compat@^2.0.4":
+"@tailwindcss/postcss7-compat@npm:@tailwindcss/postcss7-compat@^2.1.2", "tailwindcss@npm:@tailwindcss/postcss7-compat@^2.0.4":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@tailwindcss/postcss7-compat/-/postcss7-compat-2.1.2.tgz#4ae2a3a3c05622ee04307997b0f8bea5c8dbc2b6"
   integrity sha512-bH2kw6uyqLnDMP8wzDUsis5ovrsRzfHEyiL1McADvqlW54g6y0KVHX1xzO7PH8Fl5s0Sq8vDOAp4+3V8MEcZ9g==
@@ -1727,7 +1727,7 @@
     lz-string "^1.4.4"
     pretty-format "^26.6.2"
 
-"@testing-library/jest-dom@^5.11.10":
+"@testing-library/jest-dom@^5.12.0":
   version "5.12.0"
   resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.12.0.tgz#6a5d340b092c44b7bce17a4791b47d9bc2c61443"
   integrity sha512-N9Y82b2Z3j6wzIoAqajlKVF1Zt7sOH0pPee0sUHXHc5cv2Fdn23r+vpWm0MBBoGJtPOly5+Bdx1lnc3CD+A+ow==
@@ -1741,7 +1741,7 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^11.2.6":
+"@testing-library/react@^11.2.7":
   version "11.2.7"
   resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-11.2.7.tgz#b29e2e95c6765c815786c0bc1d5aed9cb2bf7818"
   integrity sha512-tzRNp7pzd5QmbtXNG/mhdcl7Awfu/Iz1RaVHY75zTdOkmHCuzMhRL83gWHSgOAcjS3CCbyfwUHMZgRJb4kAfpA==
@@ -2795,7 +2795,7 @@ babel-preset-react-app@^10.0.0:
     babel-plugin-macros "2.8.0"
     babel-plugin-transform-react-remove-prop-types "0.4.24"
 
-babel-runtime@^6.26.0:
+babel-runtime@^6.26.0, babel-runtime@^6.6.1:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -5566,6 +5566,11 @@ hmac-drbg@^1.0.1:
     hash.js "^1.0.3"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
+
+hoist-non-react-statics@^1.0.3:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+  integrity sha1-qkSM8JhtVcxAdzsXF0t90GbLfPs=
 
 hoist-non-react-statics@^3.1.0:
   version "3.3.2"
@@ -9059,7 +9064,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9304,6 +9309,13 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
+react-async-script-loader@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-async-script-loader/-/react-async-script-loader-0.3.0.tgz#c742b3ca25e08ba61ab7eb64371f814027692b86"
+  integrity sha1-x0KzyiXgi6Yat+tkNx+BQCdpK4Y=
+  dependencies:
+    hoist-non-react-statics "^1.0.3"
+
 react-dev-utils@^11.0.3:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.4.tgz#a7ccb60257a1ca2e0efe7a83e38e6700d17aa37a"
@@ -9357,6 +9369,15 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-paypal-express-checkout@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-paypal-express-checkout/-/react-paypal-express-checkout-1.0.5.tgz#8a2a24dce92551d32daa55a43e6cdcdafb6fec15"
+  integrity sha512-J2s/C9ftuG/ja1/QelGSg4veXij5p9zNhOqr2wTw6ERprWpHbQm/JNx/U43G5aiqAnnoFxlKsFl+t1nAOqbw6w==
+  dependencies:
+    babel-runtime "^6.6.1"
+    prop-types "^15.5.10"
+    react-async-script-loader "^0.3.0"
 
 react-refresh@^0.8.3:
   version "0.8.3"
@@ -11249,6 +11270,11 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
+validator@^13.6.0:
+  version "13.6.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-13.6.0.tgz#1e71899c14cdc7b2068463cb24c1cc16f6ec7059"
+  integrity sha512-gVgKbdbHgtxpRyR8K0O6oFZPhhB5tT1jeEHZR0Znr9Svg03U0+r9DXWMrnRAB+HtCStDQKlaIZm42tVsVjqtjg==
+
 value-equal@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/value-equal/-/value-equal-1.0.1.tgz#1e0b794c734c5c0cade179c437d356d931a34d6c"
@@ -11315,7 +11341,7 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
-web-vitals@^1.1.1:
+web-vitals@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-1.1.2.tgz#06535308168986096239aa84716e68b4c6ae6d1c"
   integrity sha512-PFMKIY+bRSXlMxVAQ+m2aw9c/ioUYfDgrYot0YUa+/xa0sakubWhSDyxAKwzymvXVdF4CZI71g06W+mqhzu6ig==

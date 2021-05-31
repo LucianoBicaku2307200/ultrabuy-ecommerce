@@ -16,10 +16,12 @@ import Pagination from "./Pagination";
 import Footer from "./Footer";
 import Reviews from "./Reviews";
 import LottieAnim from "./LottieAnimation";
-import BillingInfo from "./BillingInfo";
-import Shipping from "./Shipping";
+import BillingInfo from "./CheckComponents/BillingInfo";
+import Shipping from "./CheckComponents/Shipping";
 import RadioGr from "./RadioGr";
-import Payment from "./Payment";
+import Payment from "./CheckComponents/Payment";
+import ConfirmStep from "./CheckComponents/ConfirmStep";
+import OrderSum from "./CheckComponents/OrderSum";
 
 export {
   Modal,
@@ -46,4 +48,6 @@ export {
   Shipping,
   RadioGr,
   Payment,
+  ConfirmStep,
+  OrderSum,
 };
