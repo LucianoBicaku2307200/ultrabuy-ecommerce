@@ -16,10 +16,10 @@ import {
   CheckOutPage,
   LoginPage,
   CategoryPage,
+  ProfilePage,
   UnderConstructionPage,
 } from "./pages";
 import { Header, Footer } from "./components";
-import { Fragment } from "react";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
@@ -57,6 +57,8 @@ const App = () => {
           <Switch>
             <ProtectedRoute path="/login" exact component={LoginPage} />
             <ProtectedRoute path="/signup" exact component={SignUpPage} />
+            <ProtectedRoute path="/profile" exact component={ProfilePage} />
+
             <ProtectedRoute
               path="/components-page"
               exact
