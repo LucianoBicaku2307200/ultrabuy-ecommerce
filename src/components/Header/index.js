@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useHistory } from "react-router";
-import { CardCart } from "..";
+import { useHistory, useLocation } from "react-router";
+import { CardCart, Filter } from "..";
 import CloseIcon from "../../images/svg/ic-actions-close.svg";
 import Basket from "../../images/svg/ic-basket.svg";
 import Burger from "../../images/svg/ic-hamburger.svg";
@@ -10,34 +10,46 @@ import SearchWithDropdown from "../SearchWithDropdown";
 import PopOver from "./ButtonPopOver";
 import SideMenu from "./SideMenu";
 import { Disclosure, Transition } from "@headlessui/react";
-
+import FilterIcon from "../../images/svg/filterIcon.svg";
+import SettingsIcon from "../../images/svg/ic-actions-settings.svg";
 function MyDisclosure() {
-  return (
-    <Disclosure>
-      {({ open }) => (
-        <>
-          <Disclosure.Button>Is team pricing available?</Disclosure.Button>
+  const location = useLocation();
+  if (location.pathname.includes("/category")) {
+    return (
+      <Disclosure as="div" className="w-full ">
+        {({ open }) => (
+          <>
+            <Disclosure.Button>
+              <Button
+                className="rounded py-2 pr-3 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+                icon={FilterIcon}
+                iconPosition="left"
+                content="Filter"
+              />
+            </Disclosure.Button>
 
-          {open && (
-            <Transition
-              as="div"
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-              <Disclosure.Panel static className="text-gray-500">
-                Yes! You can purchase a license that you can share with your
-                entire team.
-              </Disclosure.Panel>
-            </Transition>
-          )}
-        </>
-      )}
-    </Disclosure>
-  );
+            {open && (
+              <Transition
+                as="div"
+                enter="transition duration-100 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-100 opacity-100"
+                leave="transition duration-75 ease-out"
+                leaveFrom="transform scale-100 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+                className="my-3 w-full px-2.5"
+              >
+                <Disclosure.Panel>
+                  <Filter />
+                </Disclosure.Panel>
+              </Transition>
+            )}
+          </>
+        )}
+      </Disclosure>
+    );
+  }
+  return <></>;
 }
 const Header = () => {
   const history = useHistory();
@@ -85,7 +97,7 @@ const Header = () => {
             <PopOver />
 
             <Button
-              className="rounded relative px-2 py-2 hover:shadow-md transition-all ease-linear duration-300 "
+              className="rounded relative px-2 py-2 hover:shadow-md transition-all ease-linear duration-300"
               icon={Basket}
               badge={true}
               badgeCount="4"
@@ -95,7 +107,7 @@ const Header = () => {
         </div>
       </div>
       <SideMenu show={show} setShow={setShow} wrapperClass="sm:w-3/4 w-full">
-        <div className="relative w-full">
+        <div className="relative w-full bg-white shadow-xl">
           <div className="absolute top-0 right-0 px-2 pb-2 flex">
             <Button
               className="pr-2 pt-5"
@@ -103,12 +115,10 @@ const Header = () => {
               onClick={() => setShow(false)}
             />
           </div>
-          <div className="h-full flex flex-col py-3 bg-white shadow-xl overflow-y-scroll">
-            {/* head */}
+          <div className="h-full flex flex-col py-3 overflow-y-scroll w-11/12 mx-auto">
             <div className="px-4 mb-6">
               <div className="mb-6"></div>
             </div>
-            {/* body */}
             <div className="flex w-full flex-col items-start px-2">
               <div className="flex justify-center self-center py-3 md:w-3/4 w-full">
                 <SearchWithDropdown
@@ -117,38 +127,30 @@ const Header = () => {
                   classDropdwon="z-50"
                 />
               </div>
-
-              <div className="py-3 z-20">
+              <div className=" z-20">
                 <Button
-                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+                  className="rounded py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300 pr-3"
                   icon={Person}
                   iconPosition="left"
                   content="Account"
                 />
               </div>
-              <div className="sm:-mr-1 py-3 z-20">
+              <div className="sm:-mr-1  z-20">
                 <Button
-                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
+                  className="rounded py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300 pr-3"
                   icon={Basket}
                   iconPosition="left"
                   content="Cart"
                 />
               </div>
               <MyDisclosure />
-              <div className="sm:-mr-1 py-3 z-20">
+              <div className="sm:-mr-1 z-20">
                 <Button
-                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
-                  icon={Basket}
+                  className="rounded py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300 pr-3"
+                  icon={SettingsIcon}
                   iconPosition="left"
-                  content="Cart"
-                />
-              </div>
-              <div className="sm:-mr-1 py-3 z-20">
-                <Button
-                  className="rounded px-2 py-2 border-2 border-transparent hover:border-gray-600 hover:shadow-md transition-all ease-linear duration-300"
-                  icon={Basket}
-                  iconPosition="left"
-                  content="Cart"
+                  content="Settings"
+                  IconClassName="w-6 h-6"
                 />
               </div>
             </div>

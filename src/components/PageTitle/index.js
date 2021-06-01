@@ -70,10 +70,10 @@ const ListIcon = ({ active, className }) => {
   );
 };
 
-const PageTitle = ({ title, type, setType }) => {
+const PageTitle = ({ title, type, setType, tittleClassname }) => {
   return (
     <div className="flex items-center justify-between w-full">
-      <h1 className="font-semibold lg:text-4xl md:text-2xl text-lg">{title}</h1>
+      <h1 className={"font-semibold " + tittleClassname}>{title}</h1>
       <div className="hidden sm:flex">
         <div className="flex mr-6 select-none" onClick={() => setType("grid")}>
           <GridIcon className="mr-1" active={type === "grid"} />

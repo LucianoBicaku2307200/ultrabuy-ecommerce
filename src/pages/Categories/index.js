@@ -102,7 +102,12 @@ const CategoryPage = () => {
   );
   return (
     <div className="flex flex-col px-6 md:py-0 lg:gap-14 md:gap-8 gap-4 md:w-11/12 mx-auto">
-      <PageTitle title={"Fruit and vegetables"} type={type} setType={setType} />
+      <PageTitle
+        title={"Fruit and vegetables"}
+        type={type}
+        setType={setType}
+        tittleClassname="lg:text-4xl md:text-2xl text-lg"
+      />
       <Layout3 childrenClassName="gap-3">
         {type !== "grid" &&
           Products.map((el, index) => (

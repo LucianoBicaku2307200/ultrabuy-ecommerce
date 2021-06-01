@@ -22,7 +22,8 @@ import RadioGr from "./RadioGr";
 import Payment from "./CheckComponents/Payment";
 import ConfirmStep from "./CheckComponents/ConfirmStep";
 import OrderSum from "./CheckComponents/OrderSum";
-
+import Filter from "./Filter";
+import ProfileInfo from "./ProfileInfo";
 export {
   Modal,
   Button,
@@ -50,4 +51,6 @@ export {
   Payment,
   ConfirmStep,
   OrderSum,
+  Filter,
+  ProfileInfo,
 };

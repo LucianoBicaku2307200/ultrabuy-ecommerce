@@ -7,6 +7,7 @@ const Button = ({
   iconPosition,
   badge,
   badgeCount,
+  IconClassName,
 }) => {
   const handleClick = () => {
     onClick();
@@ -32,7 +33,11 @@ const Button = ({
         ) : (
           " "
         )}
-        {icon ? <img className="mx-1" src={icon} alt="" /> : " "}
+        {icon ? (
+          <img className={"mx-1 " + IconClassName} src={icon} alt="" />
+        ) : (
+          " "
+        )}
       </button>
     </>
   );
