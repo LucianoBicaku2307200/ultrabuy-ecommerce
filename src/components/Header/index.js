@@ -12,6 +12,7 @@ import SideMenu from "./SideMenu";
 import { Disclosure, Transition } from "@headlessui/react";
 import FilterIcon from "../../images/svg/filterIcon.svg";
 import SettingsIcon from "../../images/svg/ic-actions-settings.svg";
+
 function MyDisclosure() {
   const location = useLocation();
   if (location.pathname.includes("/category")) {
@@ -51,6 +52,7 @@ function MyDisclosure() {
   }
   return <></>;
 }
+
 const Header = () => {
   const history = useHistory();
   const [show, setShow] = useState(false);
