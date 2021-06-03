@@ -58,7 +58,7 @@ const Index = () => {
   }
 
   function policyTos() {
-    history.push("/commingsoon");
+    history.push("/coming-soon");
   }
 
   const inputsCont = [
@@ -68,7 +68,9 @@ const Index = () => {
       icon: Person,
       error: formik.errors.username && formik.touched.username ? true : false,
       errorMessage:
-        formik.errors.username && formik.touched.username ? formik.errors.username : "",
+        formik.errors.username && formik.touched.username
+          ? formik.errors.username
+          : "",
       clsInput: `${
         formik.errors.username && formik.touched.username
           ? " "
