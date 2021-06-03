@@ -1,41 +1,104 @@
-import Background from "../../images/png/background.png";
-import CoverPage from "../../images/png/Cover - 1.png";
+import React from "react";
+import { Button } from "../../components";
+
+import Hooman from "../../images/svg/undraw_successful_purchase_uyin 2.svg";
 
 const IndexPage = () => {
   return (
-    <>
-      <div className="relative w-full h-full">
-        <div className="hidden md:flex">
-          <img
-            className="absolute bg-cover bg-center w-full h-full inset-0"
-            src={Background}
-            alt=""
-          />
-        </div>
-        <div className="relative px-4 xl:px-0 container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 pt-16 lg:pt-36 gap-8">
-          <div className="text-color">
-            <h1 className="text-7xl w-1/2 xl:w-full xl:text-9xl font-black f-f-l">
-              Build. Review. Ship.
-            </h1>
-            <div className="f-f-r text-xl lg:text-3xl pb-20 sm:pb-0 pt-10 xl:pt-20">
-              <h2>The next big thing starts here.</h2>
-              <h2>Get Prodify and be the first to market</h2>
-              <h2> with an integrated product that you love</h2>
-            </div>
-            <button className="hover:opacity-90 text-xl w-full xl:text-3xl xl:w-10/12 mt-4 xl:mt-11 f-f-r py-6 bg-C2-default text-white text-bold">
-              Let's Build
-            </button>
-          </div>
-          <div>
-            <img
-              className="w-full lg:-ml-16 xl:-ml-44"
-              src={CoverPage}
-              alt=""
+    <div className="flex flex-col bg-white">
+      <div className="flex flex-row">
+        <div className="flex justify-center items-center w-1/2 bg-C2-default">
+          <div className="flex flex-col w-3/4">
+            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
+              BUY ANYTHING WITH ULTRABUY
+            </span>
+            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
+              Or kind rest bred with am shed then. In raptures building an
+              bringing be. Elderly is detract tedious assured private so to
+              visited.
+            </p>
+            <Button
+              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
+              content="Start Shopping"
             />
           </div>
         </div>
+        <div className="flex w-1/2">
+          <div>
+            <img src={Hooman} alt="" />
+          </div>
+        </div>
       </div>
-    </>
+      <div className="flex flex-row">
+        <div className="flex justify-center items-center w-1/2 bg-C2-default">
+          <div className="flex flex-col w-3/4">
+            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
+              BUY ANYTHING WITH ULTRABUY
+            </span>
+            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
+              Or kind rest bred with am shed then. In raptures building an
+              bringing be. Elderly is detract tedious assured private so to
+              visited.
+            </p>
+            <Button
+              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
+              content="Start Shopping"
+            />
+          </div>
+        </div>
+        <div className="flex w-1/2">
+          <div>
+            <img src={Hooman} alt="" />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-row">
+        <div className="flex justify-center items-center w-1/2 bg-C2-default">
+          <div className="flex flex-col w-3/4">
+            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
+              BUY ANYTHING WITH ULTRABUY
+            </span>
+            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
+              Or kind rest bred with am shed then. In raptures building an
+              bringing be. Elderly is detract tedious assured private so to
+              visited.
+            </p>
+            <Button
+              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
+              content="Start Shopping"
+            />
+          </div>
+        </div>
+        <div className="flex w-1/2">
+          <div>
+            <img src={Hooman} alt="" />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-row">
+        <div className="flex justify-center items-center w-1/2 bg-C2-default">
+          <div className="flex flex-col w-3/4">
+            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
+              BUY ANYTHING WITH ULTRABUY
+            </span>
+            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
+              Or kind rest bred with am shed then. In raptures building an
+              bringing be. Elderly is detract tedious assured private so to
+              visited.
+            </p>
+            <Button
+              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
+              content="Start Shopping"
+            />
+          </div>
+        </div>
+        <div className="flex w-1/2">
+          <div>
+            <img src={Hooman} alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

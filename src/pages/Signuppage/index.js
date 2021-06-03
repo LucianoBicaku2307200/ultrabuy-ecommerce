@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import { useHistory } from "react-router";
-import validator from "validator";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 import { Button, CheckBox, Input } from "../../components";
-import passwordValidation from "../../hooks/passwordValidation/passwordValidation";
 
 import Envelope from "../../images/svg/ic-contact-mail.svg";
 import Lock from "../../images/svg/ic-security-locked.svg";
@@ -11,28 +11,45 @@ import Person from "../../images/svg/ic-person.svg";
 import Thing from "../../images/svg/loginscreen-thing.js";
 import Logo from "../../images/svg/logo.js";
 
-const Index = () => {
-  const [password, setPassword] = useState({
-    firstPassword: "",
-    secondPassword: "",
-  });
-  const [mailErr, setErrMail] = useState(false);
-  const [passErr, setErrPass] = useState(false);
+const initialValues = {
+  username: "",
+  email: "",
+  password: "",
+  confirm_password: "",
+};
 
-  const [validLength, hasNumber, upperCase, lowerCase, match, specialChar] =
-    passwordValidation({
-      firstPassword: password.firstPassword,
-      secondPassword: password.secondPassword,
-    });
-  const setFirst = (event) => {
-    setPassword({ ...password, firstPassword: event.target.value });
-    validator.isStrongPassword(event.target.value)
-      ? setErrPass(false)
-      : setErrPass(true);
-  };
-  const setSecond = (event) => {
-    setPassword({ ...password, secondPassword: event.target.value });
-  };
+const Index = () => {
+  const formik = useFormik({
+    initialValues: { initialValues },
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .max(20, "It needs to be less than 20 characters")
+        .required("Username is required"),
+      email: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+      password: Yup.string()
+        .min(8, "Must be at least 8 characters")
+        .matches(
+          /^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,
+          "Enter a stronger password"
+        )
+        .required("Password is required"),
+      confirm_password: Yup.string()
+        .when("password", {
+          is: (password) => (password && password.length > 0 ? true : false),
+          then: Yup.string().oneOf(
+            [Yup.ref("password"), null],
+            "Passwords dont't match"
+          ),
+        })
+        .required("You need to confirm your password"),
+    }),
+
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   const history = useHistory();
 
@@ -41,11 +58,7 @@ const Index = () => {
   }
 
   function policyTos() {
-    history.push("/soon");
-  }
-
-  function validateEmail(val) {
-    validator.isEmail(val) ? setErrMail(false) : setErrMail(true);
+    history.push("/commingsoon");
   }
 
   const inputsCont = [
@@ -53,48 +66,71 @@ const Index = () => {
       title: "Username",
       placeholder: "Enter your username",
       icon: Person,
-      clsInput:
-        "h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white focus-within:border-C2-B",
+      error: formik.errors.username && formik.touched.username ? true : false,
+      errorMessage:
+        formik.errors.username && formik.touched.username ? formik.errors.username : "",
+      clsInput: `${
+        formik.errors.username && formik.touched.username
+          ? " "
+          : " focus-within:border-C2-B "
+      }`,
       type: "text",
+      dataProps: { ...formik.getFieldProps("username") },
     },
 
     {
       title: "Email address",
       placeholder: "Enter your email",
       icon: Envelope,
-      clsInput: `h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
-        mailErr ? " " : " focus-within:border-C2-B "
+      error: formik.errors.email && formik.touched.email ? true : false,
+      errorMessage:
+        formik.errors.email && formik.touched.email ? formik.errors.email : "",
+      clsInput: `${
+        formik.errors.email && formik.touched.email
+          ? " "
+          : " focus-within:border-C2-B "
       }`,
       type: "email",
-      onChange: (event) => validateEmail(event.target.value),
-      error: mailErr,
-      errorMessage: mailErr ? "Enter a valid email address" : "",
+      dataProps: { ...formik.getFieldProps("email") },
     },
 
     {
       title: "Password",
       placeholder: "Enter your password",
       icon: Lock,
-      clsInput: `h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
-        passErr ? " " : " focus-within:border-C2-B "
+      error: formik.errors.password && formik.touched.password ? true : false,
+      errorMessage:
+        formik.errors.password && formik.touched.password
+          ? formik.errors.password
+          : "",
+      clsInput: `${
+        formik.errors.password && formik.touched.password
+          ? " "
+          : " focus-within:border-C2-B "
       }`,
       type: "password",
-      onChange: setFirst,
-      error: passErr,
-      errorMessage: passErr ? "Enter a valid strong password" : "",
+      dataProps: { ...formik.getFieldProps("password") },
     },
 
     {
       title: "Confirm Password",
       placeholder: "Confirm your password",
       icon: Lock,
-      clsInput: `h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
-        match ? " focus-within:border-C2-B " : " "
+      error:
+        formik.errors.confirm_password && formik.touched.confirm_password
+          ? true
+          : false,
+      errorMessage:
+        formik.errors.confirm_password && formik.touched.confirm_password
+          ? formik.errors.confirm_password
+          : "",
+      clsInput: `${
+        formik.errors.confirm_password && formik.touched.confirm_password
+          ? " "
+          : " focus-within:border-C2-B "
       }`,
       type: "password",
-      onChange: setSecond,
-      error: match ? false : true,
-      errorMessage: match ? "" : "The passwords don't match",
+      dataProps: { ...formik.getFieldProps("confirm_password") },
     },
   ];
 
@@ -143,67 +179,76 @@ const Index = () => {
             </h3>
           </div>
 
-          <div className="flex flex-col w-full px-5 sm:px-8 lg:px-7 xl:px-6 py-4 lg:my-5">
-            {inputsCont.map((el, index) => (
-              <div
-                key={index}
-                className="flex pt-2 sm:pt-4 justify-center w-full"
-              >
-                <Input
-                  label={el.title}
-                  placeholder={el.placeholder}
-                  error={el.error}
-                  errorMessage={el.errorMessage}
-                  icon={el.icon}
-                  type={el.type}
-                  onChange={el.onChange}
-                  className="rounded-lg flex h-full w-full"
-                  classLabel="text-lg font-semibold fleading-tight -mb-1"
-                  classInput={el.clsInput}
-                  classInputInside="w-full"
+          <form onSubmit={formik.handleSubmit}>
+            <div className="flex flex-col w-full px-5 sm:px-8 lg:px-7 xl:px-6 py-4 lg:my-5">
+              {inputsCont.map((el, index) => (
+                <div
+                  key={index}
+                  className="flex pt-2 sm:pt-4 justify-center w-full"
+                >
+                  <Input
+                    label={el.title}
+                    placeholder={el.placeholder}
+                    error={el.error}
+                    errorMessage={el.errorMessage}
+                    icon={el.icon}
+                    type={el.type}
+                    className="rounded-lg flex h-full w-full"
+                    classLabel="text-lg font-semibold leading-tight -mb-1 mt-3"
+                    classInput={`h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${el.clsInput}`}
+                    classInputInside="w-full"
+                    {...el.dataProps}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4 md:py-2">
+              <div className="flex flex-wrap flex-row text-sm py-2 items-center self-start">
+                <CheckBox
+                  className="bg-gray-100 pl-px"
+                  checkBg="bg-blue-500 border-C2-B"
+                  selected={false}
+                />
+                <p className="pl-1">
+                  I agree with your{" "}
+                  <span
+                    className="underline cursor-pointer"
+                    onClick={policyTos}
+                  >
+                    ToS
+                  </span>{" "}
+                  and{" "}
+                  <span
+                    className="underline cursor-pointer"
+                    onClick={policyTos}
+                  >
+                    privacy policy
+                  </span>
+                  .
+                </p>
+              </div>
+              <Button
+                className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 px-2 py-3 text-base"
+                content="Sign Up"
+                type="submit"
+              />
+              <div className="pt-7 sm:pt-16 md:pt-8 text-sm md:text-base text-center flex items-center">
+                Already have an account?{" "}
+                <Route
+                  render={({ history }) => (
+                    <Button
+                      className="md:text-base text-sm w-fit-content hover:shadow-none hover:underline px-2"
+                      content="Log In"
+                      onClick={() => {
+                        history.push("/login");
+                      }}
+                    />
+                  )}
                 />
               </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4 md:py-2">
-            <div className="flex flex-wrap flex-row text-sm py-2 items-center self-start">
-              <CheckBox
-                className="bg-gray-100 pl-px"
-                checkBg="bg-blue-500 border-C2-B"
-                selected={false}
-              />
-              <p className="pl-1">
-                I agree with your{" "}
-                <span className="underline cursor-pointer" onClick={policyTos}>
-                  ToS
-                </span>{" "}
-                and{" "}
-                <span className="underline cursor-pointer" onClick={policyTos}>
-                  privacy policy
-                </span>
-                .
-              </p>
             </div>
-            <Button
-              className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 px-2 py-3 text-base"
-              content="Sign Up"
-            />
-            <div className="pt-7 sm:pt-16 md:pt-8 text-sm md:text-base text-center flex items-center">
-              Already have an account?{" "}
-              <Route
-                render={({ history }) => (
-                  <Button
-                    className="md:text-base text-sm w-fit-content hover:shadow-none hover:underline px-2"
-                    content="Log In"
-                    onClick={() => {
-                      history.push("/login");
-                    }}
-                  />
-                )}
-              />
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

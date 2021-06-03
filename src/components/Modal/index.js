@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Button from "../Button";
-export default function Modal({ title }) {
+export default function Modal({ title, children }) {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -66,7 +66,7 @@ export default function Modal({ title }) {
                   as="h3"
                   className="text-lg font-medium leading-6 text-gray-900"
                 >
-                  Payment successful
+                  {title}
                 </Dialog.Title>
                 {/*body*/}
                 <div className="mt-2">
@@ -81,6 +81,7 @@ export default function Modal({ title }) {
                     convallis convallis tellus. Urna molestie at elementum eu.
                     Nunc sed blandit libero volutpat.
                   </p>
+                  {children}
                 </div>
 
                 {/*footer*/}

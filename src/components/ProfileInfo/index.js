@@ -1,6 +1,5 @@
 import React from "react";
-import { Menu, Input, Select, CheckBox, Button } from "../../components";
-import { useState } from "react";
+import { Input, Select, Button } from "../../components";
 
 const inputsCont = [
   {

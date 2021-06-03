@@ -15,7 +15,7 @@ import {
   ProductPage,
   CheckOutPage,
   LoginPage,
-  CategoryPage,
+  //CategoryPage,
   ProfilePage,
   UnderConstructionPage,
 } from "./pages";
@@ -65,7 +65,7 @@ const App = () => {
               component={ComponentPage}
             />
             <ProtectedRoute path="/404" exact component={FileNotFoundPage} />
-            <ProtectedRoute path="/welcome" exact component={LandingPage} />
+            <ProtectedRoute path="/landing" exact component={LandingPage} />
             <ProtectedRoute path="/test" exact component={Test} />
             <ProtectedRoute path="/checkout" exact component={CheckOutPage} />
 

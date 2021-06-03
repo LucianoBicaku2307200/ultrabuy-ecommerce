@@ -1,7 +1,6 @@
 const Inputs = ({
   label,
   onChange,
-  value,
   type,
   placeholder,
   error,
@@ -19,6 +18,8 @@ const Inputs = ({
   maxLength,
   min,
   minLength,
+  id,
+  name,
 }) => {
   return (
     <div
@@ -63,8 +64,9 @@ const Inputs = ({
         )}
         <input
           className={`flex placeholder-C1-B bg-C1-F focus:outline-none resize-x ${classInputInside}`}
-          value={value}
           type={type}
+          id={id}
+          name={name}
           onChange={onChange}
           placeholder={placeholder}
           maxLength={maxLength}

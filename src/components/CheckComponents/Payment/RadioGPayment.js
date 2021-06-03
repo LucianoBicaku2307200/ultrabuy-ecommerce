@@ -1,31 +1,75 @@
-import { useState } from "react";
+import { React } from "react";
 import { RadioGroup } from "@headlessui/react";
-import { Button, Input, RadioGr } from "../..";
-import validator from "validator";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import valid from "card-validator";
+import { Button, Input, RadioGr } from "../../index";
 
 import VISA from "../../../images/svg/VISA.svg";
 import MC from "../../../images/svg/mc.svg";
 import PayPal from "../../../images/svg/PayPal 1.svg";
 import Checked from "../../../images/svg/ic-actions-select-filled.svg";
 
-function displayDate() {
-  const today = Date.now();
-
-  console.log(
-    new Intl.DateTimeFormat("en-US", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "2-digit",
-    }).format(today)
-  );
-}
-
 const RadioGPay = () => {
-  const [isErr, setErr] = useState(false);
+  const formik = useFormik({
+    initialValues: {
+      cardNumber: "",
+      nameOnCard: "",
+      expirationDate: "",
+      cvc: "",
+    },
+    validationSchema: Yup.object({
+      cardNumber: Yup.string()
+        .test(
+          "test-number",
+          "Card number is invalid",
+          (value) => valid.number(value).isValid
+        )
+        .max(16, "Card number is invalid")
+        .required("Card number is required"),
+      cvc: Yup.string()
+        .min(3, "Too short")
+        .max(4, "Too long")
+        .required("Required"),
+      nameOnCard: Yup.string()
+        .max(75, "Name too long")
+        .required("Name is required"),
+      expirationDate: Yup.string()
+        .typeError("Wrong date")
+        .max(5, "Wrong date")
+        .matches(/([0-9]{2})\/([0-9]{2})/, "Wrong date")
+        .test(
+          "test-credit-card-expiration-date",
+          "Wrong date",
+          (expirationDate) => {
+            if (!expirationDate) {
+              return false;
+            }
 
-  function validateCC(ccNum) {
-    validator.isCreditCard(ccNum) ? setErr(false) : setErr(true);
-  }
+            const today = new Date();
+            const monthToday = today.getMonth() + 1;
+            const yearToday = today.getFullYear().toString().substr(-2);
+
+            const [expMonth, expYear] = expirationDate.split("/");
+
+            if (Number(expYear) < Number(yearToday)) {
+              return false;
+            } else if (
+              Number(expMonth) < monthToday &&
+              Number(expYear) <= Number(yearToday)
+            ) {
+              return false;
+            }
+
+            return true;
+          }
+        )
+        .required("Date is required"),
+    }),
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   return (
     <>
@@ -65,23 +109,25 @@ const RadioGPay = () => {
               </div>
 
               {checked ? (
-                <>
+                <form onSubmit={formik.handleSubmit}>
                   <div className="flex py-3 justify-center">
                     <Input
                       label="Card number"
                       placeholder="Card number"
-                      error={isErr}
-                      errorMessage={
-                        isErr ? "Input a valid credit/debit card number" : ""
-                      }
-                      onChange={(event) => validateCC(event.target.value)}
-                      type="text"
                       className="rounded-lg flex h-full w-full"
+                      type="text"
                       classLabel="-mb-px ml-px"
                       classInput={`h-10 px-4 w-full rounded-lg focus:outline-none text-gray-700 bg-gray-200 ${
-                        isErr ? " " : " focus-within:border-C2-default "
+                        formik.errors.cardNumber
+                          ? " "
+                          : " focus-within:border-C2-B "
                       }`}
                       classInputInside="w-full bg-gray-200"
+                      error={formik.errors.cardNumber ? true : false}
+                      errorMessage={
+                        formik.errors.cardNumber ? formik.errors.cardNumber : ""
+                      }
+                      {...formik.getFieldProps("cardNumber")}
                     />
                   </div>
                   <div className="flex flex-col sm:flex-row py-3 gap-x-4 justify-between">
@@ -89,41 +135,63 @@ const RadioGPay = () => {
                       <Input
                         label="Card holder"
                         placeholder="Card holder"
-                        error={false}
-                        type="text"
                         className="rounded-lg flex h-full w-full"
+                        type="email"
                         classLabel="-mb-px ml-px"
-                        classInput="h-10 px-4 w-full rounded-lg focus:outline-none focus-within:border-C2-default text-gray-700 bg-gray-200"
+                        classInput={`h-10 px-4 w-full rounded-lg focus:outline-none text-gray-700 bg-gray-200 ${
+                          formik.errors.nameOnCard
+                            ? " "
+                            : " focus-within:border-C2-B "
+                        }`}
                         classInputInside="w-full bg-gray-200"
+                        error={formik.errors.nameOnCard ? true : false}
+                        errorMessage={
+                          formik.errors.nameOnCard
+                            ? formik.errors.nameOnCard
+                            : ""
+                        }
+                        {...formik.getFieldProps("nameOnCard")}
                       />
                     </div>
                     <div className="flex flex-row gap-x-3">
                       <Input
                         label="Expiration date"
                         placeholder="MM/YY"
-                        error={false}
-                        type="text"
-                        maxLength={5}
                         className="rounded-lg flex h-full w-full"
                         classLabel="-mb-px ml-px"
-                        classInput="h-10 px-4 w-max rounded-lg focus:outline-none focus-within:border-C2-default text-gray-700 bg-gray-200"
+                        classInput={`h-10 px-4 w-max rounded-lg focus:outline-none text-gray-700 bg-gray-200 ${
+                          formik.errors.expirationDate
+                            ? " "
+                            : " focus-within:border-C2-B "
+                        }`}
                         classInputInside="w-20 bg-gray-200 pl-4"
+                        error={formik.errors.expirationDate ? true : false}
+                        errorMessage={
+                          formik.errors.expirationDate
+                            ? formik.errors.expirationDate
+                            : ""
+                        }
+                        {...formik.getFieldProps("expirationDate")}
                       />
 
                       <Input
                         label="CVC"
                         placeholder="CVC"
-                        error={false}
-                        type="text"
-                        maxLength={4}
                         className="rounded-lg flex h-full w-full"
                         classLabel="-mb-px ml-px"
-                        classInput="h-10 px-4 w-max rounded-lg focus:outline-none text-gray-700 focus-within:border-C2-default bg-gray-200"
+                        classInput={`h-10 px-4 w-max rounded-lg focus:outline-none text-gray-700 bg-gray-200 ${
+                          formik.errors.cvc ? " " : " focus-within:border-C2-B "
+                        }`}
                         classInputInside="w-8 bg-gray-200"
+                        error={formik.errors.cvc ? true : false}
+                        errorMessage={
+                          formik.errors.cvc ? formik.errors.cvc : ""
+                        }
+                        {...formik.getFieldProps("cvc")}
                       />
                     </div>
                   </div>
-                </>
+                </form>
               ) : null}
             </div>
           )}

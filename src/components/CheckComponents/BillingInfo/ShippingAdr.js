@@ -1,8 +1,6 @@
-import { useState } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import ShippingAdr from "./ShippingAdr";
-import { Input, Select, CheckBox } from "../../../components";
+import { Input, Select } from "../../../components";
 
 const initialValues = {
   firstName: "",
@@ -17,7 +15,7 @@ const initialValues = {
 const clsInput =
   "h-10 px-4 w-full rounded-lg focus:outline-none focus-within:border-C2-default text-gray-700 bg-gray-200";
 
-const BillingInfo = () => {
+const ShippingAdr = () => {
   const formik = useFormik({
     initialValues: { initialValues },
     validationSchema: Yup.object({
@@ -109,18 +107,12 @@ const BillingInfo = () => {
     },
   ];
 
-  const [selected, setSelect] = useState(false);
-
   return (
     <>
-      <div className="flex flex-col items-center w-full">
-        <h2 className="text-xl md:text-2xl pb-1 md:pb-2 w-full">
-          Billing info
+      <div className="flex flex-col items-center w-full border border-C1-D bg-gray-50 rounded-lg px-2">
+        <h2 className="text-xl md:text-2xl py-3 md:pb-5 w-full">
+          Shipping information
         </h2>
-        <div className="flex flex-col sm:flex-row text-sm text-C1-C justify-between w-full">
-          <h5>Please enter your billing info</h5>
-          <h5 className="py-2 sm:py-0">Step 1 of 5</h5>
-        </div>
         <div className="flex flex-col sm:grid sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-8 pt-8 pb-4 w-full justify-around">
           {inputsCont.map((el, index) => (
             <div key={index} className="flex justify-center">
@@ -167,18 +159,9 @@ const BillingInfo = () => {
               {...formik.getFieldProps("zip")}
             />
           </div>
-          <div className="flex rounded-lg h-10 ring-1 ring-C1-C bg-C1-F justify-center w-max px-3 items-center">
-            <div className="flex" onClick={() => setSelect(!selected)}>
-              <CheckBox className="bg-gray-100 px-px" selected={selected} />
-            </div>
-            <p className="flex pl-2 cursor-default">
-              Ship to a different address?
-            </p>
-          </div>
         </div>
-        {selected ? <ShippingAdr /> : null}
       </div>
     </>
   );
 };
-export default BillingInfo;
+export default ShippingAdr;

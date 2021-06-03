@@ -6,8 +6,8 @@ import Person from "../../images/svg/ic-person.svg";
 
 const values = [
   { name: "Account", url: "/profile" },
-  { name: "Settings", url: "/#" },
-  { name: "Log Out", url: "/login" },
+  { name: "Settings", url: "/profile" },
+  { name: "Log Out", url: "/" },
 ];
 
 const PopOver = () => {
@@ -30,7 +30,7 @@ const PopOver = () => {
             <Popover.Panel className="absolute z-50 flex max-w-sm transform -translate-x-1/4 translate-y-4 -ml-1">
               <div className="flex flex-col bg-white ring-1 ring-C1-C ring-opacity-60 w-max px-2 py-2 rounded-lg shadow-xl">
                 {values.map((value, index) => (
-                  <Popover.Button onClick={() => (open = false)}>
+                  <Popover.Button key={index} onClick={() => (open = false)}>
                     <Link key={index} to={value.url}>
                       <p className="py-1 px-2 rounded-md text-sm hover:bg-C2-default hover:text-white transition-all ease-linear duration-100">
                         {value.name}

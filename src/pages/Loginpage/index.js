@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { React } from "react";
 import { Route } from "react-router-dom";
 import { useHistory } from "react-router";
-import validator from "validator";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 import { Button, Input, CheckBox } from "../../components";
 
 import Envelope from "../../images/svg/ic-contact-mail.svg";
@@ -10,16 +11,23 @@ import Thing from "../../images/svg/loginscreen-thing.js";
 import Logo from "../../images/svg/logo.js";
 
 const Index = () => {
-  const [mailErr, setErrMail] = useState(false);
+  const formik = useFormik({
+    initialValues: { email: "", password: "" },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+      password: Yup.string().min(8).required("Password is required"),
+    }),
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   const history = useHistory();
 
   function handleClick() {
     history.push("/");
-  }
-
-  function validateEmail(val) {
-    validator.isEmail(val) ? setErrMail(false) : setErrMail(true);
   }
 
   return (
@@ -66,77 +74,100 @@ const Index = () => {
               Login To Your Account
             </h3>
           </div>
-
-          <div className="flex flex-col w-full px-5 sm:px-8 lg:px-7 xl:px-6 pt-4 mt-7 sm:mt-10">
-            <div className="flex pt-2 sm:pt-4 justify-center w-full">
-              <Input
-                label="Email"
-                placeholder="Email address"
-                error={mailErr}
-                errorMessage={mailErr ? "Enter a valid email address" : ""}
-                onChange={(event) => validateEmail(event.target.value)}
-                icon={Envelope}
-                type="email"
-                className="rounded-lg flex h-full w-full"
-                classLabel="text-lg font-semibold fleading-tight -mb-1"
-                classInput={`h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
-                  mailErr ? " " : " focus-within:border-C2-B "
-                }`}
-                classInputInside="w-full"
-              />
+          <form onSubmit={formik.handleSubmit}>
+            <div className="flex flex-col w-full px-5 sm:px-8 lg:px-7 xl:px-6 pt-4 mt-7 sm:mt-10">
+              <div className="flex pt-2 sm:pt-4 justify-center w-full">
+                <Input
+                  label="Email"
+                  placeholder="Email address"
+                  error={
+                    formik.errors.email && formik.touched.email ? true : false
+                  }
+                  errorMessage={
+                    formik.errors.email && formik.touched.email
+                      ? "Invalid email address"
+                      : ""
+                  }
+                  icon={Envelope}
+                  type="email"
+                  className="rounded-lg flex h-full w-full"
+                  classLabel="text-lg font-semibold fleading-tight -mb-1"
+                  classInput={`h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
+                    formik.errors.email && formik.touched.email
+                      ? " "
+                      : " focus-within:border-C2-B "
+                  }`}
+                  classInputInside="w-full"
+                  {...formik.getFieldProps("email")}
+                />
+              </div>
+              <div className="flex pt-2 sm:pt-4 justify-center w-full">
+                <Input
+                  label="Password"
+                  placeholder="Password"
+                  type="password"
+                  error={
+                    formik.errors.password && formik.touched.password
+                      ? true
+                      : false
+                  }
+                  errorMessage={
+                    formik.errors.password && formik.touched.password
+                      ? "Invalid password"
+                      : ""
+                  }
+                  icon={Lock}
+                  className="rounded-lg flex h-full w-full"
+                  classLabel="text-lg font-semibold fleading-tight -mb-1 mt-3"
+                  classInput={`h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white ${
+                    formik.errors.password && formik.touched.password
+                      ? " "
+                      : " focus-within:border-C2-B "
+                  }`}
+                  classInputInside="w-full"
+                  {...formik.getFieldProps("password")}
+                />
+              </div>
             </div>
-            <div className="flex pt-2 sm:pt-4 justify-center w-full">
-              <Input
-                label="Password"
-                placeholder="Password"
-                error={false}
-                overflow-auto
-                icon={Lock}
-                type="password"
-                className="rounded-lg flex h-full w-full"
-                classLabel="text-lg font-semibold fleading-tight -mb-1 mt-3"
-                classInput="h-10 px-2 w-full rounded mt-2 focus:outline-none shadow text-gray-700 bg-white focus-within:border-C2-B"
-                classInputInside="w-full"
-              />
-            </div>
-          </div>
 
-          <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between sm:pb-6 lg:pb-8 md:pt-2 px-5 md:px-8 lg:px-7 xl:px-6">
-            <div className="flex py-3">
+            <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between sm:pb-6 lg:pb-8 md:pt-2 px-5 md:px-8 lg:px-7 xl:px-6">
+              <div className="flex py-3">
+                <Button
+                  className="hover:underline text-white sm:text-sm text-xs px-1 sm:px-3 md:px-1 py-1"
+                  content="Forgot your password?"
+                />
+              </div>
+              <div className="flex mt-4 md:mt-0 pb-2 w-3/4 md:w-36 lg:w-32 sm:pb-0 sm:mb-0 sm:pl-2 md:pl-0 items-center">
+                <CheckBox
+                  className="bg-white pl-px"
+                  checkBg="bg-blue-500 border-C2-B"
+                />
+                <p className="flex flex-wrap text-sm md:pl-1">Remember Me</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4">
               <Button
-                className="hover:underline text-white sm:text-sm text-xs px-1 sm:px-3 md:px-1 py-1"
-                content="Forgot your password?"
+                className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 px-2 py-3 text-base"
+                content="Login"
+                type="submit"
               />
+              <div className="pt-7 sm:pt-16 md:pt-8 text-sm md:text-base text-center flex items-center">
+                Don’t have an account?{" "}
+                <Route
+                  render={({ history }) => (
+                    <Button
+                      className="md:text-base text-sm w-fit-content hover:shadow-none hover:underline px-2"
+                      content="Sign Up"
+                      onClick={() => {
+                        history.push("/signup");
+                      }}
+                    />
+                  )}
+                />
+              </div>
             </div>
-            <div className="flex mt-4 md:mt-0 pb-2 w-3/4 md:w-36 lg:w-32 sm:pb-0 sm:mb-0 sm:pl-2 md:pl-0 items-center">
-              <CheckBox
-                className="bg-white pl-px"
-                checkBg="bg-blue-500 border-C2-B"
-              />
-              <p className="flex flex-wrap text-sm md:pl-1">Remember Me</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4">
-            <Button
-              className="w-full bg-white hover:bg-gray-200 text-C2-default sm:px-8 px-2 py-3 text-base"
-              content="Login"
-            />
-            <div className="pt-7 sm:pt-16 md:pt-8 text-sm md:text-base text-center flex items-center">
-              Don’t have an account?{" "}
-              <Route
-                render={({ history }) => (
-                  <Button
-                    className="md:text-base text-sm w-fit-content hover:shadow-none hover:underline px-2"
-                    content="Sign Up"
-                    onClick={() => {
-                      history.push("/signup");
-                    }}
-                  />
-                )}
-              />
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
