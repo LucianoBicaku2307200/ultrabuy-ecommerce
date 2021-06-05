@@ -1,105 +1,27 @@
-import React from "react";
-import { Button } from "../../components";
+import * as React from "react";
+import { Section1, Section2, Section3 } from "../../components";
 
-import Hooman from "../../images/svg/undraw_successful_purchase_uyin 2.svg";
+import Image3 from "../../images/png/FitForGlory-1000x1000 1.png";
+import Image4 from "../../images/png/Feminist-T-Shirts 1.png";
+import Image5 from "../../images/png/maxresdefault 1.png";
 
-const IndexPage = () => {
+function IndexPage() {
   return (
     <div className="flex flex-col bg-white">
-      <div className="flex flex-row">
-        <div className="flex justify-center items-center w-1/2 bg-C2-default">
-          <div className="flex flex-col w-3/4">
-            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
-              BUY ANYTHING WITH ULTRABUY
-            </span>
-            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
-              Or kind rest bred with am shed then. In raptures building an
-              bringing be. Elderly is detract tedious assured private so to
-              visited.
-            </p>
-            <Button
-              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
-              content="Start Shopping"
-            />
-          </div>
-        </div>
-        <div className="flex w-1/2">
-          <div>
-            <img src={Hooman} alt="" />
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-row">
-        <div className="flex justify-center items-center w-1/2 bg-C2-default">
-          <div className="flex flex-col w-3/4">
-            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
-              BUY ANYTHING WITH ULTRABUY
-            </span>
-            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
-              Or kind rest bred with am shed then. In raptures building an
-              bringing be. Elderly is detract tedious assured private so to
-              visited.
-            </p>
-            <Button
-              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
-              content="Start Shopping"
-            />
-          </div>
-        </div>
-        <div className="flex w-1/2">
-          <div>
-            <img src={Hooman} alt="" />
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-row">
-        <div className="flex justify-center items-center w-1/2 bg-C2-default">
-          <div className="flex flex-col w-3/4">
-            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
-              BUY ANYTHING WITH ULTRABUY
-            </span>
-            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
-              Or kind rest bred with am shed then. In raptures building an
-              bringing be. Elderly is detract tedious assured private so to
-              visited.
-            </p>
-            <Button
-              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
-              content="Start Shopping"
-            />
-          </div>
-        </div>
-        <div className="flex w-1/2">
-          <div>
-            <img src={Hooman} alt="" />
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-row">
-        <div className="flex justify-center items-center w-1/2 bg-C2-default">
-          <div className="flex flex-col w-3/4">
-            <span className="flex pb-3 text-4xl leading-relaxed font-semibold text-white">
-              BUY ANYTHING WITH ULTRABUY
-            </span>
-            <p className="flex w-4/6 font-light pt-5 pb-10 text-white">
-              Or kind rest bred with am shed then. In raptures building an
-              bringing be. Elderly is detract tedious assured private so to
-              visited.
-            </p>
-            <Button
-              className="rounded-lg w-max px-9 py-3 hover:shadow-lg border-2 border-gray-200 bg-transparent hover:bg-white text-white hover:text-C2-default transition duration-200 ease-linear"
-              content="Start Shopping"
-            />
-          </div>
-        </div>
-        <div className="flex w-1/2">
-          <div>
-            <img src={Hooman} alt="" />
-          </div>
-        </div>
+      <Section1 />
+
+      <Section2 />
+
+      <Section3 />
+
+      {/* Section_4 */}
+      <div className="flex flex-col md:flex-row">
+        <img className="w-full md:w-1/3" src={Image3} alt="" />
+        <img className="w-full md:w-1/3" src={Image4} alt="" />
+        <img className="w-full md:w-1/3" src={Image5} alt="" />
       </div>
     </div>
   );
-};
+}
 
 export default IndexPage;

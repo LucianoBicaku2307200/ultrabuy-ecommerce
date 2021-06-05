@@ -24,6 +24,9 @@ import ConfirmStep from "./CheckComponents/ConfirmStep";
 import OrderSum from "./CheckComponents/OrderSum";
 import Filter from "./Filter";
 import ProfileInfo from "./ProfileInfo";
+import Section1 from "./Landing/Section_1";
+import Section2 from "./Landing/Section_2";
+import Section3 from "./Landing/Section_3";
 export {
   Modal,
   Button,
@@ -53,4 +56,7 @@ export {
   OrderSum,
   Filter,
   ProfileInfo,
+  Section1,
+  Section2,
+  Section3,
 };

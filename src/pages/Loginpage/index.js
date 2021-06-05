@@ -142,7 +142,7 @@ const Index = () => {
                   className="bg-white pl-px"
                   checkBg="bg-blue-500 border-C2-B"
                 />
-                <p className="flex flex-wrap text-sm md:pl-1">Remember Me</p>
+                <p className="flex flex-wrap text-sm pl-2">Remember Me</p>
               </div>
             </div>
 

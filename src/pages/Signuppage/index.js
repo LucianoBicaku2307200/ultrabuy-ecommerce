@@ -212,7 +212,7 @@ const Index = () => {
                   checkBg="bg-blue-500 border-C2-B"
                   selected={false}
                 />
-                <p className="pl-1">
+                <p className="text-xs sm:text-sm md:text-base pl-2">
                   I agree with your{" "}
                   <span
                     className="underline cursor-pointer"
