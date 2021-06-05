@@ -27,6 +27,9 @@ import ProfileInfo from "./ProfileInfo";
 import Section1 from "./Landing/Section_1";
 import Section2 from "./Landing/Section_2";
 import Section3 from "./Landing/Section_3";
+import ProductImages from "./ProductComponents/ProductImgs";
+import ProductDetails from "./ProductComponents/ProductDetails";
+
 export {
   Modal,
   Button,
@@ -59,4 +62,6 @@ export {
   Section1,
   Section2,
   Section3,
+  ProductImages,
+  ProductDetails,
 };

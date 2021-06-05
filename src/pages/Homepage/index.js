@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import { Button, Menu, CardSmall, Reviews } from "../../components";
 import { Layout1 } from "../../layouts";
 
 import Pat1 from "../../images/svg/Thur.svg";
 import Pat2 from "../../images/svg/Waimakariri.svg";
-
+import BIcon from "../../images/svg/ic-chevron-right.svg";
 import Img from "../../images/png/product_image_test.jpg";
+
 const MenuItems = [
   { categorie: "Bakery", subcategories: ["value1", "value2", "value3"] },
   {
@@ -56,8 +58,25 @@ const Links = [
 ];
 
 const HomePage = () => {
-  const [show, setShow] = useState(false);
+  const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
+
+  const history = useHistory();
+
+  const Patterns = [
+    {
+      title: "SUMMER SALE",
+      hasState: show1,
+      setFunc: setShow1,
+      imgSrc: Pat1,
+    },
+    {
+      title: "PICKS FOR YOU",
+      hasState: show2,
+      setFunc: setShow2,
+      imgSrc: Pat2,
+    },
+  ];
 
   return (
     <div className="flex flex-col lg:gap-14 md:w-11/12 mx-auto">
@@ -70,60 +89,54 @@ const HomePage = () => {
         buttuonUrl="/"
         buttonContent="More Products"
       >
-        <div className="flex flex-row items-center h-3/4 w-full gap-x-20 pt-8">
-          <div className="flex self-center border border-C1-C rounded-xl overflow-hidden transform transition duration-500">
+        <div className="flex flex-row items-center h-3/4 w-full md:ml-5 lg:ml-1 gap-x-10 lg:gap-x-20 pt-8">
+          {Patterns.map((e, index) => (
             <div
-              className="flex rounded-xl w-full h-full justify-center items-center"
-              onMouseEnter={() => setShow(true)}
-              onMouseLeave={() => setShow(false)}
+              className="flex self-center rounded-xl overflow-hidden transform cursor-pointer"
+              onClick={() => history.push("/coming-soon")}
             >
               <div
-                className={`absolute rounded-xl justify-center items-center content-center flex w-full h-full bg-black bg-opacity-40 z-10 transform transition duration-500 ${
-                  show ? " bg-opacity-70 " : " "
-                }`}
+                key={index}
+                className="flex rounded-xl w-full h-full justify-center items-center"
+                onMouseEnter={() => {
+                  e.setFunc(true);
+                }}
+                onMouseLeave={() => {
+                  e.setFunc(false);
+                }}
               >
-                <p className="flex text-white text-2xl font-bold tracking-widest hover:underline cursor-pointer">
-                  Summer Sale
-                </p>
+                <div
+                  className={`absolute rounded-xl justify-center items-center content-center flex w-full h-full bg-C2-default bg-opacity-40 z-10 ${
+                    e.hasState
+                      ? " bg-opacity-80 transform transition-all ease-linear duration-500 "
+                      : " transform transition-all ease-out duration-500 "
+                  }`}
+                >
+                  <p className="flex text-white text-base sm:text-2xl lg:text-3xl font-bold tracking-widest hover:underline">
+                    {e.title}
+                  </p>
+                </div>
+                <img
+                  className={`${
+                    e.hasState
+                      ? " transform transition-all ease-linear duration-500 scale-110 "
+                      : " transform transition-all ease-out duration-500 scale-100 "
+                  }`}
+                  src={e.imgSrc}
+                  alt=""
+                />
+                <Button
+                  className={`text-black text-sm bg-white rounded-md px-4 py-2 hover:bg-white hover:text-C2-default hover:shadow absolute top-3/4 self-center mt-1 lg:mt-4 shadow-md transform transition-all ease-linear duration-300 ${
+                    e.hasState ? " flex z-20 " : " hidden "
+                  }`}
+                  icon={BIcon}
+                  iconPosition="right"
+                  IconClassName="-mr-1"
+                  content="Explore"
+                />
               </div>
-              <img src={Pat1} alt="" />
-              <Button
-                className={`text-black text-sm bg-white rounded-md px-4 py-2
-             hover:bg-white hover:text-C2-default hover:shadow
-             absolute top-3/4 self-center mt-5 shadow-md transform transition ease-linear duration-300 ${
-               show ? " flex z-20 " : " hidden "
-             }`}
-                content="Explore"
-              />
             </div>
-          </div>
-
-          <div className="flex self-center border border-C1-C rounded-xl overflow-hidden transform transition duration-500">
-            <div
-              className="flex rounded-xl w-full h-full justify-center items-center"
-              onMouseEnter={() => setShow2(true)}
-              onMouseLeave={() => setShow2(false)}
-            >
-              <div
-                className={`absolute rounded-xl justify-center items-center content-center flex w-full h-full bg-black bg-opacity-40 z-10 transform transition duration-500 ${
-                  show2 ? " bg-opacity-70 " : " "
-                }`}
-              >
-                <p className="flex text-white text-2xl font-bold tracking-widest hover:underline cursor-pointer">
-                  Picks for you
-                </p>
-              </div>
-              <img src={Pat2} alt="" />
-              <Button
-                className={`text-black text-sm bg-white rounded-md px-4 py-2
-             hover:bg-white hover:text-C2-default hover:shadow
-             absolute top-3/4 self-center mt-5 shadow-md transform transition ease-linear duration-300 ${
-               show2 ? " flex z-20 " : " hidden "
-             }`}
-                content="Explore"
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </Layout1>
       <Layout1

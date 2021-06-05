@@ -91,7 +91,7 @@ const OrderSum = ({ orderCost }) => {
           <div className="flex flex-col w-4/6">
             <p className="font-semibold text-sm">Total Order</p>
             <span className="text-C2-default text-xs font-extralight">
-              Guaranteed delivery day: June 12, 2020
+              Guaranteed delivery day: June 20, 2021
             </span>
           </div>
           <div className="flex justify-end w-2/6 font-medium text-C2-default text-xl">
