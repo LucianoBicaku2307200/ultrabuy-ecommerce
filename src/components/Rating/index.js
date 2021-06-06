@@ -34,7 +34,7 @@ const RatingComponent = ({ rating, className }) => {
     <div className={className}>
       {Rating().map((vl, index) =>
         vl ? (
-          <img key={index} src={FilledStar} alt="" />
+          <img key={index} src={FilledStar} alt="" title={vl} />
         ) : (
           <img key={index} src={EmptyStar} alt="" />
         )
