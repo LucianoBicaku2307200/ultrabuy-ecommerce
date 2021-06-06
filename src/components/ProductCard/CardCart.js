@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button, SelectNumber } from "../";
+
 import CardimageProduct from "../../images/png/product_image_test.jpg";
 import CloseIcon from "../../images/svg/ic-actions-close.svg";
 import Favourite from "../../images/svg/ic-actions-heart.svg";
+import FavouriteFilled from "../../images/svg/ic-actions-heart-filled.svg";
 import EmptyStar from "../../images/svg/EmptyStar.svg";
 import FilledStar from "../../images/svg/ic-actions-star.svg";
-import { SelectNumber } from "../";
+
 const CardCart = ({ rating }) => {
+  const [fave, setFave] = useState(false);
+
   const Rating = () => {
     let array = [];
     if (rating > 4.5)
@@ -39,12 +44,23 @@ const CardCart = ({ rating }) => {
         <img src={CardimageProduct} alt="" className="rounded-xl" />
         <div className="mt-3 flex flex-col gap-2">
           <div className="flex gap-1 items-center">
-            <img src={Favourite} alt="" className="w-3 h-3" />
-            Wishlist
+            <Button
+              className="rounded-xl px-2 py-2.5 hover:shadow-md hover:bg-white text-black hover:text-C4-default transition duration-500 ease-in-out"
+              content="Wishlist"
+              icon={fave ? FavouriteFilled : Favourite}
+              iconPosition="left"
+              IconClassName="pr-1"
+              onClick={() => setFave(!fave)}
+            />
           </div>
           <div className="flex gap-1 items-center ">
-            <img src={CloseIcon} alt="" className="w-3 h-3" />
-            Remove
+            <Button
+              className="rounded-xl px-2 py-2.5 hover:shadow-md hover:bg-white text-black hover:text-red-500 transition duration-500 ease-in-out"
+              content="Remove"
+              icon={CloseIcon}
+              iconPosition="left"
+              IconClassName="pr-1 w-5 h-5"
+            />
           </div>
         </div>
       </div>

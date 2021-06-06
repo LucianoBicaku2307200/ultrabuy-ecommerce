@@ -65,8 +65,8 @@ const Index = () => {
       </div>
 
       <div className="flex justify-center text-white h-full min-h-screen w-full sm:w-11/12 md:w-3/5 lg:w-1/2 overflow-y-auto xl:overflow-y-hidden">
-        <div className="flex flex-col justify-center min-h-screen w-full sm:w-9/12 md:w-3/4 lg:w-3/4 xl:w-7/12">
-          <div className="flex flex-col justify-items-center items-center py-2 sm:pb-6 md:py-6 lg:pb-8 xl:pb-10 mt-10 sm:mt-3">
+        <div className="flex flex-col justify-center min-h-screen w-full sm:w-9/12 lg:w-3/4 xl:w-8/12">
+          <div className="flex flex-col justify-items-center items-center py-2 sm:pb-6 md:py-6 lg:pb-8 xl:pb-10 mt-8 sm:mt-3">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold pb-5 md:pb-4 lg:pb-8 xl:pb-14">
               Welcome Back!
             </h1>
@@ -131,13 +131,13 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between sm:pb-6 lg:pb-8 md:pt-2 px-5 md:px-8 lg:px-7 xl:px-6">
-              <div className="flex py-3">
+              <div className="flex w-1/2 justify-end py-3">
                 <Button
-                  className="hover:underline text-white sm:text-sm text-xs px-1 sm:px-3 md:px-1 py-1"
+                  className="hover:underline text-white sm:text-sm text-xs px-1 sm:px-3 md:px-0 py-1"
                   content="Forgot your password?"
                 />
               </div>
-              <div className="flex mt-4 md:mt-0 pb-2 w-3/4 md:w-36 lg:w-32 sm:pb-0 sm:mb-0 sm:pl-2 md:pl-0 items-center">
+              <div className="flex mt-4 md:mt-0 pb-2 w-1/2 sm:pb-0 sm:mb-0 sm:pl-2 md:pl-0 items-center">
                 <CheckBox
                   className="bg-white pl-px"
                   checkBg="bg-blue-500 border-C2-B"

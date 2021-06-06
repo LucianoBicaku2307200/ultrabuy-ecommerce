@@ -2,7 +2,7 @@ import React from "react";
 
 const ProductImages = ({ price, previousPrice, loading, imageUrls }) => {
   return (
-    <div className="flex flex-col w-full h-full gap-y-3 py-2 px-2 md:w-1/2">
+    <div className="flex flex-col w-full h-full gap-y-3 pb-2 px-2 md:w-1/2">
       {!loading && (
         <div className="absolute transform translate-y-3 translate-x-3 rounded py-px px-2 bg-C1-D text-C2-default shadow-md text-xs font-semibold">
           {((-(previousPrice - price) / previousPrice) * 100).toFixed(2) + " %"}

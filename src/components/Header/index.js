@@ -135,6 +135,10 @@ const Header = () => {
                   icon={Person}
                   iconPosition="left"
                   content="Account"
+                  onClick={() => {
+                    history.push("/profile");
+                    setShow(!show);
+                  }}
                 />
               </div>
               <div className="sm:-mr-1  z-20">
@@ -143,6 +147,10 @@ const Header = () => {
                   icon={Basket}
                   iconPosition="left"
                   content="Cart"
+                  onClick={() => {
+                    goToCheckout();
+                    setShow(!show);
+                  }}
                 />
               </div>
               <MyDisclosure />
@@ -153,6 +161,10 @@ const Header = () => {
                   iconPosition="left"
                   content="Settings"
                   IconClassName="w-6 h-6"
+                  onClick={() => {
+                    history.push("/profile");
+                    setShow(!show);
+                  }}
                 />
               </div>
             </div>

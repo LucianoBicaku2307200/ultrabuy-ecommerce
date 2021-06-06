@@ -171,7 +171,7 @@ const Index = () => {
       </div>
 
       <div className="flex justify-center text-white h-full min-h-screen w-full sm:w-11/12 md:w-3/5 lg:w-1/2 overflow-y-auto xl:overflow-y-hidden">
-        <div className="flex flex-col justify-center min-h-screen w-full sm:w-9/12 md:w-3/4 lg:w-3/4 xl:w-7/12">
+        <div className="flex flex-col justify-center min-h-screen w-full sm:w-9/12 lg:w-3/4 xl:w-8/12">
           <div className="flex flex-col justify-items-center items-center py-2 sm:pb-6 md:py-6 lg:pb-8 xl:pb-10 mt-10 sm:mt-3">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold sm:pb-3 md:pb-4 lg:pb-8 xl:pb-14">
               Create an account
@@ -206,7 +206,7 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col items-center px-5 sm:px-8 lg:px-7 xl:px-6 mb-8 sm:mb-6 md:mb-4 md:py-2">
-              <div className="flex flex-wrap flex-row text-sm py-2 items-center self-start">
+              <div className="inline-flex w-full text-sm py-2 items-center self-start">
                 <CheckBox
                   className="bg-gray-100 pl-px"
                   checkBg="bg-blue-500 border-C2-B"

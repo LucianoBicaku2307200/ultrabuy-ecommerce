@@ -17,15 +17,26 @@ const reviews = [
     pic: Avatar,
   },
 ];
-const Reviews = ({ wrapperClassname }) => {
+const Reviews = ({
+  wrapperClassname,
+  contentClassname,
+  reviewCardClassname,
+}) => {
   return (
     <div className={wrapperClassname}>
       <h4 className="text-lg font-semibold">Our customers says</h4>
-      <div className="flex flex-wrap md:flex-nowrap  gap-4 text-center">
+      <div
+        className={
+          "flex flex-wrap md:flex-nowrap gap-4 text-center " + contentClassname
+        }
+      >
         {reviews.map((el, index) => (
           <div
             key={index}
-            className="border flex-col flex border-C1-E rounded-md px-8 pt-6 mt-5 md:w-1/3"
+            className={
+              "border flex-col flex border-C1-E rounded-md px-8 pt-6 mt-5 " +
+              reviewCardClassname
+            }
           >
             <blockquote className="bold mb-6 text-sm">“ {el.text} “</blockquote>
             <p className="text-C1-D text-xs mb-1">{el.author}</p>
