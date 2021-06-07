@@ -59,14 +59,14 @@ const Index = () => {
                 <h5 className="py-2 sm:py-0">Step 5 of 5</h5>
               </div>
               <div className="flex w-full flex-col text-sm py-2">
-                <div className="flex flex-row rounded-lg h-16 sm:h-12 md:h-10 ring-1 ring-C1-C bg-C1-F justify-center items-center w-auto sm:w-max px-3 my-2">
+                <div className="flex flex-row rounded-lg h-auto py-1 sm:h-12 md:h-10 ring-1 ring-C1-C bg-C1-F justify-center items-center w-auto sm:w-max px-3 my-2">
                   <CheckBox className="bg-gray-100 pl-px" selected={false} />
                   <p className="pl-2 cursor-default">
                     Agree with sending marketing and newsletter emails. No spam,
                     promissed!
                   </p>
                 </div>
-                <div className="flex flex-row rounded-lg h-12  md:h-10 ring-1 ring-C1-C bg-C1-F justify-start items-center w-auto sm:w-max px-3 my-2">
+                <div className="flex flex-row rounded-lg h-auto py-3 md:py-1 md:h-10 ring-1 ring-C1-C bg-C1-F justify-start items-center w-auto sm:w-max px-3 my-2">
                   <CheckBox className="bg-gray-100 pl-px" selected={false} />
                   <p className="pl-2 cursor-default">
                     I agree with your{" "}
