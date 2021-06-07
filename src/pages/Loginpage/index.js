@@ -131,13 +131,13 @@ const Index = () => {
             </div>
 
             <div className="flex flex-col md:flex-row-reverse items-start md:items-center justify-between sm:pb-6 lg:pb-8 md:pt-2 px-5 md:px-8 lg:px-7 xl:px-6">
-              <div className="flex w-1/2 justify-end py-3">
+              <div className="flex w-full md:w-1/2 md:justify-end py-3">
                 <Button
                   className="hover:underline text-white sm:text-sm text-xs px-1 sm:px-3 md:px-0 py-1"
                   content="Forgot your password?"
                 />
               </div>
-              <div className="flex mt-4 md:mt-0 pb-2 w-1/2 sm:pb-0 sm:mb-0 sm:pl-2 md:pl-0 items-center">
+              <div className="flex mt-4 md:mt-0 pb-2 w-full md:w-1/2 sm:pb-0 sm:mb-0 sm:pl-2 md:pl-0 items-center">
                 <CheckBox
                   className="bg-white pl-px"
                   checkBg="bg-blue-500 border-C2-B"

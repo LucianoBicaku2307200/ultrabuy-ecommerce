@@ -46,7 +46,7 @@ const index = () => {
     <div>
       <h4 className="font-semibold text-lg mb-4">Personal Details</h4>
       <div className="flex flex-col items-center w-full md:w-10/12 lg:w-8/12">
-        <div className="ml-2 flex flex-col sm:grid sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 md:gap-y-6 lg:gap-y-8 pb-4 w-full justify-around">
+        <div className="ml-2 flex flex-col sm:grid sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-6 lg:gap-y-8 pb-4 w-full justify-around">
           {inputsCont.map((el, index) => (
             <div key={index} className="flex justify-center">
               <Input

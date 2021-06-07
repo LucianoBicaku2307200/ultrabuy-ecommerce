@@ -83,7 +83,7 @@ const ProductDetails = ({
         <div className="flex w-full border border-C2-default rounded-md h-36">
           Small product details
         </div>
-        <div className="flex flex-row w-5/6 px-3 py-4 items-center justify-between border border-gray-200 rounded-lg">
+        <div className="flex flex-row w-full md:w-5/6 px-1 md:px-3 py-4 items-center justify-between md:border md:border-gray-200 md:rounded-lg">
           <div className="flex flex-col font-semibold">
             <h6 className="text-2xl text-C2-default">
               {price + " " + currency}
@@ -92,7 +92,7 @@ const ProductDetails = ({
               {previousPrice}
             </span>
           </div>
-          <div className="flex flex-row items-center justify-around px-2 gap-x-3">
+          <div className="flex flex-row items-center justify-around px-px md:px-2 gap-x-3">
             <SelectNumber
               placeholder="1"
               error={true}
@@ -102,7 +102,7 @@ const ProductDetails = ({
               classSelect="py-3 rounded-xl"
             />
             <Button
-              className="rounded-xl px-4 py-2.5 border-2 border-C2-B hover:shadow-md bg-C2-default hover:bg-white text-white hover:text-C2-default transition duration-500 ease-in-out"
+              className="rounded-xl px-2 md:px-4 py-1.5 md:py-2.5 border-2 border-C2-B hover:shadow-md bg-C2-default hover:bg-white text-white hover:text-C2-default transition duration-500 ease-in-out"
               content="+ Add to cart"
             />
           </div>

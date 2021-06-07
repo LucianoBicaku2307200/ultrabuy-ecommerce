@@ -49,7 +49,7 @@ const CardCart = ({ rating }) => {
               content="Wishlist"
               icon={fave ? FavouriteFilled : Favourite}
               iconPosition="left"
-              IconClassName="pr-1"
+              IconClassName="-ml-0.5 md:ml-0 md:pr-1"
               onClick={() => setFave(!fave)}
             />
           </div>
@@ -59,7 +59,7 @@ const CardCart = ({ rating }) => {
               content="Remove"
               icon={CloseIcon}
               iconPosition="left"
-              IconClassName="pr-1 w-5 h-5"
+              IconClassName="-ml-0.5 md:ml-0 md:pr-1 w-5 h-5"
             />
           </div>
         </div>
@@ -72,7 +72,7 @@ const CardCart = ({ rating }) => {
           <div className="flex mt-2 mb-4">
             {Rating().map((vl, index) =>
               vl ? (
-                <img key={index} src={FilledStar} alt="" />
+                <img key={index} src={FilledStar} alt="" title={vl} />
               ) : (
                 <img key={index} src={EmptyStar} alt="" />
               )

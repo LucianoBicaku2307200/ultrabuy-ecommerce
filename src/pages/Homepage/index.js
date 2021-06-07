@@ -89,7 +89,7 @@ const HomePage = () => {
         buttuonUrl="/"
         buttonContent="More Products"
       >
-        <div className="flex flex-col md:flex-row items-center h-3/4 w-full md:ml-5 lg:ml-1 gap-y-6  md:gap-x-10 lg:gap-x-20 pt-8">
+        <div className="flex flex-col md:flex-row items-center h-3/4 w-full md:ml-5 lg:ml-1 gap-y-6 md:gap-x-10 lg:gap-x-20 pt-8">
           {Patterns.map((e, index) => (
             <div
               className="flex self-center rounded-xl overflow-hidden transform cursor-pointer"
@@ -166,7 +166,7 @@ const HomePage = () => {
       </Layout1>
       <Reviews
         wrapperClassname="py-5 md:py-10 lg:py-3 w-11/12 lg:w-full mx-auto"
-        reviewCardClassname="w-1/3"
+        reviewCardClassname="md:w-1/3"
       />
       <Layout1
         childrenClassName="flex flex-wrap -m-1"

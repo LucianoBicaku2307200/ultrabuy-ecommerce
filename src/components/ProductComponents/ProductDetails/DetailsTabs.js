@@ -35,13 +35,15 @@ const Tabs = forwardRef((props, ref) => {
   return (
     <div className="flex flex-col py-2">
       <div className="flex py-10 px-2 items-center justify-center w-full">
-        <ul className="flex w-full items-center border-b border-gray-200 font-semibold">
+        <ul className="flex flex-col gap-y-2 md:gap-y-0 md:flex-row w-full items-center border-b border-gray-200 font-semibold">
           {tabsData.map((el, index) => (
             <div
               key={index}
               onClick={() => setActiveStatus(el.placement)}
-              className={`flex w-1/3 gap-x-5 items-center flex-row border-b border-transparent -mb-px cursor-pointer py-2 ${
-                activeStatus === el.placement ? " border-C2-default " : "  "
+              className={`flex w-full md:w-1/3 gap-x-5 items-center flex-row border-b border-transparent -mb-px cursor-pointer py-2 ${
+                activeStatus === el.placement
+                  ? " border-C2-default "
+                  : " border-gray-200 "
               }`}
             >
               <li>{el.title}</li>
@@ -64,7 +66,7 @@ const Tabs = forwardRef((props, ref) => {
           {activeStatus === 2 && (
             <Reviews
               wrapperClassname="flex flex-col w-full justify-center items-center py-4"
-              contentClassname="grid grid-cols-2"
+              contentClassname="grid grid-cols-1 md:grid-cols-2"
             />
           )}
           {activeStatus === 3 && <div>Questions</div>}

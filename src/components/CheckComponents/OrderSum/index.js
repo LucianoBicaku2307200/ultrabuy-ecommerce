@@ -68,7 +68,7 @@ const OrderSum = ({ orderCost }) => {
           </div>
         ))}
         <div className="flex flex-row ring-1 rounded-lg ring-C1-B ring-opacity-60 focus-within:ring-2 focus-within:ring-C2-default bg-gray-100">
-          <div className="flex w-4/6">
+          <div className="flex w-2/3  md:w-4/6">
             <Input
               placeholder="Apply promo code"
               error={false}
@@ -79,9 +79,9 @@ const OrderSum = ({ orderCost }) => {
               maxLength={10}
             />
           </div>
-          <div className="flex w-2/6 justify-end">
+          <div className="flex w-1/3 md:w-2/6 justify-end">
             <Button
-              className="rounded-lg px-4 py-2 hover:shadow-lg bg-gray-100 hover:bg-white text-gray-700 hover:text-C2-default transition duration-200 ease-linear"
+              className="rounded-lg px-2 md:px-4 py-2 hover:shadow-lg bg-gray-100 hover:bg-white text-gray-700 hover:text-C2-default transition duration-200 ease-linear"
               content="Apply now"
             />
           </div>

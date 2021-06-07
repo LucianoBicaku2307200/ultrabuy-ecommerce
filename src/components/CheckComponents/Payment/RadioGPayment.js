@@ -90,7 +90,7 @@ const RadioGPay = () => {
                       checked
                         ? "bg-C2-default  border-C2-default "
                         : " bg-transparent border-C1-D "
-                    } border-2 transition duration-200 ease-linear outline-none focus:outline-none inline-flex items-center h-5 rounded-full w-5`}
+                    } border-2 transition duration-200 ease-linear outline-none focus:outline-none inline-flex items-center h-5 rounded-full w-6 sm:w-5`}
                   >
                     <img
                       className={`${

@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Button,
+  Menu,
   ProductDetails,
   ProductImages,
   CardSmall,
@@ -10,6 +11,16 @@ import Img from "../../images/png/product_image_test.jpg";
 import Right from "../../images/svg/ic-chevron-right.svg";
 import Pat1 from "../../images/svg/Thur.svg";
 import Pat2 from "../../images/svg/Waimakariri.svg";
+
+const MenuItems = [
+  { categorie: "Bakery", subcategories: ["value1", "value2", "value3"] },
+  {
+    categorie: "Fruit and vegetables",
+    subcategories: ["value1", "value2", "value3"],
+  },
+  { categorie: "Meat and fish", subcategories: ["value1", "value2", "value3"] },
+  { categorie: "Drinks", subcategories: ["value1", "value2", "value3"] },
+];
 
 const imageUrls = [
   {
@@ -25,6 +36,7 @@ const imageUrls = [
 const Index = () => {
   return (
     <div className="flex flex-col">
+      <Menu items={MenuItems} />
       <div className="flex flex-col md:flex-row">
         <ProductImages
           loading={false}
@@ -52,7 +64,7 @@ const Index = () => {
             IconClassName="-mr-1.5"
           />
         </div>
-        <div className="flex flex-row flex-wrap w-full">
+        <div className="flex flex-row flex-wrap gap-y-3 w-full">
           <CardSmall
             classNameCard="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 border border-C1-D h-full relative rounded-xl p-1"
             title="Product Name"
