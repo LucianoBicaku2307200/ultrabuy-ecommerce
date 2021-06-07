@@ -92,6 +92,7 @@ const HomePage = () => {
         <div className="flex flex-col md:flex-row items-center h-3/4 w-full md:ml-5 lg:ml-1 gap-y-6 md:gap-x-10 lg:gap-x-20 pt-8">
           {Patterns.map((e, index) => (
             <div
+              key={index}
               className="flex self-center rounded-xl overflow-hidden transform cursor-pointer"
               onClick={() => history.push("/coming-soon")}
             >
