@@ -36,7 +36,9 @@ const imageUrls = [
 const Index = () => {
   return (
     <div className="flex flex-col">
-      <Menu items={MenuItems} />
+      <div className="hidden md:flex w-full pb-14 px-10 items-center justify-center ">
+        <Menu items={MenuItems} />
+      </div>
       <div className="flex flex-col md:flex-row">
         <ProductImages
           loading={false}
@@ -54,8 +56,8 @@ const Index = () => {
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra. Orci eu lobortis elementum nibh tellus molestie."
         />
       </div>
-      <div className="flex flex-col flex-wrap w-full px-1 pt-5">
-        <div className="flex justify-between items-center px-4 pt-5">
+      <div className="flex flex-col flex-wrap px-1 pt-5">
+        <div className="flex justify-between w-full pb-3 items-center px-4 pt-5">
           <h2 className="text-lg font-semibold">Related Products</h2>
           <Button
             className="rounded-xl px-4 py-2.5 hover:shadow-md hover:bg-white text-black hover:text-C2-default transition duration-500 ease-in-out"
@@ -64,9 +66,9 @@ const Index = () => {
             IconClassName="-mr-1.5"
           />
         </div>
-        <div className="flex flex-row flex-wrap gap-y-3 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 px-2">
           <CardSmall
-            classNameCard="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 border border-C1-D h-full relative rounded-xl p-1"
+            classNameCard="w-full border border-C1-D h-full relative rounded-xl"
             title="Product Name"
             description="Space for a small product description"
             rating="3.4"
@@ -78,7 +80,7 @@ const Index = () => {
             imageUrl={Img}
           />
           <CardSmall
-            classNameCard="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 border border-C1-D h-full relative rounded-xl p-1"
+            classNameCard="w-full border border-C1-D h-full relative rounded-xl"
             title="Product Name"
             description="Space for a small product description"
             rating="3.4"
@@ -90,7 +92,7 @@ const Index = () => {
             imageUrl={Img}
           />
           <CardSmall
-            classNameCard="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 border border-C1-D h-full relative rounded-xl p-1"
+            classNameCard="w-full border border-C1-D h-full relative rounded-xl"
             title="Product Name"
             description="Space for a small product description"
             rating="3.4"
@@ -102,7 +104,7 @@ const Index = () => {
             imageUrl={Img}
           />
           <CardSmall
-            classNameCard="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 border border-C1-D h-full relative rounded-xl p-1"
+            classNameCard="w-full border border-C1-D h-full relative rounded-xl"
             title="Product Name"
             description="Space for a small product description"
             rating="3.4"

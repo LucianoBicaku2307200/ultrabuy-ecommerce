@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "../Button";
+import { Link } from "react-router-dom";
+
 import EmptyStar from "../../images/svg/EmptyStar.svg";
 import FilledStar from "../../images/svg/ic-actions-star.svg";
 import IconRight from "../../images/svg/ic-chevron-right.svg";
 import FavouriteIcon from "../../images/svg/ic-actions-heart.svg";
-import { Link } from "react-router-dom";
-import Button from "../Button";
+import FavouriteFilled from "../../images/svg/ic-actions-heart-filled.svg";
+
 const CardBig = ({
   title,
   description,
@@ -17,6 +20,8 @@ const CardBig = ({
   classNameCard,
   imageUrl,
 }) => {
+  const [fave, setFave] = useState(false);
+
   const Rating = () => {
     let array = [];
     if (rating > 4.5)
@@ -82,7 +87,7 @@ const CardBig = ({
           <div className="flex">
             {Rating().map((vl, index) =>
               vl ? (
-                <img key={index} src={FilledStar} alt="" />
+                <img key={index} src={FilledStar} alt="" title={vl} />
               ) : (
                 <img key={index} src={EmptyStar} alt="" />
               )
@@ -176,11 +181,12 @@ const CardBig = ({
                 />
               </Link>
               <Button
-                className="w-full border hover:border-C2-default bg-C1-F mt-1  rounded px-4 py-2 hover:shadow-none transition duration-200 hover:bg-white hover:text-C2-default ease-linear"
+                className="w-full rounded border mt-1 bg-C1-F px-4 py-2 hover:shadow-none text-black hover:border-C4-default hover:bg-white hover:text-C4-default transition duration-300 ease-in-out"
                 content="Add to wish list"
-                onClick={() => console.log(1)}
-                icon={FavouriteIcon}
+                icon={fave ? FavouriteFilled : FavouriteIcon}
                 iconPosition="left"
+                IconClassName="-ml-0.5 md:ml-0 md:pr-1"
+                onClick={() => setFave(!fave)}
               />
             </div>
           )}
